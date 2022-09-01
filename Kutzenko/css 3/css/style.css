@@ -37,10 +37,8 @@ body{
     font-family: Arial, Helvetica, sans-serif;
     background: #e8e8e8;
     padding: 30px 50px;
-    text-align: center;
 }
 .line {
-    border: 5px solid #000;
     margin: 50px 50px 0px;
     text-align: center;
 }
@@ -77,14 +75,45 @@ body{
     color: #273d46;
     
 }
+.block_list{
+    text-align: center;
+    margin: 30px 0px;
+}
 .list{
-    margin: 170px 0px;
-    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
     font-size: 20px;
     line-height: 36px;
 }
 .list li{
-    margin: 0px 25%;
-    background: url(../img/check_icon_37.jpg) left no-repeat;
-    
+    margin: 0px 24%;
+    padding: 0px 0px 0px 30px;
+    background: url(../img/pngwing.com.png) left/auto 20px no-repeat;
+}
+.text_shadow {
+    text-shadow: 0px 1px 0px rgba(0,0,0,0.3);
+    color: #273d46;
+}
+.italic {
+    font-style: italic;
+    color: #80b7b3;
+}
+.bold {
+    font-weight: 700;
+    color: #273d46;
+}
+.line_through {
+    text-decoration: line-through;
+    color: #273d46;
+}
+.button{
+    display: inline-block;
+    margin: 20px 0px 50px 24%;
+    line-height: 40px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+    padding: 5px 50px;
+    background: url(../img/shape_2_9.png) 90% 50% no-repeat, #80b7b3;
+    border-radius: 20px 20px 20px 20px;
+    box-shadow: 0px 6px 40px 0px rgba(128,183,179,0.54);
 }
