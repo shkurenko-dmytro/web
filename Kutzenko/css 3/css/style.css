@@ -41,6 +41,8 @@ body{
 .line {
     margin: 50px 50px 0px;
     text-align: center;
+    background: url(../img/ellipse_1_copy_4.png) no-repeat;
+    
 }
 .uppercase {
     margin: 30px 0px 0px;
