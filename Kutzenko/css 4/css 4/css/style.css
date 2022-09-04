@@ -47,13 +47,19 @@ div{
     margin: 0 0 60px 0;
     color: #273d46;
 }
+.list_1 li{
+    position: relative;
+    padding: 0 0 0 30px;
+}
 .list_1 li:before{
     content: '';
     display: inline-block;
+    background: url(../img/check_icon_38.png) 0 0 no-repeat;
     width: 25px;
     height: 19px;
-    background: url(../img/check_icon_38.png) no-repeat;
-    margin: 0 5px 0 0;
+    position: absolute;
+    top: 9px;
+    left: 0;
 }
 .list_1 li:nth-child(1){
     text-decoration: line-through;
