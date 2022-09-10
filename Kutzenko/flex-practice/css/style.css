@@ -1,0 +1,224 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+.box {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+.content {
+  flex: 1 0 auto;
+}
+.first {
+  background: #445162;
+  padding: 50px;
+  color: #ffffff;
+}
+.conteiner {
+  display: flex;
+  justify-content: space-between;
+}
+.first__body {
+  text-shadow: 0px 1px 0px rgba(0,0,0,0.3);
+}
+.first__title {
+  font-size: 60px;
+  line-height: 1.2;
+  margin: 0 0 30px 0;
+}
+.first__list {
+  font-size: 20px;
+  line-height: 36px;
+}
+.first__list li::before{
+  content: '';
+  display: inline-block;
+  background: url(../img/check.png) left no-repeat;
+  width: 25px;
+  height: 19px;
+  margin: 0 10px 0 0;
+}
+.first__image {
+  width: 469px;
+  height: 214px;
+}
+/*---------------------------------------------------------*/
+.second {
+  padding: 50px 100px 50px 50px;
+}
+.second__image {
+  width: 430px;
+  height: 186px;
+}
+.second__body {
+  width: 700px;
+}
+.second__title {
+  margin: 0 0 20px;
+  font-size: 30px;
+  line-height: 36px;
+  color: #445161;
+}
+.second__text {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+}
+.second__p1 {
+  margin-bottom: 20px;
+}
+/*-------------------------------------------------------*/
+.third {
+  background: #f5f5f5;
+  padding: 40px 50px 30px;
+}
+.third__title {
+  font-size: 30px;
+  line-height: 36px;
+  color: #445161;
+  text-align: center;
+  margin-bottom: 30px;
+}
+.third__flex {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.third__block {
+  width: 700px;
+}
+.third__element {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.third__image {
+  width: 200px;
+  height: 150px;
+  margin-right: 15px;
+}
+.third__subtitle {
+  font-size: 24px;
+  line-height: 30px;
+  color: #445161;
+  margin-bottom: 10px;
+}
+.third__p {
+  font-size: 16px;
+  line-height: 24px;
+  color: #333333;
+}
+/*-------------------------------------------------------*/
+.fourth {
+  padding: 50px;
+}
+.fourth__title {
+  font-size: 30px;
+  line-height: 36px;
+  color: #445161;
+  margin-bottom: 30px;
+  text-align: center;
+}
+.fourth__row {
+  display: flex;
+  justify-content: space-around;
+  padding: 0 150px;
+}
+.fourth__column {
+  background: #445162;
+  border-radius: 5px;
+  padding: 2px;
+  margin-right: 5px;
+}
+.fourth__conteiner{
+  display: flex;
+  flex-direction: column;
+  height: 498px;
+  width: 298px;
+  text-align: center;
+}
+.fourth__content1 {
+  font-size: 24px;
+  line-height: 30px;
+  text-transform: uppercase;
+  color: #ffffff;
+  padding: 10px 0;
+}
+.fourth__content2 {
+  font-size: 40px;
+  line-height: 30px;
+  color: #445162;
+  background: #ffffff;
+  padding: 15px 0;
+}
+.fourth__inside{
+  margin: 15px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+.fourth__content3 {
+  line-height: 24px;
+  color: #ffffff;
+  text-align: left;
+  flex-grow: 1;
+}
+.fourth__content4 {
+  font-size: 18px;
+  line-height: 18px;
+  font-weight: 700;
+  color: #445161;
+  background: #ffffff;
+  border-radius: 5px;
+  padding: 10px;
+}
+.fourth__content3__p1 {
+  margin-bottom: 25px;
+}
+/*-------------------------------------------------------*/
+.footer {
+  background: #f5f5f5;
+  flex: 0 0 auto;
+}
+.conteinerfooter {
+  padding: 20px;
+  text-align: center;
+}
+.footer__text {
+  font-size: 12px;
+  line-height: 24px;
+  letter-spacing: 0.025em;
+  color: #445162;
+}
