@@ -52,24 +52,23 @@ ul li{
 }
 
 .list1 li:nth-child(1) {
-    font-weight: 400;
+    
     text-decoration: line-through;
     color: #273d46;
 
 }
 .list1 li:nth-child(2) {
-    line-height: 36px;
     font-weight: 700;
     color: #273d46;
 }
 .list1 li:nth-child(3) {
-    line-height: 36px;
-    font-weight: 400;
+    
+    
     font-style: italic;
     color: #273d46;
 }
 .list1 li:nth-child(4) {
-    font-weight: 400;
+    
     text-transform: uppercase;
     color: #273d46;
 }
