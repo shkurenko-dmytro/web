@@ -38,33 +38,113 @@ body{
 
 header{
     font-weight: 300;
+    background-color: #F8F8F8;
+    padding: 7px;
 }
-
-.smalltext {
+.container{
+    max-width: 1100px;
+    margin: 0 auto 150px;
+}
+.header__body{
+    display: inline-block;
+    max-width: 600px;
+    margin: 100px 80px 0 0;
+}
+.title {
     font-size: 24px;
     line-height: 45px;
     color: #161515;
+    margin-bottom: 40px;
 }
 h1{
     font-size: 250px;
     line-height: 230px;
     color: #272727;
+    margin-bottom: 20px;
+}
+h2{
+    font-weight: 400;
+    font-size: 72px;
+    line-height: 81px;
+    text-align: center;
+    color: #000000;
 }
 .description {
+    font-weight: 300;
     font-size: 32px;
     line-height: 50px;
     color: #161515;
+    margin-bottom: 40px;
 }
 .buy {
+    display: inline-block;
     font-size: 32px;
-    line-height: 29px;
+    line-height: 82px;
     color: #FFFFFF;
+    background-color: #161515;
+    height: 82px;
+    width: 278px;
+    text-align: center;
 }
 .price {
+    display: inline-block;
     font-size: 32px;
-    line-height: 60px;
-    text-align: center;
+    line-height: 82px;
     color: #272727;
+    background-color: #FFFFFF;
+    height: 82px;
+    width: 143px;
+    text-align: center;
 }
-.watch1 {
+
+.body{
+    max-width: 550px;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 50px;
+}
+.subtitle{
+    margin-top: 50px;
+    font-size: 24px;
+    line-height: 45px;
+    color: #161515;
+}
+.box {
+    display: inline-block;
+    padding: 110px 65px;
+    background-color: #F8F8F8;
+    margin-top: 70px;
+    margin-bottom: 70px;
+}
+.name {
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 29px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+.box2 {
+    display: inline-block;
+    padding: 65px 0;
+    background-color: #F8F8F8;
+    margin-top: 50px;
+    margin-bottom: 70px;
+}
+.name__line{
+    margin-top: 90px;
+}
+.line{
+    
+    border-bottom: 1px solid #707070;
+    width: 178px;
+    margin: 0 auto 40px;
+}
+.textlink {
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 41px;
+    color: #161515;
+}
+.more {
+    color: #BB8B5D;
 }
