@@ -1,0 +1,70 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+body{
+    font-family: 'League Spartan', sans-serif;
+}
+
+header{
+    font-weight: 300;
+}
+
+.smalltext {
+    font-size: 24px;
+    line-height: 45px;
+    color: #161515;
+}
+h1{
+    font-size: 250px;
+    line-height: 230px;
+    color: #272727;
+}
+.description {
+    font-size: 32px;
+    line-height: 50px;
+    color: #161515;
+}
+.buy {
+    font-size: 32px;
+    line-height: 29px;
+    color: #FFFFFF;
+}
+.price {
+    font-size: 32px;
+    line-height: 60px;
+    text-align: center;
+    color: #272727;
+}
+.watch1 {
+}
