@@ -85,23 +85,15 @@ body{
 			font-family: Arial;
 			font-size: 20px;
 			line-height: 36px;
-			margin: 0 0 30px;
-			li{
-				padding: 0 0 0 30px;
-				&:before{
-					content: '';
-					display: inline-block;
-					background: url(../img/check_icon_39.png) left no-repeat;
-					width: 25px;
-					height: 19px;
-    .button {
+      li{
+        padding: 0 0 0 30px;
+        &::before{
+          content: '';
+          display: inline-block;
+          background: url(../img/check_icon_39.png) left no-repeat;
+          width: 25px;
+          height: 19px;
+        }
+      }
     }
-}
-
-
-
-
-
-
-
-
+  }

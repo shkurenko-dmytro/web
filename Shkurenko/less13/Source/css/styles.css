@@ -117,14 +117,14 @@ body {
   margin-bottom: 60px;
 }
 .block .list {
-  font-size: 20px;
   font-family: Arial;
+  font-size: 20px;
   line-height: 36px;
 }
 .block .list li {
   padding: 0 0 0 30px;
 }
-.block .list li:before {
+.block .list li::before {
   content: "";
   display: inline-block;
   background: url(../img/check_icon_39.png) left no-repeat;
