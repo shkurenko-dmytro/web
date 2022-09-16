@@ -36,12 +36,15 @@ h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
 
 /*==========================================================*/
 body{
+    
     background-color: #e8e8e8;
     
 }
 .block {
   width: 841px;
-  margin:125px 309px 104px 290px ;
+	margin: 100px auto;
+  background: url(../../Source/img/ellipse_1_copy_4.png) no-repeat top ;
+  
 
   .top_label {
   
@@ -79,21 +82,64 @@ body{
       & p:first-child{
         margin-bottom: 60px;
       }
+      & p:last-child{
+        margin-bottom: 64px ;
+      }
       
     }
     .list{
 			font-family: Arial;
 			font-size: 20px;
 			line-height: 36px;
+      margin-left: 45px;
+
+      
       li{
-        padding: 0 0 0 30px;
-        &::before{
-          content: '';
-          display: inline-block;
-          background: url(../img/check_icon_39.png) left no-repeat;
-          width: 25px;
-          height: 19px;
-        }
+        
+        
+        list-style: url(../../Source/img/check_icon_39.png);
+        margin-left: 45px;
+          //background: url(../../Source/img/check_icon_39.png) left no-repeat;
+          
+        
       }
+    }
+    .button{
+      margin-top: 59px;
+      margin-left: 60px;
+      margin-bottom: 60px;
+      display: inline-block;
+      width: 199px;
+      height: 44px;
+      background-color: #80b7b3;
+      border-radius: 30px;
+      text-align: center;
+      
+      span{
+        display: inline-block;
+        
+        line-height: 44px;
+        text-transform: uppercase;
+        letter-spacing: 0.2em;
+        color: #ffffff;
+        
+          &::after{
+            position: relative;
+          content: '';
+          top: 2px;
+          left: 3px;         
+          content: url(../../Source/img/shape_2_9.png);
+          line-height: 44px;
+          
+        
+          
+         
+          }
+
+
+        }
+
+      
+      
     }
   }

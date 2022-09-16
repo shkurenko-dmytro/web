@@ -78,7 +78,8 @@ body {
 
 .block {
   width: 841px;
-  margin: 125px 309px 104px 290px;
+  margin: 100px auto;
+  background: url(../../Source/img/ellipse_1_copy_4.png) no-repeat top;
 }
 .block .top_label {
   text-align: center;
@@ -116,18 +117,42 @@ body {
 .block .text p:first-child {
   margin-bottom: 60px;
 }
+.block .text p:last-child {
+  margin-bottom: 64px;
+}
 .block .list {
   font-family: Arial;
   font-size: 20px;
   line-height: 36px;
+  margin-left: 45px;
 }
 .block .list li {
-  padding: 0 0 0 30px;
+  list-style: url(../Source/img/check_icon_39.png);
+  margin-left: 45px;
 }
-.block .list li::before {
-  content: "";
+.block .button {
+  margin-top: 59px;
+  margin-left: 60px;
+  margin-bottom: 60px;
   display: inline-block;
-  background: url(../img/check_icon_39.png) left no-repeat;
-  width: 25px;
-  height: 19px;
+  width: 199px;
+  height: 44px;
+  background-color: #80b7b3;
+  border-radius: 30px;
+  text-align: center;
+}
+.block .button span {
+  display: inline-block;
+  line-height: 44px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: #ffffff;
+}
+.block .button span::after {
+  position: relative;
+  content: "";
+  top: 2px;
+  left: 3px;
+  content: url(../../Source/img/shape_2_9.png);
+  line-height: 44px;
 }
