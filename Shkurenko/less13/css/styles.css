@@ -79,7 +79,7 @@ body {
 .block {
   width: 841px;
   margin: 100px auto;
-  background: url(../../Source/img/ellipse_1_copy_4.png) no-repeat top;
+  background: url(../Source/img/ellipse_1_copy_4.png) no-repeat top;
 }
 .block .top_label {
   text-align: center;
@@ -153,6 +153,6 @@ body {
   content: "";
   top: 2px;
   left: 3px;
-  content: url(../../Source/img/shape_2_9.png);
+  content: url(../Source/img/shape_2_9.png);
   line-height: 44px;
 }
