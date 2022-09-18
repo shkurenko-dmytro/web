@@ -49,26 +49,22 @@ body{
 .head {
   height: 900px;
   background-color: #F8F8F8;
-  
   .all_head{
-    
     width: 1272-135px;
     height: 650+82px;
     margin: 0 auto 150px;
-    
     .top_header {
       display: inline-block;
       .h3 {
         display: inline-block;
         width: 135px;
-        height: 32px;
-        font-family: 'LeagueSpartan';
+        height: 32px; 
         font-size: 24px;
         line-height: 45px;
         margin-top: 104px;
-       
       }
-      h1{display: inline-block;
+      h1{
+        display: inline-block;
         font-size: 250px;
         line-height: 230px;
         margin-top: 53px;
@@ -81,66 +77,46 @@ body{
         font-size: 32px;
         line-height: 50px;
         margin-top: 43px;
-        
-      
       }
       .butt{
         margin-top: 61px;
+        font-size: 32px;
+        line-height: 82px;
         .button {
           display: inline-block;
-          //display: inline;
-          
           width: 278px;
           height: 82px;
           background-color: black;
-          //padding: 26px 70px 35px 70px  ;
-            line-height: 82px;
-            text-align: center;
-            color: white;
-            font-size: 32px;
-            //line-height: 29.44px;
-
-          
+          text-align: center;
+          color: white;
         }
         .price {
           display: inline-block;
-          
           width: 143px;
           height: 82px;
           background-color:white ;
-          
-          font-size: 32px;
-          line-height: 82px;
           text-align: center; 
         }
     }
-
-  }
-  
+  }  
   .image {
     display: inline;
     margin-top: 20px;
-    margin-left: 20px;
-    
+    margin-left: 20px;  
   }
-
- }
+    }
 }
 .long_block {
   width: 532px ;
   margin: 0 auto;
-  padding-bottom: 142PX;
-  p{
-    &:nth-child(1)
-      
-    { margin-top: 43px;
-      text-align: center;
-      font-size: 24px;
-      line-height: 44px;
-    }
-  }
+  padding-bottom: 142px;
+  text-align: center;
+  .pop{
+    margin-top: 43px;
+    font-size: 24px;
+    line-height: 44px;
+  } 
   h2{
-    text-align: center;
     font-size: 72px;
     line-height: 81px;
     margin-bottom: 84px;
@@ -150,33 +126,24 @@ body{
     width:417px;
     height: 630px;
     background-color: #F8F8F8;
-    text-align: center;
     margin-bottom: 67px;
     img{
       display: inline;
       margin-top: 110px;
-    }
-    
+    }  
   }
   h3{
     font-size: 32px;
     line-height: 29px;
-    text-align: center;
-    margin-bottom: 17px;
-    &:nth-child(1){
-      
-    }
+    margin-bottom: 17px;   
   }
   .text1 {
     height: 194px;
     font-size: 32px;
-    line-height: 49.6px;
-    text-align: center;
+    line-height: 49.6px;   
     margin-bottom: 85px;
   }
-  .image_3 {
-
-    
+  .image_3 { 
     margin: 0 auto;
     width: 500px;
     height: 630px;
@@ -191,7 +158,6 @@ body{
     height: 196px;
     font-size: 32px;
     line-height: 49.6px;
-    text-align: center;
     margin-bottom: 59px;
   }
   .line{
@@ -205,11 +171,8 @@ body{
   .desc {
     height: 231px;
     font-size: 24px;
-    line-height: 40.8px;
-    text-align: center;
-    
-  }
-  
+    line-height: 40.8px;   
+  } 
 }
 
 

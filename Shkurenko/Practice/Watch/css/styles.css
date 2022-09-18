@@ -100,7 +100,6 @@ body {
   display: inline-block;
   width: 135px;
   height: 32px;
-  font-family: "LeagueSpartan";
   font-size: 24px;
   line-height: 45px;
   margin-top: 104px;
@@ -122,24 +121,22 @@ body {
 }
 .head .all_head .top_header .butt {
   margin-top: 61px;
+  font-size: 32px;
+  line-height: 82px;
 }
 .head .all_head .top_header .butt .button {
   display: inline-block;
   width: 278px;
   height: 82px;
   background-color: black;
-  line-height: 82px;
   text-align: center;
   color: white;
-  font-size: 32px;
 }
 .head .all_head .top_header .butt .price {
   display: inline-block;
   width: 143px;
   height: 82px;
   background-color: white;
-  font-size: 32px;
-  line-height: 82px;
   text-align: center;
 }
 .head .all_head .image {
@@ -151,16 +148,15 @@ body {
 .long_block {
   width: 532px;
   margin: 0 auto;
-  padding-bottom: 142PX;
-}
-.long_block p:nth-child(1) {
-  margin-top: 43px;
+  padding-bottom: 142px;
   text-align: center;
+}
+.long_block .pop {
+  margin-top: 43px;
   font-size: 24px;
   line-height: 44px;
 }
 .long_block h2 {
-  text-align: center;
   font-size: 72px;
   line-height: 81px;
   margin-bottom: 84px;
@@ -170,7 +166,6 @@ body {
   width: 417px;
   height: 630px;
   background-color: #F8F8F8;
-  text-align: center;
   margin-bottom: 67px;
 }
 .long_block .image_2 img {
@@ -180,14 +175,12 @@ body {
 .long_block h3 {
   font-size: 32px;
   line-height: 29px;
-  text-align: center;
   margin-bottom: 17px;
 }
 .long_block .text1 {
   height: 194px;
   font-size: 32px;
   line-height: 49.6px;
-  text-align: center;
   margin-bottom: 85px;
 }
 .long_block .image_3 {
@@ -205,7 +198,6 @@ body {
   height: 196px;
   font-size: 32px;
   line-height: 49.6px;
-  text-align: center;
   margin-bottom: 59px;
 }
 .long_block .line {
@@ -220,5 +212,4 @@ body {
   height: 231px;
   font-size: 24px;
   line-height: 40.8px;
-  text-align: center;
 }
