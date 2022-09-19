@@ -1,0 +1,286 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+body{
+    font-size: 20px;
+}
+.d {
+    display: inline-block;
+    left: 0;
+    position: relative;
+    animation-name: d_d;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.i {
+    display: inline-block;
+    left: 200px;
+    position: relative;
+    animation-name: i_i;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.m {
+    display: inline-block;
+    left: 400px;
+    position: relative;
+    animation-name: m_m;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.o {
+    display: inline-block;
+    left: 600px;
+    position: relative;
+    animation-name: o_o;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.n {
+    display: inline-block;
+    left: 800px;
+    position: relative;
+    animation-name: n_n;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+@keyframes d_d{
+    0%{
+        top: 0;
+        left: 0;
+        font-size: 20px;
+    }
+    50%{
+        top: 200px;
+    }
+    100%{
+        top: 200px;
+        left: 400px;
+        font-size: 60px;
+        color: red;
+    }
+}
+
+@keyframes i_i{
+    0%{
+        top: 0;
+        left: 200px;
+        font-size: 20px;
+    }
+    50%{
+        top: 200px;
+    }
+    100%{
+        top: 200px;
+        left: 400px;
+        font-size: 60px;
+        color: blue;
+    }
+}
+@keyframes m_m{
+    0%{
+        top: 0;
+        font-size: 20px;
+    }
+    100%{
+        top: 200px;
+        font-size: 60px;
+        color: violet;
+    }
+}
+@keyframes o_o{
+    0%{
+        top: 0;
+        left: 600px;
+        font-size: 20px;
+    }
+    50%{
+        top: 200px;
+    }
+    100%{
+        top: 200px;
+        left: 400px;
+        font-size: 60px;
+        color: aqua;
+    }
+}
+@keyframes n_n{
+    0%{
+        top: 0;
+        left: 800px;
+        font-size: 20px;
+    }
+    50%{
+        top: 200px;
+    }
+    100%{
+        top: 200px;
+        left: 400px;
+        font-size: 60px;
+        color: yellow;
+    }
+}
+.d2 {
+    display: inline-block;
+    left: 0;
+    top: 400px;
+    position: relative;
+    animation-name: d_d2;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.u {
+    display: inline-block;
+    left: 200px;
+    top: 400px;
+    position: relative;
+    animation-name: u_u;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.r {
+    display: inline-block;
+    left: 400px;
+    top: 400px;
+    position: relative;
+    animation-name: r_r;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.a {
+    display: inline-block;
+    left: 600px;
+    top: 400px;
+    position: relative;
+    animation-name: a_a;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+.k {
+    display: inline-block;
+    left: 800px;
+    top: 400px;
+    position: relative;
+    animation-name: k_k;
+    animation-duration: 2s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: 3;
+}
+@keyframes d_d2{
+    0%{
+        left: 0;
+        top: 400px;
+        font-size: 20px;
+    }
+    50%{
+        left: 400px;
+    }
+    100%{
+        left: 400px;
+        top: 200px;
+        font-size: 60px;
+        color: brown;
+    }
+}
+@keyframes u_u{
+    0%{
+        left: 200px;
+        top: 400px;
+        font-size: 20px;
+    }
+    50%{
+        left: 400px;
+    }
+    100%{
+        left: 400px;
+        top: 200px;
+        font-size: 60px;
+        color: cadetblue;
+    }
+}
+@keyframes r_r{
+    0%{
+        left: 400px;
+        top: 400px;
+        font-size: 20px;
+    }
+    100%{
+        left: 400px;
+        top: 200px;
+        font-size: 60px;
+        color: yellowgreen;
+    }
+}
+@keyframes a_a{
+    0%{
+        left: 600px;
+        top: 400px;
+        font-size: 20px;
+    }
+    50%{
+        left: 400px;
+    }
+    100%{
+        left: 400px;
+        top: 200px;
+        font-size: 60px;
+        color: darkcyan;
+    }
+}
+@keyframes k_k{
+    0%{
+        left: 800px;
+        top: 400px;
+        font-size: 20px;
+    }
+    50%{
+        left: 400px;
+    }
+    100%{
+        left: 400px;
+        top: 200px;
+        font-size: 60px;
+        color: springgreen;
+    }
+}
