@@ -160,6 +160,7 @@ body {
   font-size: 72px;
   line-height: 81px;
   margin-bottom: 84px;
+  font-weight: 600;
 }
 .long_block .image_2 {
   margin: 0 auto;
@@ -176,6 +177,7 @@ body {
   font-size: 32px;
   line-height: 29px;
   margin-bottom: 17px;
+  font-weight: 600;
 }
 .long_block .text1 {
   height: 194px;
@@ -212,4 +214,9 @@ body {
   height: 231px;
   font-size: 24px;
   line-height: 40.8px;
+}
+.long_block .desc a {
+  color: #BB8B5D;
+  font-weight: 600;
+  text-decoration: underline;
 }
