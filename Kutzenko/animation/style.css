@@ -36,6 +36,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 body{
     font-size: 20px;
 }
+.content{
+    height: 500px;
+}
 .d {
     display: inline-block;
     left: 0;
@@ -86,6 +89,7 @@ body{
         top: 0;
         left: 0;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         top: 200px;
@@ -95,6 +99,7 @@ body{
         left: 400px;
         font-size: 60px;
         color: red;
+        transform: rotate(360deg);
     }
 }
 
@@ -103,6 +108,7 @@ body{
         top: 0;
         left: 200px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         top: 200px;
@@ -112,17 +118,20 @@ body{
         left: 400px;
         font-size: 60px;
         color: blue;
+        transform: rotate(360deg);
     }
 }
 @keyframes m_m{
     0%{
         top: 0;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     100%{
         top: 200px;
         font-size: 60px;
         color: violet;
+        transform: rotate(360deg);
     }
 }
 @keyframes o_o{
@@ -130,6 +139,7 @@ body{
         top: 0;
         left: 600px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         top: 200px;
@@ -139,6 +149,7 @@ body{
         left: 400px;
         font-size: 60px;
         color: aqua;
+        transform: rotate(360deg);
     }
 }
 @keyframes n_n{
@@ -146,6 +157,7 @@ body{
         top: 0;
         left: 800px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         top: 200px;
@@ -155,6 +167,7 @@ body{
         left: 400px;
         font-size: 60px;
         color: yellow;
+        transform: rotate(360deg);
     }
 }
 .d2 {
@@ -212,6 +225,7 @@ body{
         left: 0;
         top: 400px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         left: 400px;
@@ -221,6 +235,7 @@ body{
         top: 200px;
         font-size: 60px;
         color: brown;
+        transform: rotate(-360deg);
     }
 }
 @keyframes u_u{
@@ -228,6 +243,7 @@ body{
         left: 200px;
         top: 400px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         left: 400px;
@@ -237,6 +253,7 @@ body{
         top: 200px;
         font-size: 60px;
         color: cadetblue;
+        transform: rotate(-360deg);
     }
 }
 @keyframes r_r{
@@ -244,12 +261,14 @@ body{
         left: 400px;
         top: 400px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     100%{
         left: 400px;
         top: 200px;
         font-size: 60px;
         color: yellowgreen;
+        transform: rotate(-360deg);
     }
 }
 @keyframes a_a{
@@ -257,6 +276,7 @@ body{
         left: 600px;
         top: 400px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         left: 400px;
@@ -266,6 +286,7 @@ body{
         top: 200px;
         font-size: 60px;
         color: darkcyan;
+        transform: rotate(-360deg);
     }
 }
 @keyframes k_k{
@@ -273,6 +294,7 @@ body{
         left: 800px;
         top: 400px;
         font-size: 20px;
+        transform: rotate(0deg);
     }
     50%{
         left: 400px;
@@ -282,5 +304,44 @@ body{
         top: 200px;
         font-size: 60px;
         color: springgreen;
+        transform: rotate(-360deg);
     }
+}
+.wrapper{
+    padding-bottom: 40px;
+}
+.block{
+    margin-left: 100px;
+    display: inline-block;
+}
+.block__body{
+    position: relative;
+    width: 150px;
+    height: 150px;
+    transition-duration: 0.8s;
+	transform-style: preserve-3d;
+}
+.blockf, .blockb{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blockf{
+    z-index: 2;
+    transform: rotateY(0deg);
+    background-color: blueviolet;
+    backface-visibility: hidden;
+}
+.blockb{
+    transform: rotateY(-180deg);
+    background-color: blueviolet;
+    color: aliceblue;
+}
+.block:hover .block__body{
+    transform: rotateY(-180deg);
 }
