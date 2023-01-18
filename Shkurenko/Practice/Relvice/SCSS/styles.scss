@@ -500,9 +500,7 @@ body {
   //padding: 0 20px;
   flex: 1 1 auto;
   @media (max-width:991.98px) {
-    
     width: 90%;
-       
   }
 }
 
@@ -519,12 +517,11 @@ body {
   justify-content: space-between;
   //flex-wrap: wrap;
   flex: 1 0 auto;
-  
   @media (max-width:991.98px) {
-   justify-content: center;
-   flex-flow:wrap;
-   column-gap: 15px;
-   row-gap: 70px;
+    justify-content: center;
+    flex-flow:wrap;
+    column-gap: 15px;
+    //row-gap: 70px;
   }
   @media (max-width:479.98px) {
     row-gap: 15px;
@@ -534,19 +531,15 @@ body {
 }
 
 .practice-advice-content__cards-item {
-  //width: 22.009%;
   width: 230px;
-  height: 341px;
+  min-height: 341px;
   display: flex;
   flex-direction: column;
   background-color: #FFFFFF;
   flex: 0 1 auto;
   @media (max-width:991.98px) {
-   
     flex: 0 1 45%;
-    
-    
-    
+    margin-bottom: 10px;
   }
 }
 
@@ -580,7 +573,7 @@ body {
   padding: 100px 0;
   @media (max-width:479.98px) {
     padding-top: 0;
-   }
+  }
 }
 
 .who-we-are-content {
@@ -594,11 +587,7 @@ body {
   margin: 0 auto;
   flex-direction: column;
   @media (max-width:991.98px) {
-   
     width: 90%;
-    
-    
-    
   }
 }
 
@@ -609,7 +598,7 @@ body {
   padding: 0 0 100px 0;
   @media (max-width:479.98px) {
     padding-bottom: 30px;
-   }
+  }
 }
 
 .who-we-are__form-video {
@@ -621,11 +610,9 @@ body {
   //justify-content: center;
   flex: 1 1 auto;
   @media (max-width:991.98px) {
-   
     flex-direction: column;
     width: 100%;
-    align-items: center;
-    
+    align-items: center; 
   }
 }
 
@@ -643,9 +630,8 @@ body {
   flex-direction: column;
   width: 335px;
   @media (max-width:991.98px) {
-   
-   width: 100%;
-   align-items: center;  
+    width: 100%;
+    align-items: center;  
   }
   
 }
@@ -666,16 +652,14 @@ body {
   justify-content: space-between;
   height: 165px;
   @media (max-width:991.98px) {
-   
     flex-direction: row;
     height: 100%;
     justify-content: space-between;
     gap: 20px;
-     
-   }
-   @media (max-width:479.98px) {
+  }
+  @media (max-width:479.98px) {
     flex-direction: column;
-   }
+  }
 }
 
 .who-we-are__card {
@@ -683,13 +667,9 @@ body {
   justify-content: space-between;
   width: 100%;
   @media (max-width:991.98px) {
-   
     flex: 1 1 auto;
-   // width: 50%;
     gap: 15px;
-     
-     
-   }
+  }
   
 }
 
@@ -995,7 +975,7 @@ body {
   justify-content: space-between;
   @media (max-width:479.98px) {
     flex-direction: column;
-   }
+  }
 }
 
 .contact-block__text {
@@ -1047,7 +1027,7 @@ body {
   }
   @media (max-width:479.98px) {
     width: 100%;
-   }
+  }
 }
 
 .info-table {
@@ -1095,7 +1075,7 @@ body {
   }
   @media (max-width:479.98px) {
     flex-direction: column;
-   }
+  }
 }
 
 .table-content__item {
