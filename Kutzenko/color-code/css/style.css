@@ -1,0 +1,69 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/* ------------------------------------------------------------------ */
+body{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.block {
+	display: flex;
+	flex-wrap: wrap;
+}
+.output__block {
+	font-size: 25px;
+	font-weight: 600;
+	color: rgb(41, 9, 138);
+	flex: 1 1 100%;
+	margin-bottom: 20px;
+	background-color: khaki;
+	padding: 20px 15px;
+}
+.btn {
+	font-size: 20px;
+	width: 150px;
+	height: 50px;
+	background-color: brown;
+	color: #fff;
+	box-shadow: 2px 3px 3px black;
+}
+.btn:hover {
+	background-color: rgb(104, 25, 25);
+}
+.btn:active {
+	box-shadow: 1px 1px 1px black;
+}
+.btn._active {
+	box-shadow: 1px 1px 1px black;
+}
