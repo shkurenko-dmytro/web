@@ -9,5 +9,9 @@ inputA,inputB = addEventListener('input',function op() {
     const operationValue = operation.value;
     
     const res = calculate(a,b,operationValue);
-    result.innerHTML = res;
+    if ( isNaN(res) || res == Infinity){
+        result.innerHTML = "Невозможно выполнить эту операцию";
+    }
+    else
+        result.innerHTML = res;
 });
