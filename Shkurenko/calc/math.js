@@ -1,16 +1,16 @@
 
-function sum(a,b,operation){
+function sum(a,b){
     return a + b;
 };
-function substract(a,b,operation){
+function substract(a,b){
     return a - b;
 };
-function multiply(a,b,operation){
+function multiply(a,b){
     return a * b;
 };
-function division(a,b,operation){
+function division(a,b){
     return a / b;
 };
-function mode(a,b,operation){
+function mode(a,b){
     return a % b;
 };
