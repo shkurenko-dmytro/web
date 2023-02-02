@@ -67,6 +67,10 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     font-size: 50px;
     color: bisque;
     background-color: gray;
+    transition-duration: 0.3s;
+}
+.to-do__text-btn:hover {
+    background-color: brown;
 }
 .to-do__input {
     height: 30px;
@@ -74,6 +78,9 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     flex: 1 1 85%;
     padding: 10px;
     font-size: 18px;
+}
+.to-do__input:focus {
+    box-shadow: 3px 3px 2px bisque;
 }
 /* ---------------------------------------------------------- */
 .to-do__task-block._active {
@@ -100,10 +107,14 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     column-gap: 20px;
 }
 .to-do__task-icon {
-    width: 30px;
-    height: 30px;
+    width: 23px;
+    height: 23px;
     background-color: burlywood;
     cursor: pointer;
+    transition-duration: 0.3s;
+}
+.to-do__task-icon:hover {
+    scale: 1.4;
 }
 .to-do__task {
     flex: 1 1 80%;
@@ -115,6 +126,7 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
 .to-do__clear-block {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     height: 50px;
     background-color: burlywood;
     padding: 20px;
@@ -127,6 +139,22 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
     color: black;
     font-size: 18px;
     border-radius: 20px;
+    transition-duration: 0.3s;
+}
+.to-do__clear-all-btn {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    background-color: bisque;
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+    transition-duration: 0.3s;
+}
+.to-do__clear-btn:hover,
+.to-do__clear-all-btn:hover {
+    background-color: brown;
+    color: bisque;
 }
 
 .to-do__delete-block {
