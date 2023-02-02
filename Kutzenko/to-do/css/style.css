@@ -1,0 +1,168 @@
+/*Обнуление*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/* ------------------------------------------------------------------ */
+.wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.to-do {
+    min-width: 500px;
+    max-width: 500px;
+    min-height: 500px;
+    max-height: 500px;
+    border: 10px solid gray;
+    background-color: bisque;
+    display: flex;
+    flex-direction: column;
+}
+.to-do__text {
+    padding: 20px;
+    background-color: burlywood;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.to-do__text-btn-block {
+    flex: 1 1 10%;
+}
+.to-do__text-btn {
+    width: 35px;
+    height: 35px;
+    line-height: 40%;
+    border-radius: 50%;
+    font-size: 50px;
+    color: bisque;
+    background-color: gray;
+}
+.to-do__input {
+    height: 30px;
+    border: 2px solid bisque;
+    flex: 1 1 85%;
+    padding: 10px;
+    font-size: 18px;
+}
+/* ---------------------------------------------------------- */
+.to-do__task-block._active {
+    display: flex;
+}
+.to-do__task-block._completed .to-do__task-icon {
+    background-color: gray;
+}
+.to-do__task-block._completed .to-do__task {
+    text-decoration: line-through;
+}
+/* ---------------------------------------------------------- */
+.to-do__tasks {
+    flex: 1 1 100%;
+    padding: 0 20px 20px;
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+}
+.to-do__task-block {
+    display: none;
+    align-items: center;
+    margin-top: 20px;
+    column-gap: 20px;
+}
+.to-do__task-icon {
+    width: 30px;
+    height: 30px;
+    background-color: burlywood;
+    cursor: pointer;
+}
+.to-do__task {
+    flex: 1 1 80%;
+    font-size: 18px;
+    max-width: 270px;
+    overflow-wrap: break-word;
+}
+
+.to-do__clear-block {
+    display: flex;
+    align-items: center;
+    height: 50px;
+    background-color: burlywood;
+    padding: 20px;
+}
+.to-do__clear-btn {
+    padding: 0 10px;
+    height: 30px;
+    line-height: 30px;
+    background-color: bisque;
+    color: black;
+    font-size: 18px;
+    border-radius: 20px;
+}
+
+.to-do__delete-block {
+    position: relative;
+    height: 30px;
+    width: 30px;
+    margin-left: 40px;
+    opacity: 0;
+    visibility: hidden;
+    cursor: pointer;
+}
+.to-do__task-block:hover .to-do__delete-block{
+    opacity: 1;
+    visibility: visible;
+}
+.to-do__delete-block span {
+}
+.to-do__delete-block span::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    width: 30px;
+    height: 3px;
+    background-color: gray;
+    transform: translate(0, -50%);
+    rotate: -45deg;
+}
+.to-do__delete-block span::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 50%;
+    width: 30px;
+    height: 3px;
+    background-color: gray;
+    transform: translate(0, 50%);
+    rotate: 45deg;
+}
