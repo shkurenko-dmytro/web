@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do</title>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="tasks__block">
+            <ul id="task-list" class="tasks__list">
+                <li id="empty-list" class="tasks__empty-list empty">
+                    <div class="empty__image"></div>
+                    <p class="empty__text">Наразі задач немає</p>
+                </li>
+
+                <!-- <li class="tasks__item item">
+                    <p class="item__text">Сходить попоїсти!!!</p>
+                    <div class="item__buttons">
+                        <button data-action="done" class="item__button item__button-1">
+                            <img class="item__icon" src="./img/done.png" alt="">
+                        </button>
+                        <button data-action="delete" class="item__button item__button-2">
+                            <img class="item__icon" src="./img/delete.png" alt="">
+                        </button>
+                    </div>
+                </li> -->
+            </ul>
+        </div>
+        <div class="form__container">
+            <h2 class="form__title">Додати нову задачу</h2>
+            <div class="form__block">
+                <form id="form" class="form">
+                    <input id="taskInput" class="form__input" type="text" placeholder="Що потрібно зробити?">
+                    <button class="form__button" type="submit">Додати</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script src="./js/script.js"></script>
+</body>
+</html>
