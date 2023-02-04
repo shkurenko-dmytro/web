@@ -1,0 +1,73 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+body {
+    background-color: #202020;
+    font-family: "Inter";
+    color:#9E9E9E;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 0.5%;
+}
+input{
+    width: 500px;
+    height: 110px;
+    border: 2px solid #C2C2C2;
+    background-color: #202020;
+    border-radius: 12px;
+    padding: 16px 24px;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 48px;
+    letter-spacing: 0.5%;
+    font-family: "Inter";
+    color: #9E9E9E;
+}
+input:focus {
+    outline: none;
+    border: 2px solid #524FE0;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+select{
+    display: inline-block;
+    width: 182px;
+    height: 144px;
+    letter-spacing: inherit;
+    word-spacing: inherit;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    margin-left: 15px;
+    background-color: #202020;
+    color: #9E9E9E;
+    border: none;
+    font-size: 32px;
+    background-image: url('./images/ic_Down_16px.svg');
+    background-repeat: no-repeat;
+    background-position: left 50% top 50%;
+    outline: none;
+}
+.content{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 100px;
+}
+.article {
+    width: 550px;
+    font-size: 80px;
+    margin-bottom: 60px;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-input {
+    display: flex;  
+    margin-bottom: 20px;
+}

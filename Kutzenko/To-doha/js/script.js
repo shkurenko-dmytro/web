@@ -56,3 +56,4 @@ function doneTask(event) {
 
     itemText.classList.toggle('done');
 }
+
