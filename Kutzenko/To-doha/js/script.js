@@ -3,6 +3,7 @@ const taskInput = document.querySelector('#taskInput');
 const taskList = document.querySelector('#task-list');
 const emptyList = document.querySelector('#empty-list');
 const btnClearDone = document.querySelector('#clear-done-btn');
+const btnClearAll = document.querySelector('#clear-all-btn');
 
 let tasks = [];
 
@@ -17,6 +18,7 @@ form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
 taskList.addEventListener('click', doneTask);
 btnClearDone.addEventListener('click', clearDone);
+btnClearAll.addEventListener('click', clearAll);
 
 function addTask(event) {
     event.preventDefault();
@@ -123,3 +125,13 @@ function clearDone(){
     })
 }
 
+function clearAll(){
+    tasks.splice(0, tasks.length);
+
+    saveToLS();
+
+    const elements = document.querySelectorAll('.item');
+    elements.forEach(elem => elem.remove());
+
+    checkEmptyList();
+}
