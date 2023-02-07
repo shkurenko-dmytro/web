@@ -54,7 +54,7 @@ body {
 }
 
 .tasks__block {
-    width: 600px;
+    width: 800px;
     display: flex;
     justify-content: center;
     background-color: rgb(186, 185, 185);
@@ -92,7 +92,7 @@ body {
     margin-bottom: 0px;
 }
 .item__text {
-    max-width: 400px;
+    max-width: 600px;
     font-size: 18px;
     overflow-wrap: break-word;
 }
@@ -124,9 +124,9 @@ body {
 }
 
 .form__container {
-    width: 600px;
+    width: 800px;
     display: flex;
-    gap: 30px;
+    gap: 20px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
@@ -144,7 +144,7 @@ body {
     gap: 10px;
 }
 .form__input {
-    min-width: 400px;
+    min-width: 600px;
     height: 30px;
     padding: 10px;
     font-size: inherit;
@@ -155,12 +155,29 @@ body {
 }
 .form__button {
     height: 30px;
-    max-width: 100px;
     font-size: inherit;
     border-radius: 10px;
     transition-duration: 0.3s;
 }
 .form__button:hover {
+    background-color: bisque;
+}
+.form__buttons {
+    min-width: 600px;
+    display: flex;
+    gap: 20px;
+}
+.form__button-clear-done {
+    flex: 1 1 50%;
+}
+.form__button-clear-all {
+    flex: 1 1 50%;
+}
+.form__button-clear-done:hover {
     background-color: rgba(129, 125, 125, 0.525);
+}
+.form__button-clear-all:hover {
+    background-color: brown;
+    color: white;
 }
 /* ------------------------------------------------------------------- */
