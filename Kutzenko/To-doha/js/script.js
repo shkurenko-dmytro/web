@@ -24,23 +24,25 @@ function addTask(event) {
     event.preventDefault();
 
     const taskText = taskInput.value;
-
-    const newTask = {
-        id: Date.now(),
-        text: taskText,
-        done: false
-    };
-
-    tasks.push(newTask);
-
-    saveToLS();
-
-    renderTask(newTask);
-
-    taskInput.value = '';
-    taskInput.focus();
-
-    checkEmptyList();
+    
+    if(taskText !== ''){
+        const newTask = {
+            id: Date.now(),
+            text: taskText,
+            done: false
+        };
+    
+        tasks.push(newTask);
+    
+        saveToLS();
+    
+        renderTask(newTask);
+    
+        taskInput.value = '';
+        taskInput.focus();
+    
+        checkEmptyList();
+    }
 };
 
 function deleteTask(event) {
@@ -75,10 +77,9 @@ function doneTask(event) {
 }
 
 function checkEmptyList(){
-    if (tasks.length === 0) {
+    if (!document.querySelector('#empty-list')) {
         const emptyListHTML = `
         <li id="empty-list" class="tasks__empty-list empty">
-            <div class="empty__image"></div>
             <p class="empty__text">Наразі задач немає</p>
         </li>`
         
@@ -123,6 +124,8 @@ function clearDone(){
     elements.forEach(function(elem){
         if(elem.classList.contains('done')) elem.closest('.item').remove();
     })
+
+    checkEmptyList();
 }
 
 function clearAll(){
