@@ -4,7 +4,6 @@ const taskList = document.querySelector('#task-list');
 const emptyList = document.querySelector('#empty-list');
 const btnClearDone = document.querySelector('#clear-done-btn');
 const btnClearAll = document.querySelector('#clear-all-btn');
-const tasksRadio = document.querySelectorAll('input[name="task"]');
 
 let tasks = [];
 
@@ -20,9 +19,6 @@ taskList.addEventListener('click', deleteTask);
 taskList.addEventListener('click', doneTask);
 btnClearDone.addEventListener('click', clearDone);
 btnClearAll.addEventListener('click', clearAll);
-tasksRadio.forEach(function(elem){
-    elem.addEventListener('change', showTasks);
-})
 
 function addTask(event) {
     event.preventDefault();
@@ -129,8 +125,6 @@ function clearDone(){
         if(elem.classList.contains('done')) elem.closest('.item').remove();
     })
 
-    checkNone();
-
     checkEmptyList();
 }
 
@@ -143,43 +137,4 @@ function clearAll(){
     elements.forEach(elem => elem.remove());
 
     checkEmptyList();
-}
-
-function showTasks(event){
-    let item = event.target.value;
-    const tasks = taskList.querySelectorAll('.item__text');
-
-    switch(item) {
-        case 'all':
-            tasks.forEach(function(task){
-                task.closest('.item').classList.remove('none');
-            })
-            break
-        case 'done':
-            tasks.forEach(function(task){
-                task.closest('.item').classList.remove('none');
-                if(!task.classList.contains('done')){
-                    task.closest('.item').classList.add('none');
-                }
-            })
-            break
-        case 'active':
-            tasks.forEach(function(task){
-                task.closest('.item').classList.remove('none');
-                if(task.classList.contains('done')){
-                    task.closest('.item').classList.add('none');
-                }
-            })
-            break
-        default:
-            break
-    };
-}
-
-function checkNone(){
-    const elements = document.querySelectorAll('.item__text');
-
-    elements.forEach(function(elem){
-        elem.closest('.item').classList.remove('none');
-    })
 }
