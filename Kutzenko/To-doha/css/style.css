@@ -211,6 +211,12 @@ body {
         max-width: 255px;
         font-size: 18px;
     }
+    .empty__text {
+        font-size: 22px;
+    }
+    .form__title {
+        font-size: 22px;
+    }
     .form__container {
         width: 400px;
         gap: 20px;
