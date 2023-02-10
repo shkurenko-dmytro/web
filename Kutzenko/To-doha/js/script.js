@@ -17,6 +17,7 @@ checkEmptyList();
 form.addEventListener('submit', addTask);
 taskList.addEventListener('click', deleteTask);
 taskList.addEventListener('click', doneTask);
+taskList.addEventListener('click', changeTask);
 btnClearDone.addEventListener('click', clearDone);
 btnClearAll.addEventListener('click', clearAll);
 
@@ -76,6 +77,26 @@ function doneTask(event) {
     itemText.classList.toggle('done');
 }
 
+function changeTask(event) {
+    if(event.target.dataset.action !== 'change') return;
+
+    const itemBlock = event.target.closest('.item');
+
+    const id = Number(itemBlock.id);
+    const task = tasks.find((task) => task.id === id);
+
+    const startText = task.text;
+    task.text = prompt('Редагувати задачу', task.text);
+    if(task.text === null || task.text === ''){
+        task.text = startText;
+    }
+
+    saveToLS();
+
+    const itemText = itemBlock.querySelector('.item__text');
+    itemText.innerText = task.text;
+}
+
 function checkEmptyList(){
     if (!document.querySelector('#empty-list')) {
         const emptyListHTML = `
@@ -101,6 +122,9 @@ function renderTask(task){
 
     const taskHTML = `
                 <li id='${task.id}' class="tasks__item item">
+                    <button data-action="change" class="item__button item__button-3">
+                        <img class="item__icon" src="./img/change.png" alt="">
+                    </button>
                     <p class="${cssClass}">${task.text}</p>
                     <div class="item__buttons">
                         <button data-action="done" class="item__button item__button-1">
