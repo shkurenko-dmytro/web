@@ -93,8 +93,8 @@ select{
 .content{
     display: flex;
     flex-direction: column;
-    max-width: 684px;
-    max-height: 437px;
+    width: 684px;
+    height: 437px;
     align-items: center;
     justify-content: center; 
 }
@@ -158,5 +158,3 @@ select{
         font-size: 25px;
     }
 }
-    
-

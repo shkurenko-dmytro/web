@@ -1,21 +1,13 @@
 
 const output = document.querySelector('div');
+const requestURL = 'example_2.json';
 
 /////////////////////////////
-let FILMS = [];
-let DB;
-(async () => {
-    DB = await(await fetch('./index.json')).json();
-    for (let key in DB) {
-        FILMS[key] = DB[key];
-    };
-})();
-console.log(FILMS);
 
-for (const key in FILMS) {
-     console.log(FILMS.Year);
-     console.log(FILMS[key].Year);
-}
-
-console.log(FILMS[data]);
-//let f = FILMS.filter(film => film.title === 'The Shawshank Redemption');
+let a = fetch(requestURL).then(response => response.json());
+console.log(a);
+a.then(data => {
+    console.log(data.quiz.sport.q1.question);
+    output.innerHTML = data.quiz.sport.q1.question;
+    output.innerHTML += data.quiz.sport.q1.options[0];
+});
