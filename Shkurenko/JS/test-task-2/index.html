@@ -9,7 +9,52 @@
 
 </head>
 <body>
-    <div></div>
+    <div class="wrapper">
+        <div class="option-block">
+            <div class="search-block">
+                <div class="search-block__input">
+                    <input type="text">
+                </div>
+                <div class="search-block__title">Search by : </div>
+                <div class="search-block__select">
+                    <select >
+                        <option value="Title">Title</option>
+                        <option value="Year">Year</option>
+                        <option value="Runtime">Runtime</option>
+                    </select>
+                </div>
+                <div class="search-block__button">
+                    <button>Search</button>
+                </div>
+            </div>
+            <div class="sort-block">
+                <div class="sort-block__sort-title">Sort by :</div>
+                <div class="sort-block__sort-select">
+                    <select >
+                        <option value="Title">Title</option>
+                        <option value="Year">Year</option>
+                        <option value="Runtime">Runtime</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+            <div class="result-block">
+                <div class="result-block__title">Result</div>
+                <div class="result-block__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><button class="btn">Title ↓</button></th>
+                                <th><button class="btn">Year ↓</button></th>
+                                <th><button class="btn">Runtime ↓</button></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
     <script src="./index.js"></script>
 </body>
 </html>

@@ -1,0 +1,113 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+/* Обнуление */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+
+/*================*/
+body {
+    padding: 10px 20px;
+    display: flex;
+    align-items: start;
+    flex: 1 1 auto;
+    justify-content: center;
+    background-color: #202020;
+    font-family: "Inter";
+    color:#9E9E9E;
+    font-weight: 500;
+    letter-spacing: 0.5%;
+}
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    background-color: #443d3d;
+}
+.option-block {
+    display: flex;
+    
+    flex-direction: column;
+    
+    justify-content: center;
+
+}
+.search-block {
+    display: flex;
+    justify-content: space-between;
+    gap : 10px;
+    margin-bottom: 10px;
+}
+.search-block__input {
+}
+.search-block__title {
+}
+.search-block__select {
+}
+.search-block__button {
+}
+.sort-block {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    margin-bottom: 10px;
+
+}
+.sort-block__sort-title {
+}
+.sort-block__sort-select {
+}
+.result-block {
+
+}
+.result-block__title {
+}
+.result-block__table {
+    display: flex;
+    justify-content: space-between;
+    table-layout: inherit;
+}
+table{
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #9E9E9E;
+    border-radius: 5px;
+}
+.btn{
+    width: 100%;
+}
+ td{
+    border: 1px solid #9E9E9E;
+}
