@@ -46,6 +46,7 @@ body {
     color:#9E9E9E;
     font-weight: 500;
     letter-spacing: 0.5%;
+    color: #9E9E9E;
 }
 .wrapper {
     width: 100%;
@@ -54,7 +55,7 @@ body {
     flex-direction: column;
     padding: 10px;
     justify-content: center;
-    background-color: #443d3d;
+    background-color: #202020;
 }
 .option-block {
     display: flex;
@@ -67,6 +68,7 @@ body {
 .search-block {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     gap : 10px;
     margin-bottom: 10px;
 }
@@ -83,6 +85,7 @@ body {
     gap: 10px;
     justify-content: start;
     margin-bottom: 10px;
+    align-items: center;
 
 }
 .sort-block__sort-title {
@@ -96,18 +99,75 @@ body {
 }
 .result-block__table {
     display: flex;
+    max-height: 500px;
     justify-content: space-between;
     table-layout: inherit;
+    overflow: auto;
 }
+.result-block__table::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: 202020;
+}
+.result-block__table::-webkit-scrollbar-thumb {
+    
+    background-color: #9E9E9E;
+}
+
 table{
     width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #9E9E9E;
+    display: table;
+    border-collapse: separate;
     border-radius: 5px;
+    
 }
 .btn{
     width: 100%;
 }
- td{
-    border: 1px solid #9E9E9E;
+td{
+    border-bottom: 1px solid #9E9E9E;
+}
+input{
+    color: #9E9E9E;
+    width: 210px;
+    height: 40px;
+    border: 1px solid #E0E0E0;
+    border-radius: 12px;
+    background-color: #202020;
+}
+input:focus {
+    outline: none;
+    border: 2px solid #524FE0;
+}
+select{
+    color: #9E9E9E;
+    height: 40px;
+    background-color: #202020;
+}
+button{
+    color: #9E9E9E;
+    width: 60px;
+    height: 40px;
+    background-color: #202020;
+    border: #9E9E9E solid 1px;
+    border-radius: 12px;
+}
+button:hover{
+    background-color: #524FE0;
+    border: #4c4acd solid 1px;
+    color: #000000;
+    box-shadow: 0 0 3px #4c4acd;
+}
+button:active{
+    background-color: #78788f;
+    border: #524FE0 solid 1px;
+}
+tr:not(:first-child):hover{
+    background-color: #524FE0;
+    color: #000000;
+}
+
+th{
+    position: sticky;
+    top: 0px;
 }
