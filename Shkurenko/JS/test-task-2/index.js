@@ -1,18 +1,16 @@
 
 
-//TODO: 1. refactor CONSTANTS 
+//TODO: 1. refactor CONSTANTS //done
 //TODO: 2. fix bug with sorting by runtime
-//TODO: 3. add  reverse sorting from css-classes
+//TODO: 3. add  reverse sorting from css-classes //done   
 //TODO: 4. add search from all languages
 //TODO: 5. link to the movie
 //TODO: 6. search to substring
-//TODO: 7. add search by enter
+//TODO: 7. add search by enter // done
 
 const output = document.querySelector('table');
 const searchSelect = document.querySelector('.search-block__select select');
 const searchInput = document.querySelector('.search-block__input input');
-const tableTr = document.querySelector('table thead tr');
-const tableTbody = document.getElementsByTagName('td');
 const requestURL = 'index.json';
 const searchBtn = document.querySelector('.search-block__button');
 const sortByTitleBtn = document.querySelector('.btn__title');
@@ -26,8 +24,18 @@ searchBtn.addEventListener('click', () => {
     remove_Tables_data();
     if (!searchInput.value.trim()) renderAll();
     else filterBySelected(searchSelect.value, searchInput.value);
+    if (output.childNodes.length <= 5){ 
+        renderSelectedData([{Title: 'No results', Year: '', Runtime: ''}]);
+    };
+    
 });
-let flagTitle = 'straight';
+searchInput.addEventListener( 'keypress', (event) => {
+    if (event.key == 'Enter') {
+        remove_Tables_data();
+        if (!searchInput.value.trim()) renderAll();
+        else filterBySelected(searchSelect.value, searchInput.value);
+    };
+});
 sortByTitleBtn.addEventListener('click', () => {
     sortByTitle();
 });
@@ -45,7 +53,6 @@ function filterBySelected( key , value ) {
     let a = fetch(requestURL).then(response => response.json());
     a.then(data => {
         let b = data.filter(item => item[key] == value);
-        console.log( 'filterBySelected ' ,b);
         renderSelectedData(b);
     });
     
@@ -58,49 +65,61 @@ function sortByTitle() {
         function SortArray(x, y){
             return x.Title.localeCompare(y.Title);
         }
-        if (flagTitle == 'straight') {
+        if (sortByTitleBtn.classList.contains('straight')) {
             let b = data.sort(SortArray);
-            flagTitle = 'reverse';
+            sortByTitleBtn.classList.replace('straight', 'reverse');
             renderSelectedData(b);
         } else {
-        let b = data.sort(SortArray).reverse();
-        flagTitle = 'straight';
-        renderSelectedData(b);
+            let b = data.sort(SortArray).reverse();
+            sortByTitleBtn.classList.replace('reverse', 'straight');
+            renderSelectedData(b);
         }
-        
-        console.log('sortByTitle', b, );
-        renderSelectedData(b);
     });
 }
 function sortByYear() {
     let a = fetch(requestURL).then(response => response.json());
     a.then(data => {
+        if (sortByYearBtn.classList.contains('straight')) {
         let b = data.sort((a, b) => a.Year - b.Year);
-        console.log('sortByYear' ,b);
+        sortByYearBtn.classList.replace('straight', 'reverse');
         renderSelectedData(b);
+        }
+        else {
+            let b = data.sort((a, b) => a.Year - b.Year).reverse();
+            sortByYearBtn.classList.replace('reverse', 'straight');
+            renderSelectedData(b);
+        };
     });
 };
 function sortByRuntime() {
     let a = fetch(requestURL).then(response => response.json());
     a.then(data => {
+        if (sortByRuntimeBtn.classList.contains('straight')) {
         let b = data.sort((a, b) => a.Runtime > b.Runtime);
-        console.log('sortByYear' ,b);
+        sortByRuntimeBtn.classList.replace('straight', 'reverse');
         renderSelectedData(b);
+        }
+        else {
+            let b = data.sort((a, b) => a.Runtime > b.Runtime).reverse();
+            sortByRuntimeBtn.classList.replace('reverse', 'straight');
+            renderSelectedData(b);
+        };
     });
 }//! bug with sorting by runtime
 
 
 function renderSelectedData(array_items) {
-        remove_Tables_data();
-        console.log('renderSelectedData', array_items);
-        for (i in array_items){
+        
+    if( array_items.length == 0) array_items = [{Title: 'No results', Year: '', Runtime: ''}]; 
+    remove_Tables_data();
+    for (i in array_items){
         let tr = document.createElement('tr');
         tr.innerHTML = `
         <td>${  array_items[i].Title}</td>
         <td>${array_items[i].Year}</td>
         <td>${array_items[i].Runtime}</td>
-    `;
-    output.append(tr);
+        `;
+        output.append(tr);
     }
 }
 function renderAll() {
