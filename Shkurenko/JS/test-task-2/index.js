@@ -1,11 +1,11 @@
 
 
 //TODO: 1. refactor CONSTANTS //done
-//TODO: 2. fix bug with sorting by runtime
+//TODO: 2. fix bug with sorting by runtime //done
 //TODO: 3. add  reverse sorting from css-classes //done   
-//TODO: 4. add search from all languages
-//TODO: 5. link to the movie
-//TODO: 6. search to substring
+//TODO: 4. add search from all languages //not gonna do
+//TODO: 5. link to the movie // not gonna do
+//TODO: 6. search to substring //done
 //TODO: 7. add search by enter // done
 
 const output = document.querySelector('table');
@@ -18,15 +18,15 @@ const sortByYearBtn = document.querySelector('.btn__year');
 const sortByRuntimeBtn = document.querySelector('.btn__runtime');
 
 
-
 //* events functions
 searchBtn.addEventListener('click', () => {
     remove_Tables_data();
     if (!searchInput.value.trim()) renderAll();
     else filterBySelected(searchSelect.value, searchInput.value);
-    if (output.childNodes.length <= 5){ 
+    if (output.children.length < 2){ 
         renderSelectedData([{Title: 'No results', Year: '', Runtime: ''}]);
     };
+    console.log('searchBtn'.toUpperCase());
     
 });
 searchInput.addEventListener( 'keypress', (event) => {
@@ -52,7 +52,7 @@ sortByRuntimeBtn.addEventListener('click', () => {
 function filterBySelected( key , value ) {
     let a = fetch(requestURL).then(response => response.json());
     a.then(data => {
-        let b = data.filter(item => item[key] == value);
+        let b = data.filter(item => (item[key].toUpperCase()).includes(value.toUpperCase()));
         renderSelectedData(b);
     });
     
@@ -95,17 +95,17 @@ function sortByRuntime() {
     let a = fetch(requestURL).then(response => response.json());
     a.then(data => {
         if (sortByRuntimeBtn.classList.contains('straight')) {
-        let b = data.sort((a, b) => a.Runtime > b.Runtime);
+        let b = data.sort((a, b) => a.Runtime - b.Runtime);
         sortByRuntimeBtn.classList.replace('straight', 'reverse');
         renderSelectedData(b);
         }
         else {
-            let b = data.sort((a, b) => a.Runtime > b.Runtime).reverse();
+            let b = data.sort((a, b) => a.Runtime - b.Runtime).reverse();
             sortByRuntimeBtn.classList.replace('reverse', 'straight');
             renderSelectedData(b);
         };
     });
-}//! bug with sorting by runtime
+}
 
 
 function renderSelectedData(array_items) {
@@ -117,7 +117,7 @@ function renderSelectedData(array_items) {
         tr.innerHTML = `
         <td>${  array_items[i].Title}</td>
         <td>${array_items[i].Year}</td>
-        <td>${array_items[i].Runtime}</td>
+        <td>${array_items[i].Runtime + ' min'}</td>
         `;
         output.append(tr);
     }
@@ -132,7 +132,7 @@ function renderAll() {
                 tr.innerHTML = `
                     <td>${item.Title}</td>
                     <td>${item.Year}</td>
-                    <td>${item.Runtime}</td>
+                    <td>${item.Runtime +' min'}</td>
                 `;
                 output.append(tr);
             });
