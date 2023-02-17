@@ -1,6 +1,5 @@
 body {
   font-family: Roboto;
-  font-weight: 700;
   font-size: 16px;
   color: #3E3E3E;
 }
@@ -8,8 +7,12 @@ body {
   min-height: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #3E3E3E;
   overflow: hidden;
+}
+.container {
+  max-width: 1060px;
+  padding: 0 20px;
+  margin: 0 auto;
 }
 .ibg {
   position: absolute;
@@ -32,10 +35,7 @@ body {
 }
 /* ------------------------------------------------------ */
 .header__container {
-  max-width: 1066px;
   min-height: 128px;
-  padding: 0 26px;
-  margin: 0 auto;
   display: flex;
   align-items: center;
 }
@@ -145,6 +145,7 @@ body {
   color: rgba(255, 255, 255, 1);
   display: none;
   font-size: 12px;
+  font-weight: 700;
   line-height: 133%;
   overflow-wrap: break-word;
 }
@@ -156,11 +157,9 @@ body {
 }
 /* ---------------------------------------------- */
 .main__container {
-  max-width: 1066px;
-  padding: 0 26px;
-  margin: 0 auto;
 }
 .main__first {
+  padding: 459px 0 80px 0;
 }
 .first {
   position: relative;
@@ -174,9 +173,9 @@ body {
 .first__title {
   position: relative;
   z-index: 3;
-  max-width: 450px;
-  padding: 459px 0 80px 0;
+  max-width: 450px; 
   font-size: 80px;
+  font-weight: 700;
   line-height: 100%;
   letter-spacing: -1.5px;
   color: #FFFFFF;
@@ -189,8 +188,81 @@ body {
   height: 2px;
   background-color: #fff;
 }
+/* ----------------------------------------- */
+.main__miami-about {
+  padding: 104px 0;
+}
+.miami-about {
+}
+.miami-about__container {
+  display: flex;
+  justify-content: space-between;
+}
 
+.miami-about__title {
+  flex: 0 1 50%;
+  max-width: 310px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  color: #000000;
+}
+.miami-about__link {
+  color: rgba(0, 117, 255, 1);
+  font-weight: 700;
+  transition-duration: 0.3s;
+}
+.miami-about__link:hover {
+  color: rgba(0, 170, 239, 1);
+}
+
+.miami-about__text-block {
+  flex: 0 1 50%;
+}
+.miami-about__subtitle {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  color: #0075FF;
+}
+.miami-about__subtitle:not(:last-child) {
+  margin-bottom: 15px;
+}
+.miami-about__text {
+  font-size: 16px;
+  line-height: 169%;
+}
+.miami-about__paragraph {
+}
+.miami-about__paragraph:not(:last-child) {
+  margin-bottom: 20px;
+}
+.miami-about__paragraph-footer {
+  font-weight: 700;
+}
 /*адаптив*/
+@media (max-width: 650px) {
+  .first__title {
+    max-width: 370px; 
+    font-size: 66px;
+  }
+
+  .main__miami-about {
+    padding: 64px 0;
+  }
+  .miami-about__container {
+    flex-direction: column;
+    gap: 48px;
+  }
+  .miami-about__title {
+    flex: 1 1 100%;
+    max-width: none;
+  }
+  .miami-about__text-block {
+    flex: 1 1 100%;
+  }
+}
 @media (max-width: 535px) {
   /* Header */
   .header__container {
@@ -212,9 +284,20 @@ body {
     gap: 5px;
   }
   /* Main */
-  .first__title {
+  .main__first {
     padding-top: 370px;
+  }
+  .first__title {
     max-width: 250px;
     font-size: 46px;
+  }
+
+  .miami-about__title {
+    font-size: 36px;
+  }
+}
+@media (max-width: 376px) {
+  .miami-about__title {
+    max-width: 238.15px;
   }
 }
