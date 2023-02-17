@@ -34,13 +34,13 @@ body {
   min-height: 128px;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
   align-items: center;
 }
 
 .header__menu {
 }
 .menu {
+  flex: 1 1 33.333%;
 }
 .menu__icon {
   position: relative;
@@ -64,7 +64,8 @@ body {
 }
 
 .header__logo {
-
+  flex: 1 1 33.333%;
+  text-align: center;
 }
 
 .header__phone {
@@ -73,6 +74,8 @@ body {
   display: flex;
   gap: 20px;
   align-items: center;
+  flex: 1 1 33.333%;
+  justify-content: flex-end;
 }
 .phone__number {
   color: rgba(255, 255, 255, 1);
@@ -84,3 +87,4 @@ body {
   height: 24px;
   cursor: pointer;
 }
+
