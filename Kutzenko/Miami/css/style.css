@@ -1,6 +1,7 @@
 body {
   font-family: Roboto;
   font-size: 16px;
+  font-weight: 700;
   color: #3E3E3E;
 }
 .wrapper {
@@ -145,7 +146,6 @@ body {
   color: rgba(255, 255, 255, 1);
   display: none;
   font-size: 12px;
-  font-weight: 700;
   line-height: 133%;
   overflow-wrap: break-word;
 }
@@ -203,7 +203,6 @@ body {
   flex: 0 1 50%;
   max-width: 310px;
   font-size: 48px;
-  font-weight: 700;
   line-height: 100%;
   letter-spacing: -1.5px;
   color: #000000;
@@ -221,7 +220,6 @@ body {
   flex: 0 1 50%;
 }
 .miami-about__subtitle {
-  font-weight: 700;
   font-size: 24px;
   line-height: 125%;
   color: #0075FF;
@@ -234,12 +232,112 @@ body {
   line-height: 169%;
 }
 .miami-about__paragraph {
+  font-weight: 400;
 }
 .miami-about__paragraph:not(:last-child) {
   margin-bottom: 20px;
 }
 .miami-about__paragraph-footer {
   font-weight: 700;
+}
+/* ----------------------------------------- */
+.main__gallery {
+}
+.gallery {
+}
+.gallery__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 104px;
+}
+
+.gallery__title {
+  margin-bottom: 59px;
+}
+.title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+.title__text {
+  font-weight: inherit;
+  font-size: 48px;
+  line-height: 100%;
+  letter-spacing: -1.5px;
+  color: #000000;
+}
+
+.gallery__body {
+  margin-bottom: 32px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.gallery__block {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.gallery__image-block {
+  display: flex;
+  gap: 24px;
+}
+.gallery__image {
+  position: relative;
+  height: 256px;
+  flex: 1 1 50%;
+}
+.gallery__image-big {
+  flex: 1 1 66.666%;
+}
+.gallery__image-small {
+  flex: 1 1 33.333%;
+}
+.gallery__image img {
+  object-fit: cover;
+  border-radius: 8px;
+}
+.gallery__text-block {
+}
+.gallery__text {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 169%;
+}
+.gallery__link {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 169%;
+  color: #0075FF;
+  transition-duration: 0.3s;
+}
+.gallery__link:hover {
+  color: rgba(0, 170, 239, 1);
+}
+
+.gallery__button {
+  display: block;
+  min-height: 56px;
+  padding: 0 46px;
+  border: 2px solid #0075FF;
+  border-radius: 8px;
+  font-size: inherit;
+  font-weight: 700;
+  color: #0075FF;
+  line-height: 56px;
+  transition-duration: 0.3s;
+}
+.gallery__button:hover {
+  color: #FFFFFF;
+  background: #005ECC;
+  border: 2px solid #005ECC;
+  box-shadow: 0px 13px 27px rgba(0, 83, 181, 0.46);
+}
+.gallery__button:active {
+  box-shadow: 0px 8px 14px rgba(0, 83, 181, 0.48);
 }
 /*адаптив*/
 @media (max-width: 650px) {
@@ -261,6 +359,31 @@ body {
   }
   .miami-about__text-block {
     flex: 1 1 100%;
+  }
+
+  .gallery__container {
+    padding-bottom: 64px;
+  }
+  .gallery__title {
+    margin-bottom: 32px;
+  }
+  .gallery__body {
+    gap: 32px;
+  }
+  .gallery__block {
+    gap: 16px;
+  }
+  .gallery__image-block {
+    gap: 20px;
+  }
+  .gallery__image {
+    height: 131px;
+  }
+  .gallery__image-big {
+    flex: 1 1 50%;
+  }
+  .gallery__image-small {
+    flex: 1 1 50%;
   }
 }
 @media (max-width: 535px) {
@@ -295,9 +418,18 @@ body {
   .miami-about__title {
     font-size: 36px;
   }
+
+  .title__text {
+    font-size: 36px;
+  }
 }
 @media (max-width: 376px) {
   .miami-about__title {
     max-width: 238.15px;
+  }
+
+  .gallery__button {
+    width: 100%;
+    text-align: center;
   }
 }
