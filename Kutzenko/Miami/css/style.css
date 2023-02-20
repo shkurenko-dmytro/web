@@ -132,18 +132,36 @@ body {
 }
 .phone__block {
   display: flex;
+  flex-direction: row-reverse;
   gap: 20px;
   align-items: center;
 }
-.phone__block:hover .phone__number {
-  display: block;
-}
 .phone__number {
   color: rgba(255, 255, 255, 1);
-  display: none;
   font-size: 12px;
   line-height: 133%;
   overflow-wrap: break-word;
+  opacity: 0;
+  visibility: hidden;
+  transition-duration: 0.3s;
+}
+body._touch .phone__block {
+  position: relative;
+  flex-direction: column-reverse;
+}
+body._touch .phone__number {
+  position: absolute;
+  top: -20px;
+  right: 0;
+  width: 100px;
+}
+.phone__icon._active ~ .phone__number {
+  opacity: 1;
+  visibility: visible;
+}
+body._pc .phone__icon:hover ~ .phone__number {
+  opacity: 1;
+  visibility: visible;
 }
 .phone__icon {
   position: relative;
