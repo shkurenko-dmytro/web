@@ -51,7 +51,7 @@ body {
 }
 /* Іконка меню */
 .menu__icon {
-  z-index: 5;
+  z-index: 7;
   display: block;
   position: relative;
   width: 24px;
@@ -90,30 +90,106 @@ body {
 .menu__icon:hover::before {
   width: 70%;
 }
+
+.menu__icon._active:hover::before {
+  width: 100%;
+}
+.menu__icon._active:hover::after {
+  width: 100%;
+}
 /* Клік на іконку меню */
-.menu__icon.active span{
+.menu__icon._active span{
   transform: scale(0) translate(0, -50%);
 }
-.menu__icon.active::before {
-  top: 50%;
+.menu__icon._active::before {
+  top: 47%;
   transform: rotate(-45deg) translate(0, -50%);
 }
-.menu__icon.active::after {
+.menu__icon._active::after {
   bottom: 50%;
   transform: rotate(45deg) translate(0, 50%);
 }
 /* ------------------------- */
+.wrapper {
+  position: relative;
+}
 .menu__body {
-  display: none;
+  background-color: rgba(0, 117, 255, 1);
+  z-index: 6;
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  transition-duration: 0.3s;
+}
+.menu__body._active {
+  left: 0;
 }
 .menu__list {
+  padding-top: 153px;
+  padding-bottom: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+.menu__link {
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.menu__link {
+  position: relative;
+  padding-bottom: 8px;
+}
+.menu__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #fff;
+  transition-duration: 0.3s;
+}
+.menu__link:hover::after{
+  width: 100%;
+}
+.menu__sublist {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.menu__sublink {
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 133%;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+}
+.menu__sublink-line {
+  position: relative;
+  padding-bottom: 8px;
+}
+.menu__sublink-line::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 111px;
+  height: 0;
+  border: 1px solid #FFFFFF;
 }
 
 .header__logo {
   flex: 1 1 33.333%;
   display: flex;
   justify-content: center;
-  z-index: 5;
+  z-index: 7;
 }
 .header__logo a {
   display: block;
@@ -551,6 +627,10 @@ body._pc .phone__icon:hover ~ .phone__number {
 }
 /*адаптив*/
 @media (max-width: 650px) {
+  .menu__list {
+    padding-bottom: 210px;
+  }
+
   .first__title {
     max-width: 370px; 
     font-size: 66px;
@@ -613,7 +693,10 @@ body._pc .phone__icon:hover ~ .phone__number {
     height: 45.46px;
     width: 78.59px;
   }
-
+  .menu__list {
+    padding-top: 120px;
+    padding-bottom: 110px;
+  }
   .phone__icon {
     height: 18px;
     width: 18px;
