@@ -209,10 +209,10 @@ body {
 .phone__block {
   display: flex;
   flex-direction: row-reverse;
-  gap: 20px;
   align-items: center;
 }
 .phone__number {
+  padding-right: 20px;
   color: rgba(255, 255, 255, 1);
   font-size: 12px;
   line-height: 133%;
@@ -224,9 +224,11 @@ body {
 body._touch .phone__block {
   position: relative;
   flex-direction: column-reverse;
+  gap: 20px;
 }
 body._touch .phone__number {
   position: absolute;
+  padding-right: 0;
   top: -20px;
   right: 0;
   width: 100px;
@@ -236,6 +238,10 @@ body._touch .phone__number {
   visibility: visible;
 }
 body._pc .phone__icon:hover ~ .phone__number {
+  opacity: 1;
+  visibility: visible;
+}
+body._pc .phone__number:hover {
   opacity: 1;
   visibility: visible;
 }

@@ -27,15 +27,15 @@ const isMobile = {
 };
 
 if(isMobile.any()) {
-  document.body.classList.add('_touch');
+    document.body.classList.add('_touch');
 
   //Вивід номера телефону
-  const phoneIcon = document.querySelector('#phone');
-  phoneIcon.addEventListener('click', function(){
+    const phoneIcon = document.querySelector('#phone');
+    phoneIcon.addEventListener('click', function(){
     phoneIcon.classList.toggle('_active');
-  })
+    })
 }else{
-  document.body.classList.add('_pc');
+    document.body.classList.add('_pc');
 }
 //Прокрутка
 const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
@@ -72,3 +72,12 @@ if(iconMenu){
         menuBody.classList.toggle('_active');
     })
 }
+//Сховати меню при клікі за ним
+document.addEventListener('click', function(e) {
+    if(menuBody.classList.contains('_active')) {
+        if(!e.target.closest('.menu__body') && !e.target.closest('.menu__icon')){
+            iconMenu.classList.remove('_active');
+            menuBody.classList.remove('_active');
+        }
+    }
+})
