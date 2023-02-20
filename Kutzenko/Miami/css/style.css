@@ -595,12 +595,13 @@ body {
     height: 45.46px;
     width: 78.59px;
   }
+
   .phone__icon {
     height: 18px;
     width: 18px;
   }
   .menu__icon {
-    height: 15px;
+    height: 16px;
     width: 18px;
   }
   .phone__block {
@@ -656,7 +657,7 @@ body {
     padding: 150px 0 25.64px 0;
   }
   .footer__logo a {
-    height: 45.46px;
+    height: 46px;
     width: 78.59px;
   }
 }
