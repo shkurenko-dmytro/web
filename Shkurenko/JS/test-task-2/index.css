@@ -67,16 +67,10 @@ body {
     color: #fff;
     text-transform: uppercase;
 }
-.search-block__select select option  {
-    color: #fff;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-}
 .search-block {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap : 10px;
     margin-bottom: 10px;
 }
 .sort-block {
@@ -100,7 +94,7 @@ body {
 .result-block__table::-webkit-scrollbar {
     width: 5px;
     height: 5px;
-    background-color: #fff;
+    background-color: #222;
 }
 .result-block__table::-webkit-scrollbar-thumb {
     background-color: #ff1867;
@@ -125,6 +119,7 @@ input{
     letter-spacing: 0.1em;
     border: #ff1867 solid 1px;
 }
+
 input:focus {
     transition: 1s;
     color: #ff1867;
@@ -177,4 +172,52 @@ th{
     position: sticky;
     top: 0px;
     background-color: #222;
+}
+.search-block__select-block {
+    display: flex;
+    align-items: center;
+}
+.straight{
+    content: "afwef3r";
+}
+@media (max-width: 560px) {
+    .search-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .search-block__select-block{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+
+    }
+    .search-block__select {
+        /* margin-bottom: 10px; */
+        display: block;
+    }
+    .search-block__input, input {
+        width: 100%;
+    }
+    .search-block__button button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .search-block__button{
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .btn span:nth-child(2){
+        display: none;
+    }
+    .result-block__table{
+        max-height: fit-content;
+        table-layout: fixed;
+    }
+    td{
+        border-bottom: #ae496c solid 1px;
+    }
 }
