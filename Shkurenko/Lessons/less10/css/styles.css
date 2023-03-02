@@ -1,0 +1,116 @@
+/*Обнуление*/
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+
+/*==========================================================*/
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 20px;
+    padding: 163px 309px 104px 290px;    
+    background-color: #e8e8e8;
+    
+}
+.list1 {
+    margin: 0 0 81px 0; 
+}
+ul li{
+    list-style-image: url('../Source/check_icon_39.png');
+    line-height: 36px;
+
+}
+
+.list1 li:nth-child(1) {
+    
+    text-decoration: line-through;
+    color: #273d46;
+
+}
+.list1 li:nth-child(2) {
+    font-weight: 700;
+    color: #273d46;
+}
+.list1 li:nth-child(3) {
+    
+    
+    font-style: italic;
+    color: #273d46;
+}
+.list1 li:nth-child(4) {
+    
+    text-transform: uppercase;
+    color: #273d46;
+}
+.list2 li:nth-child(2):hover{
+    color: red;
+    list-style-image: url(../Source/check_icon_95.png) ;
+}
+.button {
+    display: block;
+    margin: 137px 0 124px 25px;
+    text-align: center;
+    width: 199px;
+    height: 44px;
+    
+    background-image: url("../Source/shape_2_81.png") ;
+    background-repeat: no-repeat;
+    
+  
+    background-position: right 30px top 15px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    padding-top: 1%;
+    background-color: #80b7b3;
+    box-shadow: 0px 6px 40px 0px;
+    border-radius: 40px ;
+    color: white;
+}
+.button:hover{
+
+    background-color: #3a5856;
+box-shadow: 0px 6px 40px 0px rgba(128,183,179,0.54);
+}
+.button:active{
+    background-color: #818181;
+}
+.inp{
+    width: 294px;
+height: 52px;
+margin-bottom: 100px;
+border: 1px solid #b0b0b0;
+}
+.inp:focus{
+    border: 1px solid #7fbed5;
+box-shadow: 0px 0px 20px -1px rgba(127,190,213,0.93);
+}

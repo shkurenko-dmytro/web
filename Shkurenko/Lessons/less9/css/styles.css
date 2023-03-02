@@ -1,0 +1,151 @@
+/*Обнуление*/
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    line-height: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+
+/*==========================================================*/
+body{
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 14px;
+    padding: 10px 50px 30px 50px;    
+    background-color: #e8e8e8;
+    
+    
+}
+.top {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-transform: uppercase;
+    opacity: 0.6;
+    letter-spacing: 0.2em;
+    line-height: 40px;
+}
+.head {
+    margin:30px auto;
+    text-align: center;
+    max-width: 40%;
+    font-family: 'Times New Roman';
+    font-size: 36px;
+    line-height: 50px;
+    color: #273d46;
+}
+.image{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+   border: 10px solid white;
+}
+.big_txt {
+    margin: 20px 30%;
+    
+    opacity: 0.8;
+    font-family: 'Times New Roman';
+    font-size: 24px;
+    line-height: 40px;
+    font-weight: 400;
+    color: #273d46;
+    
+    min-width: 42%;
+}
+
+ul li{
+    
+
+   list-style-image: url("../Source/img/check_icon_39.png");
+   
+   
+    
+    margin: 20px 32%;
+    font-family: Arial;
+    font-size: 20px;
+    line-height: 36px;
+}
+.one {
+    font-weight: 400;
+text-shadow: 0px 1px 0px rgba(2, 2, 2, 0.3);
+color: #273d46
+}
+.two {
+    font-style: italic;
+color: #80b7b3;
+}
+.three {
+    font-weight: 700;
+color: #273d46;
+}
+span.list{
+    opacity: 0.3;
+}
+li.four {
+    
+    
+    
+    text-decoration: line-through;
+    color: #273d46;
+}
+.sp{
+    text-align: center;
+   margin: bottom 30px;
+
+}
+.button{
+    display: block;
+    margin: 30px 30%;
+    text-align: center;
+    width: 199px;
+    height: 44px;
+    
+    background-image: url("../Source/img/shape_2_9.png") ;
+    background-repeat: no-repeat;
+    
+  
+    background-position: right 30px top 15px;
+    padding-right: 30px;
+    padding-bottom: 30px;
+    background-color: #80b7b3;
+    box-shadow: 0px 6px 40px 0px;
+    border-radius: 20px ;
+
+
+
+    
+    font-family: Arial;
+    font-size: 14px;
+    line-height: 44px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: #ffffff;
+}

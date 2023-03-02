@@ -1,0 +1,223 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:100,200,300,regular,500,600,700,800,900);
+/* Обнуление */
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+*,*::before,*::after{
+
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+nav,footer,header,aside{display: block;}
+html,body{
+    height: 100%;
+    width: 100%;
+    font-size: 100%;
+    font-size: 14px;
+    -ms-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family: inherit;}
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner{padding: 0;border: 0;}
+a,a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size: inherit;font-weight: 400;}
+
+/*================*/
+body {
+    padding: 10px 20px;
+    display: flex;
+    align-items: start;
+    flex: 1 1 auto;
+    justify-content: center;
+    background-color: #222;
+    font-family: "Inter";
+    color:#9E9E9E;
+    font-weight: 500;
+    letter-spacing: 0.5%;
+    color: #fff;
+    letter-spacing: 1px;
+}
+.wrapper {
+    width: 100%;
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    justify-content: center;
+    background-color: #222;
+}
+.option-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.search-block__select select  {
+    color: #fff;
+    text-transform: uppercase;
+}
+.search-block {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.sort-block {
+    display: flex;
+    gap: 10px;
+    justify-content: start;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.result-block__title {
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+.result-block__table {
+    display: flex;
+    max-height: 500px;
+    justify-content: space-between;
+    table-layout: inherit;
+    overflow: auto;
+}
+.result-block__table::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+    background-color: #222;
+}
+.result-block__table::-webkit-scrollbar-thumb {
+    background-color: #ff1867;
+}
+table{
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    
+}
+.btn{
+    width: 100%;
+}
+input{
+    color: #fff;
+    width: 210px;
+    height: 40px;
+    padding: 5px 5px;
+    transition: 0.5s;
+    position: relative;
+    background-color: #222;
+    letter-spacing: 0.1em;
+    border: #ff1867 solid 1px;
+}
+
+input:focus {
+    transition: 1s;
+    color: #ff1867;
+    box-shadow: 0 0 45px #ff1867; 
+}
+
+select{
+    display: block;
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    height: 40px;
+    background-color: #222;
+}
+button{
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 5px 5px;
+    transition: 0.5s;
+    position: relative;
+    background: #333;
+    border: none;
+    color: #fff;
+    border: #ff1867 solid 1px;
+}
+button:hover{
+    background: #ff1867;
+    color: #ff1867;
+    box-shadow: 0 0 45px #ff1867; 
+}
+button::before {
+    content: '';
+    position: absolute;
+    inset: 1px;
+    background: #222222;
+}
+button span {
+    position: relative;
+    z-index: 1;
+}
+button:active{
+    transition: 0.15s;
+    background: #ff1867;
+    color: #ff1867;
+    box-shadow: 0 0 5px #ff1867; 
+}
+tr:not(:first-child):hover{
+    color: #ff1867;
+}
+th{
+    position: sticky;
+    top: 0px;
+    background-color: #222;
+}
+.search-block__select-block {
+    display: flex;
+    align-items: center;
+}
+.straight{
+    content: "afwef3r";
+}
+@media (max-width: 560px) {
+    .search-block {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .search-block__select-block{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 80%;
+
+    }
+    .search-block__select {
+        /* margin-bottom: 10px; */
+        display: block;
+    }
+    .search-block__input, input {
+        width: 100%;
+    }
+    .search-block__button button {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+    .search-block__button{
+        width: 100%;
+    }
+}
+@media (max-width: 480px) {
+    .btn span:nth-child(2){
+        display: none;
+    }
+    .result-block__table{
+        max-height: fit-content;
+        table-layout: fixed;
+    }
+    td{
+        border-bottom: #ae496c solid 1px;
+    }
+}

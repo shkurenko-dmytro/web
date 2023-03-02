@@ -1,0 +1,95 @@
+[   {},
+    {
+        "brand" : "AIR JORDAN",
+        "model" : " AIR JORDAN 1 MID LIGHT SMOKE GREY",
+
+        "description" : "The popularity of Jordan 1s haven’t changed since their release in 1984. The classic silhouette has been seen in countless colorways over the years. Sneakerheads in their teens and twenties also love to wear Air Jordan 1s, in their eyes the original AJ1s are already part of sneaker history. This is proof of being truely iconic, isn’t it?",
+
+        "sizes" : ["SKU: 554724-073 EU40.5-EU47",  
+                    "SKU: 554725-073 (GS) EU36-EU40", 
+                    "Release date: October 2020"
+                ],
+
+
+        "price" : 360,
+        "image" : "images/qw.png"
+    },
+    {
+        "brand" : "AIR JORDAN",
+        "model" : "AIR JORDAN 1 ZOOM CMFT STADIUM GREEN",
+    
+        "description" : "The first Air Jordan 1 colorway was introduced in 1984 and the success of the silhouette is unbroken. Countless colorways and collaborations have been released since then, many of them have become true icons. AJ1s are undoubtedly one of the most popular sneakers for sneakerheads today.",
+    
+        "sizes" : ["SKU: CT0979-300",  
+                    "Release date: April 2021", 
+                    "Colorway: STADIUM GREEN/WHITE-BLACK"
+                ],
+    
+    
+        "price" : 320,
+        "image" : "images/2.png"
+    },
+    {
+            "brand" : "AIR JORDAN",
+            "model" : "AIR JORDAN 1 RETRO HIGH OG ROYAL TOE",
+        
+            "description" : "The collaboration between Michael Jordan and Nike has a successful history amounting to almost four decades. More than thirty-four generations of Jordan sneakers have already been released, but the “One” has a special place in the heart of sneaker fans. Endless number of colorways have already been released, so everybody can find his/her favourite Air Jordan 1s.",
+        
+            "sizes" : ["SKU: 555088-041 EU40.5-EU47",  
+                        "SKU: 575441-041 (GS) EU36-EU40", 
+                        " Release date: May 2020",
+                        " Colorway: BLACK/WHITE-GAME ROYAL-BLACK"
+                    ],
+        
+        
+            "price" : 320,
+            "image" : "images/3.png"
+    },
+            {
+                "brand" : "AIR JORDAN",
+                "model" : "AIR JORDAN 1 RETRO HIGH OG ROYAL TOE",
+            
+                "description" : "The popularity of Jordan 1s haven’t changed since their release in 1984. The classic silhouette has been seen in countless colorways over the years. Sneakerheads in their teens and twenties also love to wear Air Jordan 1s, in their eyes the original AJ1s are already part of sneaker history. This is proof of being truely iconic, isn’t it?",
+            
+                "sizes" : ["SKU: 554724-073 EU40.5-EU47",  
+                            "SKU: 554725-073 (GS) EU36-EU40", 
+                            "Release date: October 2020"
+                        ],
+            
+            
+                "price" : 320,
+                "image" : "images/4.png"
+                },
+                {
+                    "brand" : "AIR JORDAN",
+                    "model" : "AIR JORDAN 1 MID ISLAND GREEN ",
+                
+                    "description" : "The first Air Jordan 1 colorway was introduced in 1984 and the success of the silhouette is unbroken. Countless colorways and collaborations have been released since then, many of them have become true icons. AJ1s are undoubtedly one of the most popular sneakers for sneakerheads today.",
+                
+                    "sizes" : ["SKU: 554724-132 EU40.5-EU47",  
+                                "SKU: 554725-073 (GS) EU36-EU40", 
+                                "Release date: June 2021",
+                                " Colorway: WHITE/BLACK-TROPICAL TWIST"
+                            ],
+                
+                
+                    "price" : 290,
+                    "image" : "images/5.png"
+                    },
+                    {
+                        "brand" : "AIR JORDAN",
+                        "model" : "AIR JORDAN 1 MID GS 'CHICAGO 2020'",
+                    
+                        "description" : "The first Air Jordan 1 colorway was introduced in 1984 and the success of the silhouette is unbroken. Countless colorways and collaborations have been released since then, many of them have become true icons. AJ1s are undoubtedly one of the most popular sneakers for sneakerheads today.",
+                    
+                        "sizes" : ["SKU: 554724-073 EU40.5-EU47",  
+                                    "SKU: 554725-073 (GS) EU36-EU40", 
+                                    "Release date: July 2020 July"
+                                ],
+                    
+                    
+                        "price" : 360,
+                        "image" : "images/6.png"
+                        }
+
+]
