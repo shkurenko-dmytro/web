@@ -138,14 +138,15 @@ body {
 }
 /* ---------------------------------------- */
 .my-swiper {
+  
 }
 .my-swiper__box {
 }
 .my-swiper__body {
   display: flex;
+  justify-content: space-between;
 }
 .swiper-slide {
-  display: flex;
 }
 .my-swiper__text {
   margin-top: 92px;
@@ -177,6 +178,11 @@ body {
   border-radius: 50px;
 }
 .my-swiper__watch-box {
+  margin-right: 94px;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .my-swiper__watch {
   position: relative;
@@ -184,12 +190,60 @@ body {
   height: 489px;
 }
 .my-swiper__background {
+  width: 309px;
+  height: 50px;
+  filter: blur(20.5px);
+  margin-bottom: 50px;
 }
+
+.my-swiper__count {
+  margin-top: 20px;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  padding-left: 10px;
+}
+.swiper-btn-prev {
+  padding-right: 10px;
+  transition-duration: 0.3s;
+}
+.swiper-btn-next {
+  padding-left: 10px;
+  transition-duration: 0.3s;
+}
+.swiper-btn-prev span, .swiper-btn-next span{
+  border: solid #FFFFFF;
+  border-width: 0 3px 3px 0;
+  display: block;
+  padding: 3px;
+}
+.swiper-btn-prev span {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+.swiper-btn-next span {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+.swiper-btn-prev:hover, .swiper-btn-next:hover {
+  transform: scale(1.5);
+}
+.my-swiper__number {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 150%;
+  color: #FFFFFF;
+}
+
 .black {
+  background: #44475A;
 }
 .blue {
+  background: #ABC6D6;
 }
 .green {
+  background: #3DCCB8;
 }
 .pink {
+  background: #F1C1BB;
 }
