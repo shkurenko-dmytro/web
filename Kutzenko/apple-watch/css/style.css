@@ -82,6 +82,8 @@ body {
   background: linear-gradient(89.83deg, #404356 0.17%, rgba(192, 213, 224, 0) 165.01%);
   border-radius: 20px 0px 0px 20px;
   padding-left: 75px;
+  /* Якщо слайдер всередині флекс-контейнера */
+  min-width: 0;
 }
 .page__header {
 }
@@ -135,3 +137,59 @@ body {
 .search__bag-icon {
 }
 /* ---------------------------------------- */
+.my-swiper {
+}
+.my-swiper__box {
+}
+.my-swiper__body {
+  display: flex;
+}
+.swiper-slide {
+  display: flex;
+}
+.my-swiper__text {
+  margin-top: 92px;
+  display: flex;
+  flex-direction: column;
+  gap: 84px;
+  max-width: 673px;
+}
+.my-swiper__paragraph {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 150%;
+  color: #FFFFFF;
+}
+.my-swiper__paragraph span {
+  font-weight: 700;
+}
+.my-swiper__button {
+  display: block;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 70px;
+  text-align: center;
+  color: #FFFFFF;
+  width: 250px;
+  min-height: 70px;
+  left: 190px;
+  border: 3px solid #FFFFFF;
+  border-radius: 50px;
+}
+.my-swiper__watch-box {
+}
+.my-swiper__watch {
+  position: relative;
+  width: 489px;
+  height: 489px;
+}
+.my-swiper__background {
+}
+.black {
+}
+.blue {
+}
+.green {
+}
+.pink {
+}
