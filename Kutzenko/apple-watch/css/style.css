@@ -136,6 +136,8 @@ body {
 }
 
 .page__body {
+  display: flex;
+  justify-content: space-between;
 }
 .page__text {
   max-width: 673px;
@@ -178,15 +180,55 @@ body {
 }
 .page__watch {
   position: relative;
+  margin-top: 20px;
+  width: 489px;
+  height: 489px;
+}
+.page__watch-background {
+  position: absolute;
+  bottom: -45px;
+  left: 20%;
+  width: 309px;
+  height: 50px;
+  background: #44475A;
+  filter: blur(20.5px);
 }
 .page__watch-cards {
+  display: flex;
+  justify-content: center;
+  gap: 67px;
+  margin-top: 90px;
 }
 .page__watch-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .page__watch-image {
   position: relative;
+  z-index: 5;
+  width: 90px;
+  height: 90px;
 }
-.page__watch-background {
+.page__card-background {
+  position: absolute;
+  top: 30px;
+  width: 131px;
+  height: 70px;
+  border-radius: 10px;
+}
+.page__card-background-blue {
+  background: #C1D6E1;
+}
+.page__card-background-green {
+  background: rgba(106, 221, 204, 0.6);
+}
+.page__card-background-pink {
+  background: rgba(249, 205, 196, 0.6);
+}
+.page__card-background-black {
+  background: rgba(67, 69, 88, 0.6);
 }
 .page__dots {
 }
