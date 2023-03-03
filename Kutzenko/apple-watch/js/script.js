@@ -4,4 +4,10 @@ new Swiper('.my-swiper', {
     nextEl: '.swiper-btn-next',
     prevEl: '.swiper-btn-prev'
   },
+  // Прогресбар
+  pagination: {
+    el: '.swiper-pagination',
+    // Буллети
+    clickable: true,
+  },
 });

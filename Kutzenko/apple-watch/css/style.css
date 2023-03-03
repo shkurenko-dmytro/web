@@ -82,6 +82,7 @@ body {
   background: linear-gradient(89.83deg, #404356 0.17%, rgba(192, 213, 224, 0) 165.01%);
   border-radius: 20px 0px 0px 20px;
   padding-left: 75px;
+  padding-right: 75px;
   /* Якщо слайдер всередині флекс-контейнера */
   min-width: 0;
 }
@@ -138,7 +139,6 @@ body {
 }
 /* ---------------------------------------- */
 .my-swiper {
-  
 }
 .my-swiper__box {
 }
@@ -149,10 +149,10 @@ body {
 .swiper-slide {
 }
 .my-swiper__text {
-  margin-top: 92px;
+  margin-top: 62px;
   display: flex;
   flex-direction: column;
-  gap: 84px;
+  gap: 54px;
   max-width: 673px;
 }
 .my-swiper__paragraph {
@@ -179,7 +179,7 @@ body {
 }
 .my-swiper__watch-box {
   margin-right: 94px;
-  margin-top: 30px;
+  margin-top: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -193,15 +193,16 @@ body {
   width: 309px;
   height: 50px;
   filter: blur(20.5px);
-  margin-bottom: 50px;
 }
 
 .my-swiper__count {
-  margin-top: 20px;
   display: flex;
   gap: 5px;
   align-items: center;
   padding-left: 10px;
+}
+.swiper-btn-prev, .swiper-btn-next {
+  cursor: pointer;
 }
 .swiper-btn-prev {
   padding-right: 10px;
@@ -234,7 +235,6 @@ body {
   line-height: 150%;
   color: #FFFFFF;
 }
-
 .black {
   background: #44475A;
 }
@@ -246,4 +246,26 @@ body {
 }
 .pink {
   background: #F1C1BB;
+}
+
+.my-swiper .swiper-pagination__box {
+  position: absolute;
+  left: 94%;
+  top: 55%;
+}
+.my-swiper .swiper-pagination {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 31px;
+}
+.my-swiper .swiper-pagination-bullet {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border: 3px solid #FFFFFF;
+}
+.my-swiper .swiper-pagination-bullet-active {
+  width: 30px;
+  height: 30px;
 }
