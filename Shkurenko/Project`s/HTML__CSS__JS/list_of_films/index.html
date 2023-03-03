@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Movies</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <div class="wrapper">
+        <div class="option-block">
+            <div class="search-block">
+                <div class="search-block__input">
+                    <input placeholder="Search movie" type="text">
+                </div>
+                <div class="search-block__select-block">
+                    <div class="search-block__title">Search by : </div>
+                    <div class="search-block__select">
+                        <select >
+                            <option value="Title">Title</option>
+                            <option value="Year">Year</option>
+                            <option value="Runtime">Runtime</option>
+                        </select>
+                    </div>
+                </div >
+                <div class="search-block__button">
+                    <button><span>Search</span><i></i></button>
+                </div>
+            </div>
+        </div>
+            <div class="result-block">
+                <div class="result-block__title">Result</div>
+                <div class="result-block__table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><button class="btn btn__title straight"><span>Title</span><span></span> <i></i></button></th>
+                                <th><button class="btn btn__year straight"><span>Year</span><span></span><i></i></button></th>
+                                <th><button class="btn btn__runtime straight"><span>Runtime</span><span></span><i></i></button></th>
+                            </tr>
+                        </thead>
+                        <tbody >
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+</html>

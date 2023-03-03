@@ -79,8 +79,17 @@ body{
     justify-content: space-between;
 }
 .header__gender button{
-    
+    text-decoration: none;
+    background-image: linear-gradient(currentColor, currentColor);
+    background-position: 50% 100%;
+    background-repeat: no-repeat;
+    background-size: 0% 2px;
+    transition: background-size .3s;
     font-size: 20px;
+}
+.header__gender button:hover{
+    background-size: 100% 2px;
+    
 }
 .header__title {
     max-width: 288px;
@@ -104,6 +113,12 @@ body{
     width: 158px;
     display: flex;
     justify-content: space-between;
+}
+
+.header__nav a :hover{
+    transition: all 0.3s ease;
+    transform: scaleX(1.2);
+    
 }
 .card-block {
     position: relative;
@@ -208,6 +223,14 @@ body{
     font-size: 32px;
     font-weight: 700;
 }
+.button-block__button:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.1);
+}
+.button-block__button:active{
+    transition: all 0.1s ease;
+    transform: scaleY(0.9);
+}
 .switch-language__block {
     width: 150px;
     display: flex;
@@ -221,6 +244,10 @@ body{
     font-weight: 600;
     font-style: 20px;
     text-decoration: uppercase;
+}
+.switch-language__button:hover{
+    transition: all 0.3s ease;
+    transform: scale(1.1);
 }
 .switch {
     font-size: 17px;
