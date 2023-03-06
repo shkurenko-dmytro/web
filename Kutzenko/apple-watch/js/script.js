@@ -30,6 +30,8 @@ let fbLinkNode = document.querySelector('.panel__facebook');
 let instLinkNode = document.querySelector('.panel__instagram');
 let twitterLinkNode = document.querySelector('.panel__twitter');
 
+let iconPanelNode = document.querySelector('.panel__icon');
+
 mySlider.on('slideChange', function(){
   switch (mySlider.realIndex){
     case 1:
@@ -39,6 +41,8 @@ mySlider.on('slideChange', function(){
       fbLinkNode.style.fill = '#4B4F61';
       instLinkNode.style.fill = '#4B4F61';
       twitterLinkNode.style.fill = '#4B4F61';
+
+      iconPanelNode.style.setProperty('--panel-icon-color', '#4D5062');
       break;
     case 2:
       pageNode.style.background = 'linear-gradient(89.83deg, #C0D5E0 0.17%, rgba(192, 213, 224, 0) 165.01%)';
@@ -47,6 +51,8 @@ mySlider.on('slideChange', function(){
       fbLinkNode.style.fill = '#B6CCDA';
       instLinkNode.style.fill = '#B6CCDA';
       twitterLinkNode.style.fill = '#B6CCDA';
+
+      iconPanelNode.style.setProperty('--panel-icon-color', '#C6DBE5');
       break;
     case 3:
       pageNode.style.background = 'linear-gradient(89.83deg, #78DCD0 0.17%, rgba(192, 213, 224, 0) 165.01%)';
@@ -55,6 +61,8 @@ mySlider.on('slideChange', function(){
       fbLinkNode.style.fill = '#7ADCD1';
       instLinkNode.style.fill = '#7ADCD1';
       twitterLinkNode.style.fill = '#7ADCD1';
+
+      iconPanelNode.style.setProperty('--panel-icon-color', '#7BDCD1');
       break;
     case 4:
       pageNode.style.background = 'linear-gradient(89.83deg, #F0C7C1 0.17%, rgba(192, 213, 224, 0) 165.01%)';
@@ -63,6 +71,8 @@ mySlider.on('slideChange', function(){
       fbLinkNode.style.fill = '#F0C7C1';
       instLinkNode.style.fill = '#F0C7C1';
       twitterLinkNode.style.fill = '#F0C7C1';
+
+      iconPanelNode.style.setProperty('--panel-icon-color', '#F0C7C1');
       break;
     default:
       break

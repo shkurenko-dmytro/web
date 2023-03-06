@@ -42,6 +42,8 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
   /* --swiper-pagination-bullet-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 4px;
   --swiper-pagination-bullet-vertical-gap: 6px; */
+
+  
 }
 body {
   font-family: Poppins;
@@ -77,6 +79,7 @@ body {
   width: 40px;
   height: 32px;
   cursor: pointer;
+  --panel-icon-color: #4D5062;
 }
 .panel__icon span,
 .panel__icon::before,
@@ -87,7 +90,7 @@ body {
   height: 3px;
   width: 100%;
   transition: all 0.3s ease 0s;
-  background-color: #4D5062;
+  background-color: var(--panel-icon-color);
 }
 .panel__icon::before,
 .panel__icon::after {
