@@ -122,9 +122,10 @@ body {
   gap: 30px;
 }
 .panel__social-link {
+  transition-duration: 0.3s;
 }
-.panel__facebook {
-  
+.panel__social-link:hover {
+  opacity: 0.7;
 }
 
 .page {
@@ -158,10 +159,24 @@ body {
   gap: 76px;
 }
 .menu__link {
+  position: relative;
   font-weight: 500;
   font-size: 20px;
   line-height: 170%;
   color: #FFFFFF;
+}
+.menu__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #FFFFFF;
+  transition-duration: 0.3s;
+}
+.menu__link:hover::after {
+  width: 100%;
 }
 .active-link {
   font-weight: 600;
@@ -177,6 +192,7 @@ body {
   align-items: center;
 }
 .search__icon {
+  
 }
 .search span {
   width: 24px;
@@ -186,6 +202,13 @@ body {
   margin: 0 15px;
 }
 .search__bag-icon {
+  
+}
+.search__icon,  .search__bag-icon{
+  transition-duration: 0.3s;
+}
+.search__icon:hover,  .search__bag-icon:hover {
+  transform: scale(1.3);
 }
 /* ---------------------------------------- */
 .my-swiper {
@@ -226,6 +249,11 @@ body {
   left: 190px;
   border: 3px solid #FFFFFF;
   border-radius: 50px;
+  transition-duration: 0.3s;
+}
+.my-swiper__button:hover {
+  color: gray;
+  background-color: #FFFFFF;
 }
 .my-swiper__watch-box {
   margin-right: 94px;

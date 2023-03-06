@@ -23,6 +23,13 @@ mySlider.on('slideChange', function(){
 })
 
 //Зміна кольорів при зміні слайду
+const COLORS = {
+  black: '#404356',
+  blue: '#C0D5E0',
+  green: '#78DCD0',
+  pink: '#F0C7C1'
+}
+
 let pageNode = document.querySelector('.page');
 let activeLinkHeader = document.querySelector('.active-link');
 
@@ -35,44 +42,44 @@ let iconPanelNode = document.querySelector('.panel__icon');
 mySlider.on('slideChange', function(){
   switch (mySlider.realIndex){
     case 1:
-      pageNode.style.background = 'linear-gradient(89.83deg, #404356 0.17%, rgba(192, 213, 224, 0) 165.01%)';
-      activeLinkHeader.style.color = 'rgba(66, 69, 88, 1)';
+      pageNode.style.background = `linear-gradient(89.83deg, ${COLORS.black} 0.17%, rgba(192, 213, 224, 0) 165.01%)`;
+      activeLinkHeader.style.color = COLORS.black;
 
-      fbLinkNode.style.fill = '#4B4F61';
-      instLinkNode.style.fill = '#4B4F61';
-      twitterLinkNode.style.fill = '#4B4F61';
+      fbLinkNode.style.fill = COLORS.black;
+      instLinkNode.style.fill = COLORS.black;
+      twitterLinkNode.style.fill = COLORS.black;
 
-      iconPanelNode.style.setProperty('--panel-icon-color', '#4D5062');
+      iconPanelNode.style.setProperty('--panel-icon-color', COLORS.black);
       break;
     case 2:
-      pageNode.style.background = 'linear-gradient(89.83deg, #C0D5E0 0.17%, rgba(192, 213, 224, 0) 165.01%)';
-      activeLinkHeader.style.color = 'rgba(198, 219, 229, 1)';
+      pageNode.style.background = `linear-gradient(89.83deg, ${COLORS.blue} 0.17%, rgba(192, 213, 224, 0) 165.01%)`;
+      activeLinkHeader.style.color = COLORS.blue;
 
-      fbLinkNode.style.fill = '#B6CCDA';
-      instLinkNode.style.fill = '#B6CCDA';
-      twitterLinkNode.style.fill = '#B6CCDA';
+      fbLinkNode.style.fill = COLORS.blue;
+      instLinkNode.style.fill = COLORS.blue;
+      twitterLinkNode.style.fill = COLORS.blue;
 
-      iconPanelNode.style.setProperty('--panel-icon-color', '#C6DBE5');
+      iconPanelNode.style.setProperty('--panel-icon-color', COLORS.blue);
       break;
     case 3:
-      pageNode.style.background = 'linear-gradient(89.83deg, #78DCD0 0.17%, rgba(192, 213, 224, 0) 165.01%)';
-      activeLinkHeader.style.color = 'rgba(121, 220, 208, 1)';
+      pageNode.style.background = `linear-gradient(89.83deg, ${COLORS.green} 0.17%, rgba(192, 213, 224, 0) 165.01%)`;
+      activeLinkHeader.style.color = COLORS.green;
 
-      fbLinkNode.style.fill = '#7ADCD1';
-      instLinkNode.style.fill = '#7ADCD1';
-      twitterLinkNode.style.fill = '#7ADCD1';
+      fbLinkNode.style.fill = COLORS.green;
+      instLinkNode.style.fill = COLORS.green;
+      twitterLinkNode.style.fill = COLORS.green;
 
-      iconPanelNode.style.setProperty('--panel-icon-color', '#7BDCD1');
+      iconPanelNode.style.setProperty('--panel-icon-color', COLORS.green);
       break;
     case 4:
-      pageNode.style.background = 'linear-gradient(89.83deg, #F0C7C1 0.17%, rgba(192, 213, 224, 0) 165.01%)';
-      activeLinkHeader.style.color = 'rgba(240, 199, 193, 1)';
+      pageNode.style.background = `linear-gradient(89.83deg, ${COLORS.pink} 0.17%, rgba(192, 213, 224, 0) 165.01%)`;
+      activeLinkHeader.style.color = COLORS.pink;
 
-      fbLinkNode.style.fill = '#F0C7C1';
-      instLinkNode.style.fill = '#F0C7C1';
-      twitterLinkNode.style.fill = '#F0C7C1';
+      fbLinkNode.style.fill = COLORS.pink;
+      instLinkNode.style.fill = COLORS.pink;
+      twitterLinkNode.style.fill = COLORS.pink;
 
-      iconPanelNode.style.setProperty('--panel-icon-color', '#F0C7C1');
+      iconPanelNode.style.setProperty('--panel-icon-color', COLORS.pink);
       break;
     default:
       break
