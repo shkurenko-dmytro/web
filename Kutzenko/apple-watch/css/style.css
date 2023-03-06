@@ -42,8 +42,6 @@ h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
   /* --swiper-pagination-bullet-opacity: 1;
   --swiper-pagination-bullet-horizontal-gap: 4px;
   --swiper-pagination-bullet-vertical-gap: 6px; */
-
-  
 }
 body {
   font-family: Poppins;
@@ -60,7 +58,20 @@ body {
   height: 100%;
   object-fit: contain;
 }
-
+/* Кольори */
+.black {
+  background: #44475A;
+}
+.blue {
+  background: #ABC6D6;
+}
+.green {
+  background: #3DCCB8;
+}
+.pink {
+  background: #F1C1BB;
+}
+/* ------------------- */
 .panel {
   padding: 50px;
 }
@@ -218,6 +229,7 @@ body {
 .my-swiper__body {
   display: flex;
   justify-content: space-between;
+  gap: 20px;
 }
 .swiper-slide {
 }
@@ -312,18 +324,6 @@ body {
   font-size: 28px;
   line-height: 150%;
   color: #FFFFFF;
-}
-.black {
-  background: #44475A;
-}
-.blue {
-  background: #ABC6D6;
-}
-.green {
-  background: #3DCCB8;
-}
-.pink {
-  background: #F1C1BB;
 }
 
 .my-swiper .swiper-pagination__box {

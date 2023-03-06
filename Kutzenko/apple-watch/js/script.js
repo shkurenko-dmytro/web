@@ -15,6 +15,74 @@ let mySlider = new Swiper('.my-swiper', {
   },
 });
 
+//Додання слайдів
+mySlider.appendSlide([
+  `<div class="swiper-slide">
+    <div class="my-swiper__body">
+      <div class="my-swiper__text">
+        <p class="my-swiper__paragraph">
+          <span>Perfect Moment</span> Between Past And Future.
+        </p>
+        <a href="#" class="my-swiper__button">Buy Now</a>
+      </div>
+      <div class="my-swiper__watch-box">
+        <div class="my-swiper__watch">
+          <img class="ibg" src="./img/page-body/black-big.png" alt="">
+        </div>
+        <div class="my-swiper__background black"></div>
+      </div>
+    </div>
+  </div>`,
+  `<div class="swiper-slide">
+    <div class="my-swiper__body">
+      <div class="my-swiper__text">
+        <p class="my-swiper__paragraph">
+          <span>Perfect Moment</span> Between Past And Future.
+        </p>
+        <a href="#" class="my-swiper__button">Buy Now</a>
+      </div>
+      <div class="my-swiper__watch-box">
+        <div class="my-swiper__watch">
+          <img class="ibg" src="./img/page-body/blue-big.png" alt="">
+        </div>
+        <div class="my-swiper__background blue"></div>
+      </div>
+    </div>
+  </div>`,
+  `<div class="swiper-slide">
+    <div class="my-swiper__body">
+      <div class="my-swiper__text">
+        <p class="my-swiper__paragraph">
+          <span>Perfect Moment</span> Between Past And Future.
+        </p>
+        <a href="#" class="my-swiper__button">Buy Now</a>
+      </div>
+      <div class="my-swiper__watch-box">
+        <div class="my-swiper__watch">
+          <img class="ibg" src="./img/page-body/green-big.png" alt="">
+        </div>
+        <div class="my-swiper__background green"></div>
+      </div>
+    </div>
+  </div>`,
+  `<div class="swiper-slide">
+    <div class="my-swiper__body">
+      <div class="my-swiper__text">
+        <p class="my-swiper__paragraph">
+          <span>Perfect Moment</span> Between Past And Future.
+        </p>
+        <a href="#" class="my-swiper__button">Buy Now</a>
+      </div>
+      <div class="my-swiper__watch-box">
+        <div class="my-swiper__watch">
+          <img class="ibg" src="./img/page-body/pink-big.png" alt="">
+        </div>
+        <div class="my-swiper__background pink"></div>
+      </div>
+    </div>
+  </div>`
+])
+
 //Поточний слайд
 let slideCount = document.querySelector('.my-swiper__number');
 mySlider.on('slideChange', function(){
