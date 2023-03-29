@@ -64,7 +64,7 @@
   }
   .menu__icon._active::before {
     top: 50%;
-    transform: rotate(-45deg) translate(0, -70%);
+    transform: rotate(-45deg) translate(0, -90%);
   }
   .menu__icon._active::after {
     bottom: 50%;
@@ -92,7 +92,6 @@
     padding-top: 40px;
     flex-direction: column;
   }
-
   //---------------------------
 
   .start{
