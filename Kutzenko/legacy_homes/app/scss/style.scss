@@ -74,17 +74,31 @@ body{
 }
 
 .header {
+  padding-top: 10px;
   padding-bottom: 14px;
 
 	&__inner {
-    min-height: 102px;
+    min-height: 112px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: 120px;
   }
 
-	&__logo { }
+	&__logo {
+    transition-duration: 0.3s;
+  }
+
+  &__icon {
+    display: none;
+  }
+
+  &__inner-body{
+    display: flex;
+    align-items: center;
+    gap: 116px;
+  }
 
 	&__sign-block {
     display: flex;
@@ -112,6 +126,12 @@ body{
     display: inline-block;
     background-color: rgba(28, 28, 28, 1);
     padding: 16px 25px;
+  }
+}
+
+body._pc .header__logo{
+  &:hover{
+    transform: scale(1.1);
   }
 }
 
