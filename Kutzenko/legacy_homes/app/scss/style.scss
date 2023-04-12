@@ -64,7 +64,7 @@ body{
   font-size: 14px;
   line-height: 16px;
   text-transform: uppercase;
-  color: #FFFFFF;
+  color: rgba(255, 255, 255, 1);
 }
 
 .wrapper {
@@ -115,6 +115,8 @@ body{
     line-height: 114%;
     color: rgba(28, 28, 28, 1);
     text-decoration: underline;
+
+    transition-duration: 0.2s;
   }
 
 	&__sign-up {
@@ -126,12 +128,9 @@ body{
     display: inline-block;
     background-color: rgba(28, 28, 28, 1);
     padding: 16px 25px;
-  }
-}
+    border: 1px solid rgba(28, 28, 28, 1);
 
-body._pc .header__logo{
-  &:hover{
-    transform: scale(1.1);
+    transition-duration: 0.3s;
   }
 }
 
@@ -150,6 +149,47 @@ body._pc .header__logo{
     font-weight: 300;
     line-height: 114%;
     color: rgba(28, 28, 28, 1);
+  }
+}
+
+body._pc .header__logo{
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
+body._pc .menu__link{
+  position: relative;
+
+  &::before{
+    content: '';
+    display: block;
+    position: absolute;
+    left: 50%;
+    bottom: -4px;
+    height: 2px;
+    width: 0;
+    background-color: rgba(28, 28, 28, 0.5);
+    transition-duration: 0.3s;
+  }
+
+  &:hover::before{
+    left: 0;
+    width: 100%;
+  }
+}
+
+body._pc .header__sign-in{
+  &:hover{
+    opacity: 0.7;
+    text-decoration: none;
+  }
+}
+
+body._pc .header__sign-up{
+  &:hover{
+    color: rgba(28, 28, 28, 1);
+    background-color: rgba(255, 255, 255, 1);
   }
 }
 
@@ -201,7 +241,7 @@ body._pc .header__logo{
     justify-content: space-between;
     gap: 36px;
 
-    background-color: #FFFFFF;
+    background-color: rgba(255, 255, 255, 1);
     box-shadow: 0px 8px 28px rgba(0, 0, 0, 0.12);
   }
 
@@ -246,6 +286,7 @@ body._pc .header__logo{
 
     display: inline-block;
     background-color: rgba(28, 28, 28, 1);
+    border: 1px solid rgba(28, 28, 28, 1);
   }
 
   &__image{
@@ -271,6 +312,20 @@ body._pc .header__logo{
       top: 39%;
       width: 88px;
       height: 88px;
+    }
+  }
+}
+
+body._pc .start__search-icon{
+  transition-duration: 0.3s;
+
+  &:hover{
+    background-color: #F0F0F0;
+
+    svg{
+      path{
+        stroke: rgba(28, 28, 28, 1);
+      }
     }
   }
 }
@@ -895,7 +950,6 @@ body._pc .header__logo{
     justify-content: center;
     flex-wrap: wrap;
     gap: 64px;
-    
 
     position: relative;
     z-index: 5;
@@ -928,7 +982,11 @@ body._pc .header__logo{
     gap: 20px;
   }
 
-	&__social-link { }
+	&__social-link {
+    img{
+      transition-duration: 0.3s;
+    }
+  }
 
 	&__body {
     display: flex;
@@ -963,6 +1021,20 @@ body._pc .header__logo{
     font-size: 18px;
     color: rgba(255, 255, 255, 1);
     font-style: normal;
+  }
+}
+
+body._pc .footer__social-link{
+  &:hover{
+    img{
+      transform: scale(1.2);
+    }
+  }
+}
+
+body._pc .footer__list-item{
+  &:hover{
+    text-decoration: underline;
   }
 }
 
