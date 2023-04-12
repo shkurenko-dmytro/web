@@ -362,6 +362,8 @@ body._pc .start__search-icon{
     font-weight: 600;
     font-size: 32px;
     text-transform: uppercase;
+
+    transition-duration: 0.3s;
   }
 
 	&__item-text {
@@ -371,7 +373,52 @@ body._pc .start__search-icon{
     line-height: 138%;
     text-align: center;
     color: rgba(92, 92, 92, 1);
+
+    transition-duration: 0.3s;
   }
+}
+
+body._pc .services__item{
+  transition-duration: 0.3s;
+
+  &:hover{
+    background-color: rgba(28, 28, 28, 1);
+
+    .services__item-image{
+      path{
+        fill: rgba(255, 255, 255, 1);
+      }
+      
+    }
+
+    .services__item-link{
+      color: rgba(255, 255, 255, 1);
+
+      position: relative;
+
+      &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 50%;
+        bottom: -3px;
+        height: 2px;
+        width: 0;
+        background-color: rgba(255, 255, 255, 1);
+        transition-duration: 0.3s;
+      }
+
+      &:hover::before{
+        left: 0;
+        width: 100%;
+      }
+    }
+
+    .services__item-text{
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  
 }
 
 .about-us {
