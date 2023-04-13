@@ -1,3 +1,45 @@
+@media(min-width: 769px){
+  .testimonials__swiper-button-prev,
+  .testimonials__swiper-button-next{
+    position: absolute;
+    top: 250px;
+    z-index: 5;
+
+    cursor: pointer;
+  }
+
+  .testimonials__swiper-button-prev{
+    left: 59px;
+  }
+
+  .testimonials__swiper-button-next{
+    right: 59px;
+  }
+
+  .swiper-slide-prev.testimonials__swiper-slide{
+    flex-direction: row-reverse;
+  }
+  
+  .swiper-slide-prev.testimonials__swiper-slide,
+  .swiper-slide-next.testimonials__swiper-slide{
+    .testimonials__swiper-image{
+      position: relative;
+  
+      &::before{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(28, 28, 28, 0.7);
+        
+        z-index: 4;
+      }
+    }
+  }
+}
+
 @media(max-width: 1330px){
   .about-us__image{
     &::before, &::after{
@@ -117,6 +159,14 @@
     img{
       object-fit: cover;
     }
+  }
+
+  .testimonials__swiper-button-prev{
+    left: 30px;
+  }
+
+  .testimonials__swiper-button-next{
+    right: 30px;
   }
 }
 
@@ -297,6 +347,10 @@
     padding-bottom: 52px;
   }
 
+  .how{
+    padding-bottom: 52px;
+  }
+
   .how__table-item {
     padding: 32px 0;
 
@@ -306,6 +360,21 @@
 
     &:last-child{
       padding-left: 40px;
+    }
+  }
+
+  .testimonials__swiper-buttons{
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+  }
+
+  .testimonials__swiper-button-prev,
+  .testimonials__swiper-button-next{
+    svg{
+      path{
+        stroke: rgba(28, 28, 28, 1);
+      }
     }
   }
 }
@@ -352,5 +421,28 @@
 	.how__table-description {
     font-size: 14px;
     line-height: 121%;
+  }
+
+  .testimonials__swiper-slide{
+    flex-direction: column;
+    
+    background-color: rgba(255, 255, 255, 1);
+    padding-top: 10px;
+  }
+
+  .testimonials__swiper-icon{
+    display: none;
+  }
+
+  .testimonials__swiper-image{
+    padding-bottom: 70%;
+
+    img{
+      object-fit: contain;
+    }
+  }
+
+  .testimonials__swiper-text{
+    text-align: center;
   }
 }

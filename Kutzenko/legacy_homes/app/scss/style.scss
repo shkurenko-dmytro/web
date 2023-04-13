@@ -667,7 +667,6 @@ body._pc .button{
   }
 
 	&__swiper-wrapper {
-    
   }
 
 	&__swiper-slide {
@@ -732,46 +731,16 @@ body._pc .button{
 
   &__swiper-button-prev,
   &__swiper-button-next{
-    position: absolute;
-    top: 67%;
-    z-index: 5;
-
     cursor: pointer;
   }
 
 	&__swiper-button-prev {
-    left: 59px;
-
-    img{
+    svg{
       transform: rotate(180deg);
     }
   }
 
 	&__swiper-button-next {
-    right: 59px;
-  }
-}
-
-.swiper-slide-prev.testimonials__swiper-slide{
-  flex-direction: row-reverse;
-}
-
-.swiper-slide-prev.testimonials__swiper-slide,
-.swiper-slide-next.testimonials__swiper-slide{
-  .testimonials__swiper-image{
-    position: relative;
-
-    &::before{
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(28, 28, 28, 0.7);
-      
-      z-index: 4;
-    }
   }
 }
 

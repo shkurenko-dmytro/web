@@ -7,16 +7,20 @@ const swiper = new Swiper('.testimonials__swiper', {
     prevEl: '.testimonials__swiper-button-prev',
   },
 
-  slidesPerView: 1.5,
+  slidesPerView: 1,
   spaceBetween: 20,
 
   centeredSlides: true,
-  initialSlide: 1,
 
   simulateTouch: false,
   speed: 500,
 
-
+  breakpoints:{
+    769:{
+      slidesPerView: 1.5,
+      initialSlide: 1
+    }
+  }
 });
 
 const swiper2 = new Swiper('.partners__swiper', {
