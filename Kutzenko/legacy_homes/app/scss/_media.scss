@@ -1,4 +1,18 @@
 @media(min-width: 769px){
+  .testimonials__swiper-slide{
+    min-height: 100%;
+  }
+
+  .testimonials__swiper-image {
+    position: relative;
+
+    img{
+      position: relative;
+      
+      object-fit: cover;
+    }
+  }
+
   .testimonials__swiper-button-prev,
   .testimonials__swiper-button-next{
     position: absolute;

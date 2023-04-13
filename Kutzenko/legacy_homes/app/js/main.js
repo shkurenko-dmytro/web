@@ -15,10 +15,13 @@ const swiper = new Swiper('.testimonials__swiper', {
   simulateTouch: false,
   speed: 500,
 
+  autoHeight: true,
+
   breakpoints:{
     769:{
       slidesPerView: 1.5,
-      initialSlide: 1
+      initialSlide: 1,
+      
     }
   }
 });

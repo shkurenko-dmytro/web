@@ -744,6 +744,15 @@ body._pc .button{
   }
 }
 
+body._pc .testimonials__swiper-button-prev,
+body._pc .testimonials__swiper-button-next{
+  transition-duration: 0.3s;
+
+  &:hover{
+    transform: scale(1.1);
+  }
+}
+
 .partners{
   padding-bottom: 102px;
 
