@@ -91,7 +91,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    opacity: 0.4;
+    opacity: 0.3;
 
     img{
       position: absolute;
@@ -106,6 +106,18 @@
   .about-us__button{
     margin: 0 auto;
   }
+
+  .property__items{
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .property__item-image{
+    padding-bottom: 50%;
+
+    img{
+      object-fit: cover;
+    }
+  }
 }
 
 @media(max-width: 768px){
@@ -114,7 +126,7 @@
   }
 
   .title{
-    font-size: 52px;
+    font-size: 46px;
   }
 
   .header__icon{
@@ -278,7 +290,23 @@
   }
 
   .about-us{
-    margin-bottom: 22px;
+    margin-bottom: 52px;
+  }
+
+  .property{
+    padding-bottom: 52px;
+  }
+
+  .how__table-item {
+    padding: 32px 0;
+
+    &:first-child{
+      padding-right: 40px;
+    }
+
+    &:last-child{
+      padding-left: 40px;
+    }
   }
 }
 
@@ -286,10 +314,43 @@
   .services__items{
     grid-template-columns: repeat(1, 1fr);
   }
+
+  .property__items{
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .property__item-image{
+    padding-bottom: 45%;
+  }
 }
 
 @media(max-width: 480px){
   .title-block{
     padding-bottom: 20px;
+  }
+
+  .about-us__content{
+    gap: 5px;
+  }
+
+  .how__table-item {
+    padding: 20px 0;
+
+    &:first-child{
+      padding-right: 15px;
+    }
+
+    &:last-child{
+      padding-left: 15px;
+    }
+  }
+
+  .how__table-title {
+    font-size: 20px;
+  }
+
+	.how__table-description {
+    font-size: 14px;
+    line-height: 121%;
   }
 }

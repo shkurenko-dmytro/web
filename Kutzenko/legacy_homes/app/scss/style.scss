@@ -59,6 +59,7 @@ body{
   background-color: rgba(28, 28, 28, 1);
   text-align: center;
   border-radius: 1px;
+  border: 1px solid rgba(28, 28, 28, 1);
 
   font-weight: 300;
   font-size: 14px;
@@ -482,6 +483,14 @@ body._pc .services__item{
   }
 }
 
+body._pc .button{
+  transition-duration: 0.3s;
+  &:hover{
+    color: rgba(28, 28, 28, 1);
+    background-color: rgba(255, 255, 255, 1);
+  }
+}
+
 .property {
   padding-bottom: 102px;
 
@@ -500,7 +509,9 @@ body._pc .services__item{
   }
 
 	&__item-image {
-    
+    position: relative;
+    padding-bottom: 70%;
+
     transform: scale(1.006);
 
     img{
@@ -622,12 +633,16 @@ body._pc .services__item{
   }
 
 	&__table-image {
+    position: relative;
+    padding-bottom: 100%;
+
+    img{
+
+    }
   }
   
 	&__table-text {
     max-width: 412px;
-
-    
   }
 
 	&__table-title {
