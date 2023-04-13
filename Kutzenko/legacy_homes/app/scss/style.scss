@@ -422,22 +422,26 @@ body._pc .services__item{
 }
 
 .about-us {
-
+  position: relative;
 
   .container {
     padding-bottom: 102px;
 
     display: flex;
     justify-content: space-between;
+    align-items: center;
   }
 
 	&__content {
-    padding-top: 66px;
+    padding-top: 36px;
     max-width: 474px;
 
     display: flex;
     flex-direction: column;
     gap: 22px;
+
+    position: relative;
+    z-index: 5;
   }
 
 	&__title { }
