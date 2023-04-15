@@ -879,6 +879,7 @@ body._pc .partners__button-prev{
     position: relative;
     padding-bottom: 40%;
     width: 50%;
+    align-self: flex-end;
 
     img{
       object-fit: contain;
@@ -888,7 +889,8 @@ body._pc .partners__button-prev{
   }
 
 	&__content {
-    padding-top: 90px;
+    padding-top: 190px;
+    padding-bottom: 20px;
 
     position: relative;
     z-index: 5;
@@ -933,9 +935,19 @@ body._pc .partners__button-prev{
     color: rgba(255, 255, 255, 1);
 
     &::placeholder{
+      opacity: 1;
       font-size: 16px;
       line-height: 162%;
       color: rgba(255, 255, 255, 1);
+      transition-duration: 0.2s;
+    }
+
+    &:focus{
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      
+      &::placeholder{
+        opacity: 0;
+      }
     }
   }
 
@@ -948,6 +960,7 @@ body._pc .partners__button-prev{
     cursor: pointer;
   }
 }
+
 
 
 .footer {

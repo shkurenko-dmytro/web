@@ -249,6 +249,29 @@
   .partners__slide-name{
     font-size: 18px;
   }
+
+  .connection{
+    &::before{
+      height: 100%;
+    }
+
+    justify-content: center;
+  }
+
+  .connection__image {
+    display: none;
+  }
+
+  .connection__content{
+    padding-top: 20px;
+    padding-bottom: 40px;
+
+    text-align: center;
+  }
+
+  .connection__body{
+    
+  }
 }
 
 @media(max-width: 768px){
@@ -463,6 +486,10 @@
     }
   }
 
+  .partners{
+    padding-bottom: 52px;
+  }
+
   .partners__body{
     text-align: center;
 
@@ -572,5 +599,19 @@
     padding: 15px 20px;
 
     min-width: 100px;
+  }
+
+  .connection__body{
+    gap: 12px;
+  }
+
+  .connection__form{
+    width: 100%;
+
+    flex-direction: column;
+  }
+
+  .connection__input{
+    min-height: 70px;
   }
 }
