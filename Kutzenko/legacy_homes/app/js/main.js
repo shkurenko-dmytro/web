@@ -20,8 +20,7 @@ const swiper = new Swiper('.testimonials__swiper', {
   breakpoints:{
     769:{
       slidesPerView: 1.5,
-      initialSlide: 1,
-      
+      initialSlide: 1
     }
   }
 });
@@ -39,7 +38,6 @@ const swiper2 = new Swiper('.partners__swiper', {
   speed: 500,
 
   slidesPerView: 1,
-
 });
 
 
