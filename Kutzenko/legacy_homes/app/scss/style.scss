@@ -190,7 +190,7 @@ body._pc .header__sign-in{
 body._pc .header__sign-up{
   &:hover{
     color: rgba(28, 28, 28, 1);
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #F0F0F0;
   }
 }
 
@@ -321,7 +321,7 @@ body._pc .start__search-icon{
   transition-duration: 0.3s;
 
   &:hover{
-    background-color: #F0F0F0;
+    background-color: rgba(255, 255, 255, 1);
 
     svg{
       path{
@@ -487,7 +487,7 @@ body._pc .button{
   transition-duration: 0.3s;
   &:hover{
     color: rgba(28, 28, 28, 1);
-    background-color: rgba(255, 255, 255, 1);
+    background-color: #F0F0F0;
   }
 }
 
@@ -506,13 +506,13 @@ body._pc .button{
 
     border: 1px solid rgba(28, 28, 28, 1);
     box-sizing: content-box;
+
+    border-radius: 6px 6px 0px 0px;
   }
 
 	&__item-image {
     position: relative;
     padding-bottom: 70%;
-
-    transform: scale(1.006);
 
     img{
       border-radius: 6px 6px 0px 0px;
@@ -845,9 +845,8 @@ body._pc .testimonials__swiper-button-next{
 body._pc .partners__button-prev{
   
   &:hover{
-    background-color: rgba(92, 92, 92, 1);
+    background-color: rgba(28, 28, 28, 1);
     color: rgba(255, 255, 255, 1);
-    border-color: rgba(92, 92, 92, 1);
   }
 }
 
@@ -866,7 +865,7 @@ body._pc .partners__button-prev{
     height: 78%;
     bottom: 0;
     left: 0;
-    background: #1C1C1C;
+    background: rgba(28, 28, 28, 1);
     box-shadow: 0px 5px 10px rgba(15, 60, 102, 0.16);
     border-radius: 1px;
   }
@@ -961,7 +960,23 @@ body._pc .partners__button-prev{
   }
 }
 
+body._pc .connection__button{
+  transition-duration: 0.3s;
 
+  &:hover{
+    border: 1px solid rgba(255, 255, 255, 1);
+    background-color: rgba(28, 28, 28, 1);
+
+    path{
+      stroke: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &:active{
+    border: 1px solid rgba(92, 92, 92, 1);
+    background-color: rgba(92, 92, 92, 1);
+  }
+}
 
 .footer {
   padding: 75px 0;

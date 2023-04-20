@@ -25,6 +25,9 @@ const swiper = new Swiper('.testimonials__swiper', {
   }
 });
 
+
+
+
 const swiper2 = new Swiper('.partners__swiper', {
   // Navigation arrows
   navigation: {
