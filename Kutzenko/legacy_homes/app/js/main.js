@@ -31,20 +31,24 @@ const testimonialsButtonNext = document.querySelector('.testimonials__swiper-but
 testimonialsButtonPrev.addEventListener('click', function(){
   if(swiper.slides[0].classList.contains('swiper-slide-active')){
     testimonialsButtonPrev.style.opacity = '0';
+    testimonialsButtonPrev.style.visibility = 'hidden';
   }
 
   if(!swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')){
     testimonialsButtonNext.style.opacity = '1';
+    testimonialsButtonNext.style.visibility = 'visible';
   }
 })
 
 testimonialsButtonNext.addEventListener('click', function(){
   if(!swiper.slides[0].classList.contains('swiper-slide-active')){
     testimonialsButtonPrev.style.opacity = '1';
+    testimonialsButtonPrev.style.visibility = 'visible';
   }
 
   if(swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')){
     testimonialsButtonNext.style.opacity = '0';
+    testimonialsButtonNext.style.visibility = 'hidden';
   }
 })
 
