@@ -153,12 +153,6 @@ body{
   }
 }
 
-body._pc .header__logo{
-  &:hover{
-    transform: scale(1.1);
-  }
-}
-
 body._pc .menu__link{
   position: relative;
 

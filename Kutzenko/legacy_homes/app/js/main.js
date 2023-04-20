@@ -77,7 +77,7 @@ const swiper2 = new Swiper('.partners__swiper', {
   simulateTouch: false,
   speed: 500,
 
-  slidesPerView: 1,
+  slidesPerView: 1
 });
 
 const partnersButtonPrev = document.querySelector('.partners__button-prev');
