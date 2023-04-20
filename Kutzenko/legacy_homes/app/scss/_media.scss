@@ -93,7 +93,7 @@
     img{
       position: absolute;
       height: 100%;
-      max-width: 424px;
+      min-width: 424px;
       top: 0;
       left: 0;
       object-fit: cover;
@@ -113,7 +113,7 @@
   }
 
   .swiper-slide-next.partners__swiper-slide{
-    margin-left: -44%;
+    margin-left: -42%;
   }
 }
 
