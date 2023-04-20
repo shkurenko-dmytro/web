@@ -25,6 +25,29 @@ const swiper = new Swiper('.testimonials__swiper', {
   }
 });
 
+const testimonialsButtonPrev = document.querySelector('.testimonials__swiper-button-prev');
+const testimonialsButtonNext = document.querySelector('.testimonials__swiper-button-next');
+
+testimonialsButtonPrev.addEventListener('click', function(){
+  if(swiper.slides[0].classList.contains('swiper-slide-active')){
+    testimonialsButtonPrev.style.opacity = '0';
+  }
+
+  if(!swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')){
+    testimonialsButtonNext.style.opacity = '1';
+  }
+})
+
+testimonialsButtonNext.addEventListener('click', function(){
+  if(!swiper.slides[0].classList.contains('swiper-slide-active')){
+    testimonialsButtonPrev.style.opacity = '1';
+  }
+
+  if(swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')){
+    testimonialsButtonNext.style.opacity = '0';
+  }
+})
+
 
 
 
