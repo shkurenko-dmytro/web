@@ -1,5 +1,6 @@
 'use strict'
 
+//Swiper №1
 const swiper = new Swiper('.testimonials__swiper', {
   // Navigation arrows
   navigation: {
@@ -25,6 +26,7 @@ const swiper = new Swiper('.testimonials__swiper', {
   }
 });
 
+//Hide the button when the last slide or the first slide is active --- Swiper №1
 const testimonialsButtonPrev = document.querySelector('.testimonials__swiper-button-prev');
 const testimonialsButtonNext = document.querySelector('.testimonials__swiper-button-next');
 
@@ -62,9 +64,7 @@ testimonialsButtonNext.addEventListener('click', function () {
   }
 })
 
-
-
-
+//Swiper №2
 const swiper2 = new Swiper('.partners__swiper', {
   // Navigation arrows
   navigation: {
@@ -80,6 +80,7 @@ const swiper2 = new Swiper('.partners__swiper', {
   slidesPerView: 1
 });
 
+//Hide the button when the last slide or the first slide is active --- Swiper №2
 const partnersButtonPrev = document.querySelector('.partners__button-prev');
 const partnersButtonNext = document.querySelector('.partners__button-next');
 
@@ -117,6 +118,7 @@ partnersButtonNext.addEventListener('click', function () {
   }
 })
 
+//Which device
 const isMobile = {
   Android: function () {
     return navigator.userAgent.match(/Android/i);
@@ -149,6 +151,7 @@ if (isMobile.any()) {
   document.body.classList.add('_pc');
 }
 
+//Menu
 const iconMenu = document.querySelector('.header__icon');
 const menuBody = document.querySelector('.header__inner-body');
 if (iconMenu) {
@@ -157,4 +160,55 @@ if (iconMenu) {
     iconMenu.classList.toggle('_active');
     menuBody.classList.toggle('_active');
   })
+}
+
+//Navigation --- menu
+const menuLinks = document.querySelectorAll('.menu__link[data-goto]');
+if(menuLinks.length > 0){
+    menuLinks.forEach(menuLink => {
+        menuLink.addEventListener('click', onMenuLinksClick);
+    });
+
+    function onMenuLinksClick(e){
+        const menuLink = e.target;
+        if(menuLink.dataset.goto && document.querySelector(menuLink.dataset.goto)){
+            const gotoBlock = document.querySelector(menuLink.dataset.goto);
+            const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset - 80;
+
+            if(iconMenu.classList.contains('_active')){
+                document.body.classList.remove('_lock');
+                iconMenu.classList.remove('_active');
+                menuBody.classList.remove('_active');
+            }
+
+            window.scrollTo({
+                top: gotoBlockValue,
+                behavior: 'smooth'
+            });
+            e.preventDefault();
+        }
+    }
+}
+
+//Navagation --- footer
+const footerLinks = document.querySelectorAll('.footer__list-item[data-goto]');
+console.log(footerLinks);
+if (footerLinks.length > 0) {
+  footerLinks.forEach(footerlink => {
+    footerlink.addEventListener('click', onFooterLinksClick);
+  });
+
+  function onFooterLinksClick(e) {
+    const footerLink = e.target;
+    if (footerLink.dataset.goto && document.querySelector(footerLink.dataset.goto)) {
+      const gotoBlock = document.querySelector(footerLink.dataset.goto);
+      const gotoBlockValue = gotoBlock.getBoundingClientRect().top + pageYOffset;
+
+      window.scrollTo({
+        top: gotoBlockValue,
+        behavior: 'smooth'
+      })
+      e.preventDefault();
+    }
+  }
 }
