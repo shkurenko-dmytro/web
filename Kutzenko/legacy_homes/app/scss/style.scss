@@ -837,7 +837,6 @@ body._pc .testimonials__swiper-button-next{
 }
 
 body._pc .partners__button-prev{
-  
   &:hover{
     background-color: rgba(28, 28, 28, 1);
     color: rgba(255, 255, 255, 1);
@@ -997,7 +996,6 @@ body._pc .connection__button{
 
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
     gap: 64px;
 
     position: relative;
@@ -1048,21 +1046,24 @@ body._pc .connection__button{
 	&__list {
     display: flex;
     flex-direction: column;
-    gap: 25px;
 
     max-width: 332px;
+  }
 
-    li{
-      &:first-child{
-        padding-bottom: 25px;
-      }
-    }
+  &__list-body{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
   }
 
 	&__list-title {
     font-size: 26px;
     font-weight: 700;
     color: rgba(255, 255, 255, 1);
+
+    margin-bottom: 45px;
+    position: relative;
+    pointer-events: none;
   }
 
 	&__list-item {
