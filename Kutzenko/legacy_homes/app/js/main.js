@@ -26,44 +26,6 @@ const swiper = new Swiper('.testimonials__swiper', {
   }
 });
 
-//Hide the button when the last slide or the first slide is active --- Swiper №1
-const testimonialsButtonPrev = document.querySelector('.testimonials__swiper-button-prev');
-const testimonialsButtonNext = document.querySelector('.testimonials__swiper-button-next');
-
-if (swiper.slides[0].classList.contains('swiper-slide-active')) {
-  testimonialsButtonPrev.style.opacity = '0';
-  testimonialsButtonPrev.style.visibility = 'hidden';
-}
-
-if (swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')) {
-  testimonialsButtonNext.style.opacity = '0';
-  testimonialsButtonNext.style.visibility = 'hidden';
-}
-
-testimonialsButtonPrev.addEventListener('click', function () {
-  if (swiper.slides[0].classList.contains('swiper-slide-active')) {
-    testimonialsButtonPrev.style.opacity = '0';
-    testimonialsButtonPrev.style.visibility = 'hidden';
-  }
-
-  if (!swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')) {
-    testimonialsButtonNext.style.opacity = '1';
-    testimonialsButtonNext.style.visibility = 'visible';
-  }
-})
-
-testimonialsButtonNext.addEventListener('click', function () {
-  if (!swiper.slides[0].classList.contains('swiper-slide-active')) {
-    testimonialsButtonPrev.style.opacity = '1';
-    testimonialsButtonPrev.style.visibility = 'visible';
-  }
-
-  if (swiper.slides[swiper.slides.length - 1].classList.contains('swiper-slide-active')) {
-    testimonialsButtonNext.style.opacity = '0';
-    testimonialsButtonNext.style.visibility = 'hidden';
-  }
-})
-
 //Swiper №2
 const swiper2 = new Swiper('.partners__swiper', {
   // Navigation arrows
@@ -79,44 +41,6 @@ const swiper2 = new Swiper('.partners__swiper', {
 
   slidesPerView: 1
 });
-
-//Hide the button when the last slide or the first slide is active --- Swiper №2
-const partnersButtonPrev = document.querySelector('.partners__button-prev');
-const partnersButtonNext = document.querySelector('.partners__button-next');
-
-if (swiper2.slides[0].classList.contains('swiper-slide-active')) {
-  partnersButtonPrev.style.opacity = '0.2';
-  partnersButtonPrev.style.pointerEvents = 'none';
-}
-
-if (!swiper2.slides[0].classList.contains('swiper-slide-active')) {
-  partnersButtonPrev.style.opacity = '1';
-  partnersButtonPrev.style.pointerEvents = 'all';
-}
-
-partnersButtonPrev.addEventListener('click', function () {
-  if (swiper2.slides[0].classList.contains('swiper-slide-active')) {
-    partnersButtonPrev.style.opacity = '0.2';
-    partnersButtonPrev.style.pointerEvents = 'none';
-  }
-
-  if (!swiper2.slides[swiper2.slides.length - 1].classList.contains('swiper-slide-active')) {
-    partnersButtonNext.style.opacity = '1';
-    partnersButtonNext.style.pointerEvents = 'all';
-  }
-})
-
-partnersButtonNext.addEventListener('click', function () {
-  if (!swiper2.slides[0].classList.contains('swiper-slide-active')) {
-    partnersButtonPrev.style.opacity = '1';
-    partnersButtonPrev.style.pointerEvents = 'all';
-  }
-
-  if (swiper2.slides[swiper2.slides.length - 1].classList.contains('swiper-slide-active')) {
-    partnersButtonNext.style.opacity = '0.2';
-    partnersButtonNext.style.pointerEvents = 'none';
-  }
-})
 
 //Which device
 const isMobile = {
