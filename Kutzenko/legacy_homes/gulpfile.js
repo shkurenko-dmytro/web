@@ -1,4 +1,4 @@
-const {src, dest, watch, parallel, series} = require('gulp');
+const { src, dest, watch, parallel, series } = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
@@ -11,7 +11,8 @@ const clean = require('gulp-clean');
 function scripts() {
   return src([
     'node_modules/swiper/swiper-bundle.js',
-    'app/js/main.js'
+    'app/js/main.js',
+    'app/js/property.js'
   ])
     .pipe(concat('main.min.js'))
     .pipe(uglify())
@@ -21,11 +22,11 @@ function scripts() {
 
 function styles() {
   return src('app/scss/style.scss')
-  .pipe(autoprefixer({overrideBrowserslist: ['last 10 version']}))
-  .pipe(concat('style.min.css'))
-  .pipe(scss({outputStyle: 'compressed'}))
-  .pipe(dest('app/css'))
-  .pipe(browserSync.stream())
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
+    .pipe(concat('style.min.css'))
+    .pipe(scss({ outputStyle: 'compressed' }))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
 }
 
 function watching() {
@@ -52,7 +53,7 @@ function building() {
     'app/css/style.min.css',
     'app/js/main.min.js',
     'app/**/*.html'
-  ], {base: 'app'})
+  ], { base: 'app' })
     .pipe(dest('dist'))
 }
 

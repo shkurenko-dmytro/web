@@ -141,7 +141,7 @@ document.querySelectorAll('.footer__list-title').forEach((item) => {
   item.addEventListener('click', () => {
     let content = item.nextElementSibling;
 
-    if(content.style.maxHeight){
+    if (content.style.maxHeight) {
       document.querySelectorAll('.footer__list-body').forEach((element) => {
         element.style.maxHeight = null;
       })
@@ -149,7 +149,7 @@ document.querySelectorAll('.footer__list-title').forEach((item) => {
       document.querySelectorAll('.footer__list').forEach(el => {
         el.classList.remove('active');
       })
-    } else{
+    } else {
       document.querySelectorAll('.footer__list-body').forEach((element) => {
         element.style.maxHeight = null;
       })

@@ -276,9 +276,18 @@ body._pc .header__sign-up{
   }
 
 	&__search-description {
+    
+  }
+
+  &__search-input {
     font-weight: 700;
     font-size: 20px;
     color: rgba(28, 28, 28, 1);
+
+    padding: 0 2px;
+    border: none;
+
+    max-width: 110px;
   }
 
 	&__search-icon {
@@ -314,6 +323,10 @@ body._pc .header__sign-up{
       height: 88px;
     }
   }
+}
+
+.search-property{
+  margin: 0 0 20px;
 }
 
 body._pc .start__search-icon{
