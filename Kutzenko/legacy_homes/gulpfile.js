@@ -29,6 +29,12 @@ function styles() {
     .pipe(browserSync.stream())
 }
 
+function jsonFiles(){
+  return src('app/json/data.json')
+  .pipe(dest('app/json'))
+  .pipe(browserSync.stream())
+}
+
 function watching() {
   watch(['app/scss/style.scss'], styles)
   watch(['app/js/main.js', 'app/js/property.js'], scripts)
@@ -52,6 +58,7 @@ function building() {
   return src([
     'app/css/style.min.css',
     'app/js/main.min.js',
+    'app/json/data.json',
     'app/**/*.html'
   ], { base: 'app' })
     .pipe(dest('dist'))
@@ -59,8 +66,9 @@ function building() {
 
 exports.styles = styles;
 exports.scripts = scripts;
+exports.jsonFiles = jsonFiles;
 exports.watching = watching;
 exports.browsersync = browsersync;
 
 exports.build = series(cleanDist, building);
-exports.default = parallel(styles, scripts, browsersync, watching);
+exports.default = parallel(styles, scripts, jsonFiles, browsersync, watching);
