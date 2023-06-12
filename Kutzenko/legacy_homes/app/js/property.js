@@ -17,7 +17,7 @@ if(propertyBlock){
       propertyBlock.innerHTML = '';
 
       data.forEach(element => {
-        if(propertyType.value == element.terms || propertyStatus.value == element.status || locationOption.value == element.location){
+        if(propertyType.value == element.terms || propertyStatus.value == element.status || typeOption.value == element.furnished || locationOption.value == element.location){
           let itemHTML = `<div class="property__item">
             <div class="property__item-image">
               <img class="ibg" src=${element.image} alt="">
