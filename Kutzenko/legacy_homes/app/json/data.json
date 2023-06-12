@@ -1,8 +1,84 @@
 [
   {
-    "title": "asdasd axczxcA aSEwqwqwqw"
+    "image": "./images/property/property-1.jpg",
+    "title": "1 Bedroom Apartment with No Commission Free Bills and Parking with Tawtheeq",
+    "location": "USA",
+    "address": "Palika Market, Delhi",
+    "status": "Rent",
+    "terms": "Long",
+    "price": "Rs. 2,00,000.00/year",
+    "furnished": "Fully",
+    "area": "920",
+    "bedrooms": "1",
+    "bathrooms": "1"
   },
+
   {
-    "title": "asdas23452345d 2345234a345xczxcA aSEwqwqw123123qw"
+    "image": "./images/property/property-2.jpg",
+    "title": "1 Bedroom Apartment with No Commission Free Bills and Parking with Tawtheeq",
+    "location": "USA",
+    "address": "Palika Market, Delhi",
+    "status": "Rent",
+    "terms": "Long",
+    "price": "Rs. 2,00,000.00/year",
+    "furnished": "Fully",
+    "area": "920",
+    "bedrooms": "1",
+    "bathrooms": "1"
+  },
+
+  {
+    "image": "./images/property/property-3.jpg",
+    "title": "1 Bedroom Apartment with No Commission Free Bills and Parking with Tawtheeq",
+    "location": "USA",
+    "address": "Palika Market, Delhi",
+    "status": "Rent",
+    "terms": "Long",
+    "price": "Rs. 2,00,000.00/year",
+    "furnished": "Fully",
+    "area": "920",
+    "bedrooms": "1",
+    "bathrooms": "1"
+  },
+
+  {
+    "image": "./images/property/property-2.jpg",
+    "title": "2 Bedroom Apartment with No Commission Free Bills",
+    "location": "Canada",
+    "address": "Ottawa",
+    "status": "Rent",
+    "terms": "Short",
+    "price": "Rs. 20,200.00/month",
+    "furnished": "Minimum",
+    "area": "920",
+    "bedrooms": "2",
+    "bathrooms": "1"
+  },
+
+  {
+    "image": "./images/property/property-1.jpg",
+    "title": "Lorem ipsum dolor sit, amet consectetur adipisicing.",
+    "location": "Mexico",
+    "address": "Ecatepec",
+    "status": "Buy",
+    "price": "Rs. 12,12,121.00",
+    "furnished": "Minimum",
+    "area": "5030",
+    "bedrooms": "2",
+    "bathrooms": "3"
+  },
+
+  {
+    "image": "./images/property/property-3.jpg",
+    "title": "1 Bedroom, 2 Bathrooms Apartment",
+    "location": "Canada",
+    "address": "Toronto",
+    "status": "Rent",
+    "terms": "Short",
+    "price": "Rs. 52,121.00/month",
+    "furnished": "Fully",
+    "area": "1230",
+    "bedrooms": "1",
+    "bathrooms": "2"
   }
 ]
