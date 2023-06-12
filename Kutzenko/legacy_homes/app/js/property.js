@@ -1,7 +1,59 @@
+const propertyBlock = document.querySelector("#property-data");
+
+const searchIcon = document.querySelector('.start__search-icon');
+const searchIconProperty = document.querySelector("#property-search");
+
+const propertyType = document.querySelector("[name='propertyType']");
+const propertyStatus = document.querySelector("[name='propertyStatus']");
+const typeOption = document.querySelector("[name='type']");
+const locationOption = document.querySelector("[name='location']");
+
+
 const jsonResponse = fetch('./json/data.json').then((response) => response.json());
 
-jsonResponse.then(data => {
-  data.forEach(element => {
-    console.log(element);
-  });
-})
+if(propertyBlock){
+  jsonResponse.then(data => {
+    searchIcon.addEventListener('click', function(){
+      propertyBlock.innerHTML = '';
+
+      data.forEach(element => {
+        if(propertyType.value == element.terms || propertyStatus.value == element.status || locationOption.value == element.location){
+          let itemHTML = `<div class="property__item">
+            <div class="property__item-image">
+              <img class="ibg" src=${element.image} alt="">
+            </div>
+            <div class="property__item-body">
+              <h4 class="property__item-title">
+                ${element.title}
+              </h4>
+              <address class="property__item-address">
+                ${element.address}
+              </address>
+              <b class="property__item-price">
+                ${element.price}
+              </b>
+              <div class="property__item-info-block">
+                <dl class="property__item-info">
+                  <dt class="property__item-name">Area (sqft)</dt>
+                  <dd class="property__item-description">${element.area}</dd>
+                </dl>
+                <dl class="property__item-info">
+                  <dt class="property__item-name">Bedrooms</dt>
+                  <dd class="property__item-description">${element.bedrooms}</dd>
+                </dl>
+                <dl class="property__item-info">
+                  <dt class="property__item-name">Bathrooms</dt>
+                  <dd class="property__item-description">${element.bathrooms}</dd>
+                </dl>
+              </div>
+              <a href="#" class="property__item-button button">
+                view details
+              </a>
+            </div>
+          </div>`;
+          propertyBlock.insertAdjacentHTML('beforeend', itemHTML);
+        }
+      });
+    })
+  })
+}
