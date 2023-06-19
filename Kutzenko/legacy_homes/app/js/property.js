@@ -1,35 +1,70 @@
+//Змінні сторінки будинків
 const propertyBlock = document.querySelector("#property-data");
 const searchIcon = document.querySelector('.start__search-icon');
 const searchIconProperty = document.querySelector("#property-search");
-const selectedData = document.querySelectorAll('.start__search-input');
+const selectedData = Array.from(document.querySelectorAll('.start__search-input'));
 
+//Змінні головної сторінки
+const homeSelectedData = Array.from(document.querySelectorAll('.home-select'));
+const homeSearchIcon = document.querySelector('#home__search-icon');
+
+//Робота з головної сторінкою
+if(homeSearchIcon){
+  //Занесення в пошук даних з localStorage
+  window.addEventListener('load', () => {
+    const homeSelectedValues = localStorage.getItem('homeSelectedValue').split(',');
+
+    for(let i = 0; i < homeSelectedValues.length; i++){
+      selectedData[i].value = homeSelectedValues[i];
+    }
+  });
+
+  //Занесення даних пошуку в localStorage
+  homeSearchIcon.addEventListener('click', function(){
+    //Взяття значень з select
+    const homeSelectedValue = homeSelectedData.map(item => {
+      return item.value;
+    })
+
+    localStorage.setItem('homeSelectedValue', homeSelectedValue);
+  })
+}
+
+//Робота зі сторінкою будинків
 const jsonResponse = fetch('./json/data.json').then((response) => response.json());
 
-<<<<<<< HEAD
-jsonResponse.then(data => {
-  data.forEach(element => {
-    console.log(element);
-    
-  });
-})
-=======
 if (propertyBlock) {
   jsonResponse.then(data => {
-    window.addEventListener('load', () => { addItems(data); });
+    //Занесення в пошук даних з localStorage
+    window.addEventListener('load', () => {
+      const homeSelectedValues = localStorage.getItem('homeSelectedValue').split(',');
+
+      for(let i = 0; i < homeSelectedValues.length; i++){
+        selectedData[i].value = homeSelectedValues[i];
+      }
+
+      addItems(data);
+    });
+
     searchIcon.addEventListener('click', () => { addItems(data); });
 
+    //Додання будинків до HTML
     function addItems(data){
       propertyBlock.innerHTML = '';
 
-      const filterSelectedData = Array.from(selectedData).filter((element) => {
+      //Фільтр на конкретні значення
+      const filterSelectedData = selectedData.filter((element) => {
         return element.value != "All";
       });
 
+      //Робота з кожним об'єктом з JSON
       data.forEach((element) => {
+        //Звіряння даних пошуку з даними будинків з JSON
         let result = filterSelectedData.every((item) => {
           return item.value === element.terms || item.value === element.status || item.value === element.furnished || item.value === element.location;
         })
         
+        //Внесення HTML з даними JSON
         if(result === true){
           let itemHTML = `<div class="property__item">
             <div class="property__item-image">
@@ -64,10 +99,10 @@ if (propertyBlock) {
               </a>
             </div>
           </div>`;
+
           propertyBlock.insertAdjacentHTML('beforeend', itemHTML);
         };
       });
     }
   })
 }
->>>>>>> 17ff8240ca663dd291d5eabfe2e5f2ac219a14be
