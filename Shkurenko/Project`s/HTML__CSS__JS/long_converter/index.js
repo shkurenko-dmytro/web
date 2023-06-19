@@ -22,6 +22,7 @@ let DB;
         outputSelect.appendChild(opt.cloneNode(true));
     };
 })();
+
 /////////////////////////////
 input.addEventListener('input', convert);
 inputSelect.addEventListener('change', convert);

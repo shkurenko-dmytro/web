@@ -52,13 +52,14 @@ function filterBySelected( key , value ) {
         let b = data.filter(item => (item[key].toUpperCase()).includes(value.toUpperCase()));
         renderSelectedData(b);
     });
-    
+
 };
 
 
 //* functions for sorting
 function sortByTitle() {
     let a = fetch(requestURL).then(response => response.json());
+    
     a.then(data => {
         function SortArray(x, y){
             return x.Title.localeCompare(y.Title);

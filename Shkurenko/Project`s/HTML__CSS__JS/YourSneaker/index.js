@@ -62,7 +62,6 @@ slider.addEventListener('click', () => {
 });
 
 
-
 let flag = 1;
 function render(){
     flag = 1;
@@ -71,9 +70,6 @@ function render(){
             brand.textContent = data[flag].brand;
             model.textContent = data[flag].model;
             description.textContent = data[flag].description;
-            // for (let index = 0 ; index < sizes.childElementCount; index ++) {
-            //     (sizes.childNodes[index]).textContent  = data[flag].sizes[index];
-            // };
             price.textContent = data[flag].price + "$";
             image.src = data[flag].image;
 
@@ -81,6 +77,7 @@ function render(){
         });
 };
 
+        
 
 buyButton.addEventListener('click', () => {
     
@@ -120,6 +117,7 @@ changeCardButton1.addEventListener('click', () => {
         
     };
 });
+
 changeCardButton2.addEventListener('click', () => {
     console.log(flag);
     if(flag != 6){

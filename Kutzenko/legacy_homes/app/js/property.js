@@ -5,6 +5,14 @@ const selectedData = document.querySelectorAll('.start__search-input');
 
 const jsonResponse = fetch('./json/data.json').then((response) => response.json());
 
+<<<<<<< HEAD
+jsonResponse.then(data => {
+  data.forEach(element => {
+    console.log(element);
+    
+  });
+})
+=======
 if (propertyBlock) {
   jsonResponse.then(data => {
     window.addEventListener('load', () => { addItems(data); });
@@ -62,3 +70,4 @@ if (propertyBlock) {
     }
   })
 }
+>>>>>>> 17ff8240ca663dd291d5eabfe2e5f2ac219a14be
