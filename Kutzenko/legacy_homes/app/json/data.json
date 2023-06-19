@@ -80,5 +80,73 @@
     "area": "1230",
     "bedrooms": "1",
     "bathrooms": "2"
+  },
+
+  {
+    "image": "./images/property/property-2.jpg",
+    "title": "Apartment",
+    "location": "Canada",
+    "address": "Ottawa",
+    "status": "Buy",
+    "price": "Rs. 23,57,121.00",
+    "furnished": "Minimum",
+    "area": "1203",
+    "bedrooms": "2",
+    "bathrooms": "2"
+  },
+
+  {
+    "image": "./images/property/property-1.jpg",
+    "title": "Apartment",
+    "location": "Canada",
+    "address": "Toronto",
+    "status": "Rent",
+    "terms": "Long",
+    "price": "Rs. 34,121.00/year",
+    "furnished": "Fully",
+    "area": "620",
+    "bedrooms": "1",
+    "bathrooms": "1"
+  },
+
+  {
+    "image": "./images/property/property-3.jpg",
+    "title": "Lorem amet consectetur adipisicing.",
+    "location": "Mexico",
+    "address": "Mexico City",
+    "status": "Buy",
+    "price": "Rs. 93,12,121.00",
+    "furnished": "Fully",
+    "area": "5030",
+    "bedrooms": "3",
+    "bathrooms": "3"
+  },
+
+  {
+    "image": "./images/property/property-2.jpg",
+    "title": "Lorem consectetur adipisicing.",
+    "location": "Mexico",
+    "address": "Ecatepec",
+    "status": "Rent",
+    "terms": "Long",
+    "price": "Rs. 97,121.00/year",
+    "furnished": "Minimum",
+    "area": "730",
+    "bedrooms": "1",
+    "bathrooms": "1"
+  },
+
+  {
+    "image": "./images/property/property-2.jpg",
+    "title": "Lorem consectetur adipisicing.",
+    "location": "USA",
+    "address": "Boston",
+    "status": "Rent",
+    "terms": "Short",
+    "price": "Rs. 97,121.00/month",
+    "furnished": "Fully",
+    "area": "730",
+    "bedrooms": "1",
+    "bathrooms": "2"
   }
 ]

@@ -537,6 +537,8 @@ body._pc .button{
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    height: 100%;
   }
 
 	&__item-title {
@@ -576,6 +578,8 @@ body._pc .button{
     display: flex;
     flex-direction: column;
     gap: 15px;
+
+    flex: 1;
   }
 
 	&__item-info {
