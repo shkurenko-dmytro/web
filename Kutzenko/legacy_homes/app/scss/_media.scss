@@ -367,7 +367,7 @@
     display: block;
     left: 0;
     position: absolute;
-    height: 17%;
+    height: 5px;
     width: 100%;
     transition: all 0.3s ease 0s;
     background-color: rgba(28, 28, 28, 1);
@@ -398,11 +398,11 @@
   }
   .header__icon._active::before {
     top: 50%;
-    transform: rotate(-45deg) translate(0, -90%);
+    transform: rotate(-45deg) translate(0, -96%);
   }
   .header__icon._active::after {
     bottom: 50%;
-    transform: rotate(45deg) translate(0, 50%);
+    transform: rotate(45deg) translate(0, 70%);
   }
 
   .header__inner-body {
@@ -500,6 +500,12 @@
     }
   }
 
+  .start__search-icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .services{
     padding-bottom: 72px;
   }
@@ -512,7 +518,7 @@
     padding-top: 24px;
   }
 
-  .services__item-link{
+  .services__item-name{
     font-size: 26px;
   }
 

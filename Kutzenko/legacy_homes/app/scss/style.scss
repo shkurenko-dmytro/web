@@ -325,8 +325,12 @@ body._pc .header__sign-up{
   }
 }
 
-.search-property{
+.property-search{
   margin: 0 0 20px;
+}
+
+.property-container{
+  text-align: center;
 }
 
 body._pc .start__search-icon{
@@ -371,7 +375,7 @@ body._pc .start__search-icon{
     padding-top: 38px;
   }
 
-	&__item-link {
+	&__item-name {
     font-weight: 600;
     font-size: 32px;
     text-transform: uppercase;
@@ -394,6 +398,22 @@ body._pc .start__search-icon{
 body._pc .services__item{
   transition-duration: 0.3s;
 
+  .services__item-name{
+    position: relative;
+
+    &::before{
+      content: '';
+      display: block;
+      position: absolute;
+      left: 50%;
+      bottom: -6px;
+      height: 2px;
+      width: 0;
+      background-color: rgba(255, 255, 255, 1);
+      transition-duration: 0.3s;
+    }
+  }
+
   &:hover{
     background-color: rgba(28, 28, 28, 1);
 
@@ -404,24 +424,10 @@ body._pc .services__item{
       
     }
 
-    .services__item-link{
+    .services__item-name{
       color: rgba(255, 255, 255, 1);
 
-      position: relative;
-
       &::before{
-        content: '';
-        display: block;
-        position: absolute;
-        left: 50%;
-        bottom: -3px;
-        height: 2px;
-        width: 0;
-        background-color: rgba(255, 255, 255, 1);
-        transition-duration: 0.3s;
-      }
-
-      &:hover::before{
         left: 0;
         width: 100%;
       }
