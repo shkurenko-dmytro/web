@@ -16,7 +16,3 @@ app.get('/objects', (req, res) => {
 app.listen(PORT,() => {
     console.log(`Server has been started on port ${PORT}...`);
 })
-
-
-
-

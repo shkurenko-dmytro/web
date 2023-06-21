@@ -36,15 +36,13 @@ const jsonResponse = fetch('./json/data.json').then((response) => response.json(
 if (propertyBlock) {
   jsonResponse.then(data => {
     //Занесення в пошук даних з localStorage
-    window.addEventListener('load', () => {
-      const homeSelectedValues = localStorage.getItem('homeSelectedValue').split(',');
+    const homeSelectedValues = localStorage.getItem('homeSelectedValue').split(',');
 
-      for(let i = 0; i < homeSelectedValues.length; i++){
-        selectedData[i].value = homeSelectedValues[i];
-      }
+    for(let i = 0; i < homeSelectedValues.length; i++){
+      selectedData[i].value = homeSelectedValues[i];
+    }
 
-      addItems(data);
-    });
+    addItems(data);
 
     searchIcon.addEventListener('click', () => { addItems(data); });
 
