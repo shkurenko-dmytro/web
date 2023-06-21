@@ -18,7 +18,3 @@ app.post('/post',(req, res) => {
 app.listen(PORT,() => {
     console.log(`Server has been started on port ${PORT}...`);
 })
-
-
-
-
