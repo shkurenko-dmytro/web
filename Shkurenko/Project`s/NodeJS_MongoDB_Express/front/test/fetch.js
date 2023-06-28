@@ -1,4 +1,4 @@
-const reqURL = "local:5000/api/posts/resa";
+const reqURL = "https://tests-ipny.onrender.com";
 
 function sendRequest(method, url, body = null) {
   const headers = {

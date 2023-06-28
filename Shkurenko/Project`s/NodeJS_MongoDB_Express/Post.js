@@ -1,10 +1,11 @@
 import mongoose from "mongoose";
 
 const Post = new mongoose.Schema({
-    author : {type: String, required : true, },
-    title : {type: String, required : true},
-    content : {type: String, required : true},
-    picture : {type : String},
+    model : {type: String, required : true },
+    image : {type: String, required : true},
+    range : {type: String, required : true},
+    top_speed : {type : String,required : true},
+    mph: {type: String, required : true}
 })
 
 export default mongoose.model('Post', Post);

@@ -14,7 +14,6 @@ class FileService {
             return fileName;
             
         } catch (error) {
-            console.log('fr3f3')
             console.log(error.message)
         }
     }
