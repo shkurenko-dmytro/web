@@ -1,4 +1,4 @@
-const reqURL = "http://192.168.0.105:5000/api/posts/resa";
+const reqURL = "local:5000/api/posts/resa";
 
 function sendRequest(method, url, body = null) {
   const headers = {
