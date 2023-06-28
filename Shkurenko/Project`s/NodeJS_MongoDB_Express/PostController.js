@@ -1,12 +1,11 @@
 import Post from './Post.js';
-
+import PostService from './PostService.js';
 
 
 class PostController{
     async create(req,res) {
         try {
-            const {author, title, content, pucture} = req.body;
-            const post = await Post.create({author, title, content, pucture});
+            const post = await PostService.create(req.body, req.files.picture)
             res.status(201).json(post);
         } catch (error) {
             res.status(500).json(error.message);
@@ -15,7 +14,7 @@ class PostController{
     
     async getAll(req, res){
         try {
-            const post = await Post.find();
+            const post = await PostService.getAll();
             return res.status(200).json(post)
         } catch (error) {
             res.status(500).json(error.message);
@@ -24,11 +23,7 @@ class PostController{
     }
     async getOne(req, res){
         try {
-            const {id} = req.params
-            if (!id){
-                res.status(400).json({message: 'ID не указан'} )
-            }
-            const post = await Post.findById(id)
+            const post = await PostService.getOne(req.params.id)
             return res.status(200).json(post)
         } catch (error) {
             res.status(500).json(error.message);
@@ -37,11 +32,7 @@ class PostController{
     }
     async update(req, res){
         try {
-            const post = req.body;
-            if(!post._id){
-                req.status(400).json({message: 'ID not found'})
-            }
-            const updatedPost  = await Post.findByIdAndUpdate(post._id, post, { new: true})
+            const updatedPost  = await PostService.update(req.body)
             return res.status(200).json(updatedPost)
             
         } catch (error) {
@@ -50,23 +41,11 @@ class PostController{
 
     }
     async delete(req, res){
-        try {
-            const {id} = req.params
-            if(!id){
-                req.status(400).json({message: 'ID not found'})
-            }
-            const deletedPost = await Post.findByIdAndDelete(id);
+            const deletedPost = await PostService.delete(req.params.id)
             return res.status(200).json(deletedPost)
         } catch (error) {
             res.status(500).json(error.message);
         }
-
-    }
-    async resposne (req,res){
-        return res.json('asdfa:frwf43')
-    }
-
-
 }
 
 
