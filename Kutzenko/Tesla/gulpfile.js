@@ -1,4 +1,4 @@
-const {src, dest, watch, parallel, series} = require('gulp');
+const { src, dest, watch, parallel, series } = require('gulp');
 
 const scss = require('gulp-sass')(require('sass'));
 const concat = require('gulp-concat');
@@ -14,7 +14,7 @@ const fonter = require('gulp-fonter');
 const svgSprite = require('gulp-svg-sprite');
 const include = require('gulp-include');
 
-function pages(){
+function pages() {
   return src('app/pages/*.html')
     .pipe(include({
       includePaths: 'app/components'
@@ -23,10 +23,10 @@ function pages(){
     .pipe(browserSync.stream())
 }
 
-function images(){
+function images() {
   return src(['app/images/src/*.*', '!app/images/src/*.svg'])
     .pipe(newer('app/images'))
-    .pipe(avif({quality: 50}))
+    .pipe(avif({ quality: 50 }))
 
     .pipe(src('app/images/src/*.*'))
     .pipe(newer('app/images'))
@@ -39,7 +39,7 @@ function images(){
     .pipe(dest('app/images'))
 }
 
-function sprite(){
+function sprite() {
   return src('app/images/*.svg')
     .pipe(svgSprite({
       mode: {
@@ -56,6 +56,7 @@ function sprite(){
 function scripts() {
   return src([
     'node_modules/swiper/swiper-bundle.js',
+    'app/js/account.js',
     'app/js/main.js'
   ])
     .pipe(concat('main.min.js'))
@@ -66,11 +67,11 @@ function scripts() {
 
 function styles() {
   return src('app/scss/style.scss')
-  .pipe(autoprefixer({overrideBrowserslist: ['last 10 version']}))
-  .pipe(concat('style.min.css'))
-  .pipe(scss({outputStyle: 'compressed'}))
-  .pipe(dest('app/css'))
-  .pipe(browserSync.stream())
+    .pipe(autoprefixer({ overrideBrowserslist: ['last 10 version'] }))
+    .pipe(concat('style.min.css'))
+    .pipe(scss({ outputStyle: 'compressed' }))
+    .pipe(dest('app/css'))
+    .pipe(browserSync.stream())
 }
 
 function watching() {
@@ -81,7 +82,7 @@ function watching() {
   });
   watch(['app/scss/style.scss'], styles)
   watch(['app/images/src'], images)
-  watch(['app/js/main.js'], scripts)
+  watch(['app/js/main.js', 'app/js/account.js'], scripts)
   watch(['app/components/*', 'app/pages/*'], pages)
   watch(['app/**/*.html']).on('change', browserSync.reload)
 }
@@ -99,7 +100,7 @@ function building() {
     'app/images/sprite.svg',
     'app/js/main.min.js',
     'app/*.html'
-  ], {base: 'app'})
+  ], { base: 'app' })
     .pipe(dest('dist'))
 }
 
