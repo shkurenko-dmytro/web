@@ -423,6 +423,9 @@ body._pc .info__share{
   }
 }
 
+.account__login-text, .account__signup-text {
+  display: none;
+}
 
 
 @import './media';

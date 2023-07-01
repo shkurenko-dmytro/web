@@ -1,5 +1,7 @@
 'use strict'
 
+const reqURL = 'http://httpbin.org/post';
+
 if(document.querySelector('.form')){
   const formContainer = document.querySelector('.container-form');
 
@@ -87,6 +89,23 @@ if(document.querySelector('.form')){
     }
   }
 
+  function sendRequest(method, url, body = null) {
+    return fetch(url, {
+      method: method,
+      body: body
+    }).then(response => {
+      if (response.ok) {
+        return response.json();
+      }
+  
+      return response.json().then(err => {
+        const e = new Error('Не працює');
+        e.data = err;
+        throw e;
+      })
+    })
+  }
+
   //Перехід між авторизацією та регістрацією
   linkToSignUp.addEventListener('click', (e) => {
     e.preventDefault();
@@ -105,7 +124,21 @@ if(document.querySelector('.form')){
     e.preventDefault();
 
     if(validated(username, password, usernameError, passwordError)){
-      alert('Летс гоу всі');
+      let dataForm = new FormData();
+  
+      dataForm.append('username', username.value );
+      dataForm.append('password', password.value);
+      
+      sendRequest('POST', reqURL, dataForm)
+        .then(data => {
+          console.log(data);
+
+          formContainer.style.display = 'none';
+
+          document.querySelector('.account__login-text').style.display = "block";
+        })
+        .catch(err => console.log(err))
+
     } else {
       return false;
     }
@@ -116,7 +149,21 @@ if(document.querySelector('.form')){
     e.preventDefault();
 
     if(validated(usernameSignUp, passwordSignUp, usernameSignUpError, passwordSignUpError, confirmPassword, confirmPasswordError)){
-      alert('Летс гоу всі');
+      let dataForm = new FormData();
+  
+      dataForm.append('username', usernameSignUp.value );
+      dataForm.append('password', passwordSignUp.value);
+      
+      sendRequest('POST', reqURL, dataForm)
+        .then(data => {
+          console.log(data);
+
+          formContainer.style.display = 'none';
+
+          document.querySelector('.account__signup-text').style.display = "block";
+        })
+        .catch(err => console.log(err))
+
     } else {
       return false;
     }
