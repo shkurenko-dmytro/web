@@ -54,7 +54,7 @@ body{
 }
 
 .wrapper { 
-
+  min-height: 100%;
 }
 
 .swiper-button-disabled{
@@ -272,7 +272,7 @@ body._pc .myswiper__button-prev, body._pc .myswiper__button-next{
     flex-direction: column;
     align-items: center;
     gap: 10px;
-    min-width: 100px;
+    min-width: 80px;
   }
 	&__characteristic-value {
     font-size: 27px;

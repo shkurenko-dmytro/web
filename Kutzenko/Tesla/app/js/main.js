@@ -27,7 +27,10 @@ if(document.querySelector('.myswiper')){
     spaceBetween: 50,
     virtual: {
       enabled: true,
-    }
+    },
+    parallax: true,
+    loop: true,
+    keyboard: true
   });
   
   async function getData() {
@@ -41,14 +44,14 @@ if(document.querySelector('.myswiper')){
     for (key in data) {
       let slideHtml = `<div class="swiper-slide myswiper__slide">
                           <div class="myswiper__slide-body">
-                            <p class="myswiper__name">
+                            <p data-swiper-parallax-opacity="0.5" data-swiper-parallax-scale="0.4" data-swiper-parallax="15%" class="myswiper__name">
                               Model ${data[key].model}
                             </p>
-                            <div class="myswiper__image">
+                            <div data-swiper-parallax-opacity="0.5" data-swiper-parallax-scale="0.3" data-swiper-parallax="15%" class="myswiper__image">
                               <img src="https://tests-ipny.onrender.com/${data[key].image}" onerror="this.src = '../images/tesla${data[key].model}.png'">
                             </div>
                           </div>
-                          <div class="main__info info">
+                          <div ata-swiper-parallax-opacity="0.5" data-swiper-parallax-scale="0.3" class="main__info info">
                             <div class="info__body">
                               <div class="info__characteristic-block">
                                 <dl class="info__characteristic">
