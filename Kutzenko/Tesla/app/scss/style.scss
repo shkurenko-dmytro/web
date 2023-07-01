@@ -327,15 +327,9 @@ body._pc .info__share{
 
 .container-form{
   width: 450px;
-  margin: 70px auto 0;
+  margin: 20px auto 0;
   background: #dedede;
   border-radius: 5px;
-}
-
-.title-form{
-  padding: 20px 130px;
-  font-size: 35px;
-  color: #292929;
 }
 
 .form{
@@ -343,6 +337,13 @@ body._pc .info__share{
   display: flex;
   flex-direction: column;
   gap: 30px;
+
+  &__title{
+    padding: 20px 20px;
+    font-size: 35px;
+    color: #292929;
+    text-align: center;
+  }
 
   &__input-box{
     display: flex;
@@ -382,7 +383,7 @@ body._pc .info__share{
     }
   }
 
-  &__username-error, &__password-error{
+  &__error{
     font-size: 18px;
     color: #c62828;
     background: #ef9a9a;
@@ -392,6 +393,36 @@ body._pc .info__share{
     border: 1px solid rgba(255, 0, 0, 1);
     display: none;
   }
+
+  &__text{
+    color: #292929;
+  }
+
+  &__link{
+    color: #292929;
+    opacity: 0.5;
+    transition: 0.3s all;
+
+    &:hover{
+      opacity: 1;
+    }
+  }
 }
+
+.form__sign-up{
+  display: none;
+}
+
+.container-form.active{
+  .form__login{
+    display: none;
+  }
+
+  .form__sign-up{
+    display: flex;
+  }
+}
+
+
 
 @import './media';
