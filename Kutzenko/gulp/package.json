@@ -35,8 +35,5 @@
   },
   "browserslist": [
     "last 5 versions"
-  ],
-  "dependencies": {
-    "air-datepicker": "^3.3.5"
-  }
+  ]
 }
