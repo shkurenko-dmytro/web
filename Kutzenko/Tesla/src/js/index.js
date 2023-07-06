@@ -1,13 +1,14 @@
 'use strict';
 
 import Swiper from 'swiper';
-import { Navigation, Pagination, Virtual, Parallax, Autoplay, Keyboard } from 'swiper/modules';
+import { Navigation, Pagination, Virtual, Parallax, Keyboard } from 'swiper/modules';
 
-const url = 'https://tests-ipny.onrender.com/api/posts';
+import isMobile from './modules/isMobile';
+import urlList from './modules/urlList';
 
 if(document.querySelector('.myswiper')){
   const swiper = new Swiper('.myswiper', {
-    modules: [Navigation, Pagination, Virtual, Parallax, Autoplay, Keyboard],
+    modules: [Navigation, Pagination, Virtual, Parallax, Keyboard],
     navigation: {
       nextEl: '.myswiper__button-next',
       prevEl: '.myswiper__button-prev',
@@ -23,11 +24,10 @@ if(document.querySelector('.myswiper')){
       enabled: true,
     },
     parallax: true,
-    loop: true,
     keyboard: true
   });
   
-  async function getData() {
+  async function getData(url) {
     const response = await fetch(url);
     let data = await response.json();
     data = data.splice(0, 4);
@@ -92,36 +92,10 @@ if(document.querySelector('.myswiper')){
     }, 500);
   };
   
-  getData();
+  getData(urlList.database);
 }
 
-//Which device
-const isMobile = {
-  Android: function () {
-    return navigator.userAgent.match(/Android/i);
-  },
-  Blackberry: function () {
-    return navigator.userAgent.match(/Blackberry/i);
-  },
-  iOS: function () {
-    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-  },
-  Opera: function () {
-    return navigator.userAgent.match(/Opera Mini/i);
-  },
-  Windows: function () {
-    return navigator.userAgent.match(/IEMobile/i);
-  },
-  any: function () {
-    return (
-      isMobile.Android() ||
-      isMobile.Blackberry() ||
-      isMobile.iOS() ||
-      isMobile.Opera() ||
-      isMobile.Windows());
-  }
-};
-
+// Which device
 if (isMobile.any()) {
   document.body.classList.add('_touch');
 } else {

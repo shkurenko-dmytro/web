@@ -1,6 +1,8 @@
 'use strict';
 
-const reqURL = 'https://my-json-server.typicode.com/typicode/demo/posts';
+import isMobile from './modules/isMobile';
+import urlList from './modules/urlList';
+
 const preloader = document.querySelector('.preloader');
 
 document.body.onload = function(){
@@ -142,7 +144,7 @@ if(document.querySelector('.form')){
         preloader.classList.remove('done');
       }
 
-      sendRequest('POST', reqURL, dataForm)
+      sendRequest('POST', urlList.fakeJson, dataForm)
         .then(data => {
           setTimeout(function() {
             if(!preloader.classList.contains('done')){
@@ -162,7 +164,8 @@ if(document.querySelector('.form')){
               preloader.classList.add('done');
             }
           }, 100);
-
+          
+          alert('Adding User failed');
           console.log(err);
         })
     } else {
@@ -184,7 +187,7 @@ if(document.querySelector('.form')){
         preloader.classList.remove('done');
       }
 
-      sendRequest('POST', reqURL, dataForm)
+      sendRequest('POST', urlList.fakeJson, dataForm)
         .then(data => {
           setTimeout(function() {
             if(!preloader.classList.contains('done')){
@@ -205,6 +208,7 @@ if(document.querySelector('.form')){
             }
           }, 100);
 
+          alert('Adding User failed');
           console.log(err);
         })
 
@@ -214,33 +218,7 @@ if(document.querySelector('.form')){
   })
 }
 
-//Which device
-const isMobile = {
-  Android: function () {
-    return navigator.userAgent.match(/Android/i);
-  },
-  Blackberry: function () {
-    return navigator.userAgent.match(/Blackberry/i);
-  },
-  iOS: function () {
-    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-  },
-  Opera: function () {
-    return navigator.userAgent.match(/Opera Mini/i);
-  },
-  Windows: function () {
-    return navigator.userAgent.match(/IEMobile/i);
-  },
-  any: function () {
-    return (
-      isMobile.Android() ||
-      isMobile.Blackberry() ||
-      isMobile.iOS() ||
-      isMobile.Opera() ||
-      isMobile.Windows());
-  }
-};
-
+// Which device
 if (isMobile.any()) {
   document.body.classList.add('_touch');
 } else {
