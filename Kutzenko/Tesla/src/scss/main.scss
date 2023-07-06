@@ -374,11 +374,6 @@ body._pc .info__share{
     border-radius: 2px;
     cursor: pointer;
     transition: 0.3s all;
-
-    &:hover{
-      background-color: #292929;
-      color: #9B9B9B;
-    }
   }
 
   &__error{
@@ -400,10 +395,19 @@ body._pc .info__share{
     color: #292929;
     opacity: 0.5;
     transition: 0.3s all;
+  }
+}
 
-    &:hover{
-      opacity: 1;
-    }
+body._pc .form__button{
+  &:hover{
+    background-color: #292929;
+    color: #9B9B9B;
+  }
+}
+
+body._pc .form__link{
+  &:hover{
+    opacity: 1;
   }
 }
 
@@ -424,5 +428,6 @@ body._pc .info__share{
 .account__login-text, .account__signup-text {
   display: none;
 }
-
+@import "./blocks/user-page";
+@import "./blocks/admin-page";
 @import "./blocks/media";

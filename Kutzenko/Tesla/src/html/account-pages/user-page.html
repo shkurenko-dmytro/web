@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesla</title>
+  <link rel="stylesheet" href="./../css/main.css" />
+</head>
+
+<body>
+  @@include('./../blocks/preloader.html')
+  <div class="wrapper">
+    @@include('./../blocks/header-inner.html')
+    <main class="main">
+      <div class="main__container">
+        <section class="main__user-page user-page">
+          <div class="user-page__container">
+            <h1 class="user-page__title">Profile</h1>
+            <div class="user-page__head">
+              <div class="user-page__avatar">
+                
+              </div>
+              <p class="user-page__username">
+                <span>User: </span>Max
+              </p>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="./../js/userPage.bundle.js"></script>
+</body>
+
+</html>

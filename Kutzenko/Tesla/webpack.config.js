@@ -3,6 +3,8 @@ const config = {
   entry: {
     index: './src/js/index.js',
     account: './src/js/account.js',
+    userPage: './src/js/user-page.js',
+    adminPage: './src/js/admin-page.js',
   },
   output: {
     filename: '[name].bundle.js',

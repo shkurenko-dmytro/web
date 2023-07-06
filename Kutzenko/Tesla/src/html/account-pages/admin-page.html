@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesla</title>
+  <link rel="stylesheet" href="./../css/main.css" />
+</head>
+
+<body>
+  @@include('./../blocks/preloader.html')
+  <div class="wrapper">
+    @@include('./../blocks/header-inner.html')
+    <main class="main">
+      <div class="main__container">
+        <section class="main__admin-page admin-page">
+          <div class="admin-page__container">
+            <h1 class="admin-page__title">Profile</h1>
+            <div class="admin-page__head">
+              <div class="admin-page__avatar">
+                
+              </div>
+              <p class="admin-page__username">
+                <span>Admin: </span>Stepan
+              </p>
+            </div>
+            <div class="admin-page__panel-add">
+              <h1 class="admin-page__title admin-page__panel-title">Add Panel</h1>
+              <div class="admin-page__panel">
+                <div class="admin-page__input-box">
+                  <label for="model" class="admin-page__label">Model</label>
+                  <input id="model" type="text" class="admin-page__input" name="model" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="range" class="admin-page__label">Range</label>
+                  <input id="range" type="text" class="admin-page__input" name="range" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="top_speed" class="admin-page__label">Top Speed</label>
+                  <input id="top_speed" type="text" class="admin-page__input" name="top_speed" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="mph" class="admin-page__label">Mph</label>
+                  <input id="mph" type="text" class="admin-page__input" name="mph" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="image" class="admin-page__label">Image</label>
+                  <input id="image" type="file" class="admin-page__input admin-page__input-file" name="image" autocomplete="off">
+                </div>
+                <button type="submit" class="admin-page__button" id="send">Send</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="./../js/adminPage.bundle.js"></script>
+</body>
+
+</html>
