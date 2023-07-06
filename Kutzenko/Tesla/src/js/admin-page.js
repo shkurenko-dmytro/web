@@ -20,6 +20,17 @@ if (isMobile.any()) {
   document.body.classList.add('_pc');
 }
 
+//Menu
+const iconMenu = document.querySelector('.menu__icon');
+const menuBody = document.querySelector('.menu__body');
+if (iconMenu) {
+  iconMenu.addEventListener('click', function () {
+    document.body.classList.toggle('_lock');
+    iconMenu.classList.toggle('_active');
+    menuBody.classList.toggle('_active');
+  })
+}
+
 function sendRequest(method, url, body = null) {
   return fetch(url, {
     method: method,

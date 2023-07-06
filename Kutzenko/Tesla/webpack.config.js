@@ -3,6 +3,7 @@ const config = {
   entry: {
     index: './src/js/index.js',
     account: './src/js/account.js',
+    product: './src/js/product.js',
     userPage: './src/js/user-page.js',
     adminPage: './src/js/admin-page.js',
   },

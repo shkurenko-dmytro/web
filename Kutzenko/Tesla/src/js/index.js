@@ -42,7 +42,7 @@ if(document.querySelector('.myswiper')){
                               Model ${data[key].model}
                             </p>
                             <div data-swiper-parallax-opacity="0.5" data-swiper-parallax-scale="0.3" data-swiper-parallax="15%" class="myswiper__image">
-                              <img src="https://tests-ipny.onrender.com/${data[key].image}" onerror="this.src = './img/tesla${data[key].model}.png'">
+                              <img src="https://tests-ipny.onrender.com/${data[key].image}" onerror="this.src = './img/teslaX.png'">
                             </div>
                           </div>
                           <div ata-swiper-parallax-opacity="0.5" data-swiper-parallax-scale="0.3" class="main__info info">
