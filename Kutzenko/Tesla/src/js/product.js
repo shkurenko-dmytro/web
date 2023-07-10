@@ -83,43 +83,53 @@ productButton.addEventListener( 'click', function(e) {
 
   sendRequest('GET', urlList.database)
       .then(data => {
-        let filteredData = data.splice(productList.length, 3);
+        function filterData(){
+          let filteredData = data.splice(productList.length, 3);
 
-        filteredData.forEach(itemData => {
-            let productHtml = `
-                              <a href="#" class="product__item" data-pid="${itemData._id}">
-                                <div class="product__image">
-                                  <img src="https://tests-ipny.onrender.com/${itemData.image}" onerror="this.src = './img/teslaX.png'" alt="Tesla">
-                                </div>
-                                <div class="product__item-body">
-                                  <div class="product__description-box">
-                                    <dl class="product__description">
-                                      <dt class="product__name">Model:</dt>
-                                      <dd class="product__name-value">
-                                        <h2 class="product__subtitle">Tesla ${itemData.model}</h2>
-                                      </dd>
-                                    </dl>
-                                    <dl class="product__description">
-                                      <dt class="product__name">Range:</dt>
-                                      <dd class="product__name-value">${itemData.range}</dd>
-                                    </dl>
-                                    <dl class="product__description">
-                                      <dt class="product__name">Top Speed:</dt>
-                                      <dd class="product__name-value">${itemData.top_speed}</dd>
-                                    </dl>
-                                    <dl class="product__description">
-                                      <dt class="product__name">Mph:</dt>
-                                      <dd class="product__name-value">${itemData.mph}</dd>
-                                    </dl>
+          filteredData.forEach(itemData => {
+              let productHtml = `
+                                <a href="#" class="product__item" data-pid="${itemData._id}">
+                                  <div class="product__image">
+                                    <img src="https://tests-ipny.onrender.com/${itemData.image}" onerror="this.src = './img/teslaX.png'" alt="Tesla">
                                   </div>
-                                </div>
-                              </a>
-            `;
+                                  <div class="product__item-body">
+                                    <div class="product__description-box">
+                                      <dl class="product__description">
+                                        <dt class="product__name">Model:</dt>
+                                        <dd class="product__name-value">
+                                          <h2 class="product__subtitle">Tesla ${itemData.model}</h2>
+                                        </dd>
+                                      </dl>
+                                      <dl class="product__description">
+                                        <dt class="product__name">Range:</dt>
+                                        <dd class="product__name-value">${itemData.range}</dd>
+                                      </dl>
+                                      <dl class="product__description">
+                                        <dt class="product__name">Top Speed:</dt>
+                                        <dd class="product__name-value">${itemData.top_speed}</dd>
+                                      </dl>
+                                      <dl class="product__description">
+                                        <dt class="product__name">Mph:</dt>
+                                        <dd class="product__name-value">${itemData.mph}</dd>
+                                      </dl>
+                                    </div>
+                                  </div>
+                                </a>
+              `;
 
-            productContainer.insertAdjacentHTML('beforeend', productHtml);
-        });
+              productContainer.insertAdjacentHTML('beforeend', productHtml);
+          });
 
-        productButton.parentElement.classList.remove('loading');
+          productButton.parentElement.classList.remove('loading');
+        }
+
+        if(productList.length + 3 >= data.length) {
+          filterData();
+          
+          productButton.style.display = "none";
+        } else {
+          filterData();
+        }
       })
       .catch(err => {
         console.log(err);
