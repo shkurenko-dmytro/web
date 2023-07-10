@@ -24,4 +24,12 @@ const isMobile = {
   }
 };
 
-export default isMobile;
+function addDeviceClass(){
+  if (isMobile.any()) {
+    document.body.classList.add('_touch');
+  } else {
+    document.body.classList.add('_pc');
+  }
+}
+
+export default addDeviceClass;

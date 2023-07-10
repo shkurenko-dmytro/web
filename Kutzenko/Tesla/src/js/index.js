@@ -3,7 +3,8 @@
 import Swiper from 'swiper';
 import { Navigation, Pagination, Virtual, Parallax, Keyboard } from 'swiper/modules';
 
-import isMobile from './modules/isMobile';
+import addDeviceClass from './modules/isMobile';
+import addMenuClass from './modules/menu';
 import urlList from './modules/urlList';
 
 if(document.querySelector('.myswiper')){
@@ -96,19 +97,7 @@ if(document.querySelector('.myswiper')){
 }
 
 // Which device
-if (isMobile.any()) {
-  document.body.classList.add('_touch');
-} else {
-  document.body.classList.add('_pc');
-}
+addDeviceClass();
 
 //Menu
-const iconMenu = document.querySelector('.menu__icon');
-const menuBody = document.querySelector('.menu__body');
-if (iconMenu) {
-  iconMenu.addEventListener('click', function () {
-    document.body.classList.toggle('_lock');
-    iconMenu.classList.toggle('_active');
-    menuBody.classList.toggle('_active');
-  })
-}
+addMenuClass();
