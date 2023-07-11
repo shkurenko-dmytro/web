@@ -38,6 +38,10 @@ class PostService {
             return deletedPost
 
     }
+    async deleteAll(){
+        const deletedPosts = await Post.deleteMany({__v: '0'})
+        return deletedPosts
+}
 }
 
 export default new PostService();

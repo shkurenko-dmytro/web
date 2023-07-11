@@ -46,7 +46,14 @@ class PostController{
         } catch (error) {
             res.status(500).json(error.message);
         }
-}
+    async deleteAll(req, res){
+        const deletedPosts = await PostService.deleteAll()
+            return res.status(200).json(deletedPosts)
+        } catch (error) {
+            res.status(500).json(error.message);
+        }
+    }
+
 
 
 export default new PostController();
