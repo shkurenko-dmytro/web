@@ -145,7 +145,7 @@ if(document.querySelector('.form')){
         preloader.classList.remove('done');
       }
 
-      sendRequest('POST', urlList.fakeJson, dataForm)
+      sendRequest('POST', urlList.localServer, dataForm)
         .then(data => {
           setTimeout(function() {
             if(!preloader.classList.contains('done')){
@@ -188,7 +188,7 @@ if(document.querySelector('.form')){
         preloader.classList.remove('done');
       }
 
-      sendRequest('POST', urlList.fakeJson, dataForm)
+      sendRequest('POST', urlList.localServer, dataForm)
         .then(data => {
           setTimeout(function() {
             if(!preloader.classList.contains('done')){
