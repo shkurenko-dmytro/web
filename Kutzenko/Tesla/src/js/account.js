@@ -5,7 +5,8 @@ import addMenuClass from './modules/menu';
 import urlList from './modules/urlList';
 
 const preloader = document.querySelector('.preloader');
-const reqURL = urlList.localServer;
+const signUpURL = urlList.signUp;
+const loginURL = urlList.login;
 
 document.body.onload = function () {
   setTimeout(function () {
@@ -38,6 +39,8 @@ if (document.querySelector('.form')) {
   const linkToSignUp = document.querySelector('#link-to-signUp');
   const linkToLogin = document.querySelector('#link-to-login');
 
+  username.addEventListener('input', hiddenError);
+  username.addEventListener('input', hiddenError);
   usernameSignUp.addEventListener('input', hiddenError);
   passwordSignUp.addEventListener('input', hiddenError);
   confirmPassword.addEventListener('input', confirmPassword_Verify);
@@ -65,7 +68,7 @@ if (document.querySelector('.form')) {
     }
   }
 
-  function hiddenError(e){
+  function hiddenError(e) {
     e.target.style.borderColor = "gray";
     e.target.nextElementSibling.style.display = "none";
   }
@@ -87,39 +90,55 @@ if (document.querySelector('.form')) {
   formLogin.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // let dataForm = new FormData();
+    let dataForm = new FormData();
 
-    // dataForm.append('username', username.value);
-    // dataForm.append('password', password.value);
+    dataForm.append('username', username.value);
+    dataForm.append('password', password.value);
 
-    // if (preloader.classList.contains('done')) {
-    //   preloader.classList.remove('done');
-    // }
+    if (preloader.classList.contains('done')) {
+      preloader.classList.remove('done');
+    }
 
-    // sendRequest('POST', reqURL, dataForm)
-    //   .then(data => {
-    //     setTimeout(function () {
-    //       if (!preloader.classList.contains('done')) {
-    //         preloader.classList.add('done');
-    //       }
-    //     }, 100);
+    async function getData(url, body) {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: body
+      });
 
-    //     console.log(data);
+      let data = await response.json();
 
-    //     formContainer.style.display = 'none';
+      if (response.ok) {
+        setTimeout(function () {
+          if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+          }
+        }, 100);
 
-    //     document.querySelector('.account__login-text').style.display = "block";
-    //   })
-    //   .catch(err => {
-    //     setTimeout(function () {
-    //       if (!preloader.classList.contains('done')) {
-    //         preloader.classList.add('done');
-    //       }
-    //     }, 100);
+        formContainer.style.display = 'none';
 
-    //     alert('Adding User failed');
-    //     console.log(err);
-    //   })
+        let text = document.querySelector('.account__login-text');
+        text.style.display = "block";
+        text.innerText = data.token;
+
+      } else {
+        setTimeout(function () {
+          if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+          }
+        }, 100);
+
+        console.log(data);
+
+        if (data.message) {
+          username.style.borderColor = "red";
+          usernameError.style.display = "block";
+          usernameError.innerText = data.message;
+          username.focus();
+        }
+      }
+    }
+
+    getData(loginURL, dataForm);
   })
 
   // Sign Up
@@ -141,6 +160,7 @@ if (document.querySelector('.form')) {
           method: 'POST',
           body: body
         });
+
         let data = await response.json();
 
         if (response.ok) {
@@ -185,7 +205,7 @@ if (document.querySelector('.form')) {
         }
       }
 
-      getData(reqURL, dataForm);
+      getData(signUpURL, dataForm);
 
     } else {
       return false;
