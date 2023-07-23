@@ -45,11 +45,11 @@ class authController{
             const {username, password} = req.body;
             const user = await User.findOne({userName: username});
             if (!user){
-                return res.status(400).json({message: `Пользователь ${username} не найден`})
+                return res.status(400).json({userError: `Пользователь ${username} не найден`})
             }
             const validPassword = bcrypt.compareSync(password, user.password )
             if(!validPassword){
-                return res.status(400).json({message: `Неверный пароль`})
+                return res.status(400).json({passwordError: `Неверный пароль`})
             }
             const token = generateAccessToken(user._id, user.role);
             return res.json({token})
