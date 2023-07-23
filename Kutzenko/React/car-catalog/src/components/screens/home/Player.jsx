@@ -15,7 +15,7 @@ const VideoPlayer = ({ src, ...props }) => {
     <div>
       <button onClick={handlePlay}>Play</button>
       <button onClick={handlePause}>Pause</button>
-      <video src={'../../../../public/video.mp4'} ref={ref} {...props}></video>
+      <video src={'../../../../video.mp4'} ref={ref} {...props}></video>
     </div>
   );
 };

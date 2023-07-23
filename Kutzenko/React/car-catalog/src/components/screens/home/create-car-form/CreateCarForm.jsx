@@ -1,54 +1,59 @@
-import { useState } from 'react';
-import styles from './CreateCarForm.module.css';
+import { useState } from "react";
+import styles from "./CreateCarForm.module.css";
+import { useForm } from "react-hook-form";
 
 const clearData = {
-  name: '',
-  price: '',
-  image: '',
+  name: "",
+  price: "",
+  image: "",
 };
 
 const CreateCarForm = ({ setCars }) => {
   const [data, setData] = useState(clearData);
 
-  const createCar = (e) => {
-    e.preventDefault();
+  const {
+    register,
+    reset,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onChange",
+  });
 
+  const createCar = (data) => {
+    console.log(data);
     setCars((prev) => [
       {
         id: prev.length + 1,
         ...data,
       },
-      ...prev
+      ...prev,
     ]);
 
-    setData(clearData);
+    reset();
   };
 
-  return <form className={styles.form}>
-    <input
-      type="text"
-      placeholder="Name"
-      onChange={e => setData(prev => ({
-        ...prev, name: e.target.value
-      }))}
-      value={data.name} />
-    <input
-      type="text"
-      placeholder="Price"
-      onChange={e => setData(prev => ({
-        ...prev, price: e.target.value
-      }))}
-      value={data.price} />
-    <input
-      type="text"
-      placeholder="Image"
-      onChange={e => setData(prev => ({
-        ...prev, image: e.target.value
-      }))}
-      value={data.image} />
+  return (
+    <form className={styles.form} onSubmit={handleSubmit(createCar)}>
+      <input
+        {...register("name", { required: true })}
+        type="text"
+        placeholder="Name"
+      />
+      <input
+        {...register("price", { required: true })}
+        type="text"
+        placeholder="Price"
+      />
+      <input
+        {...register("image", { required: true })}
+        type="text"
+        placeholder="Image"
+      />
 
-    <button className='btn' onClick={e => createCar(e)}>Create</button>
-  </form>
+      <button className="btn">Create</button>
+    </form>
+  );
 };
 
 export default CreateCarForm;

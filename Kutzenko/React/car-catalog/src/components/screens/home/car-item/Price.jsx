@@ -1,8 +1,6 @@
 import React from "react";
 
 const Price = ({ price }) => {
-  console.log("Price render");
-
   return (
     <p>
       {new Intl.NumberFormat("en-US", {

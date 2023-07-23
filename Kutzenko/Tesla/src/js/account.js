@@ -116,9 +116,9 @@ if (document.querySelector('.form')) {
 
         formContainer.style.display = 'none';
 
-        let text = document.querySelector('.account__login-text');
-        text.style.display = "block";
-        text.innerText = data.token;
+        await localStorage.setItem("token", JSON.stringify(data.token));
+        await localStorage.setItem("username", JSON.stringify( username.value));
+        console.log('login');
 
       } else {
         setTimeout(function () {
