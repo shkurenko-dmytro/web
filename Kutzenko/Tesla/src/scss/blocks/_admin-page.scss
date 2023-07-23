@@ -79,6 +79,9 @@
     cursor: pointer;
     transition: 0.3s all;
   }
+  &__logout-block{
+    padding-top: 50px;
+  }
 }
 
 body._pc .admin-page__button{

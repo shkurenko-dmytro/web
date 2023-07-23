@@ -194,6 +194,25 @@ body._pc .info__share{
   }
 }
 
+.logout-block{
+  text-align: center;
+}
+
+.logout{
+  font-size: 30px;
+  color: gray;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+body._pc .logout{
+  transition-duration: 0.3s;
+  &:hover{
+    color: white;
+  }
+}
+
 @import "./blocks/account";
 @import "./blocks/product";
 @import "./blocks/user-page";
