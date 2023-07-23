@@ -1,6 +1,6 @@
-import React from "react";
+import React, { FC } from "react";
 
-const Price = ({ price }) => {
+const Price:FC<{price: number}> = ({ price }) => {
   return (
     <p>
       {new Intl.NumberFormat("en-US", {

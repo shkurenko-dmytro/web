@@ -1,4 +1,6 @@
-export const cars = [
+import { ICar } from "../../../types/car.interface";
+
+export const cars:ICar[] = [
   {
     id: 1,
     name: 'Toyota Camry',
