@@ -10,7 +10,7 @@ router.get('/posts', PostController.getAll)
 router.get('/posts/:id', PostController.getOne)
 router.put('/posts', PostController.update)
 router.delete('/posts/:id', PostController.delete)
-router.delete('/posts/resa', PostController.deleteAll)
+router.get('/test', PostController.getPage)
 
 
 export default router;

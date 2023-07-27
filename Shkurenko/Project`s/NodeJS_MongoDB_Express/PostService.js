@@ -1,6 +1,6 @@
 import Post from "./Post.js";
 import fileService from "./fileService.js";
-
+import path  from 'path';
 class PostService {
     async create(post, image) {
         const fileName = fileService.saveFile(image);
@@ -38,9 +38,9 @@ class PostService {
             return deletedPost
 
     }
-    async deleteAll(){
-        const deletedPosts = await Post.deleteMany({__v: '0'})
-        return deletedPosts
+    async getPage(){
+        const dirname = path.resolve(); 
+        return path.resolve(dirname, 'front','test', 'index.html');
 }
 }
 
