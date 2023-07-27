@@ -8,7 +8,7 @@ export default function (role) {
         try {
             const token = req.headers.authorization.split(' ')[1];
             if(!token){
-                return res.status(403).json({message: "Пользователь не авторизован"});
+                return res.status(403).json({accessError: "The user is not authorized"});
             }
             const {role:userRole} = jwt.verify(token, config.secret);
             let hasRole = false;
@@ -16,14 +16,14 @@ export default function (role) {
                 hasRole = true;
             }
             if(!hasRole){
-                return res.status(403).json({message: "У вас нет доступа"});
+                return res.status(403).json({accessError: "You have no access"});
             }
             next();
     
     
         } catch (error) {
             console.log(error);
-            return res.status(403).json({message: "Пользователь не авторизован"});
+            return res.status(403).json({accessError: "The user is not authorized"});
         }    }
     
 }

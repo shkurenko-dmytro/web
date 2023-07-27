@@ -10,7 +10,7 @@ const generateAccessToken = (id, role) => {
         role,
     }
 
-    return jwt.sign(payload, config.secret, {expiresIn: "24h"} )
+    return jwt.sign(payload, config.secret, {expiresIn: "1h"} )
 }
 
 class authController{
@@ -20,22 +20,22 @@ class authController{
         try {
             const errors = validationResult(req)
             if(!errors.isEmpty()){
-                return res.status(400).json({message: "Проверьте введённые данные", errors})
+                return res.status(400).json({message: "Check the entered data", errors})
             }
             const {username, password} = req.body;
             const candidate = await User.findOne({userName:username});
             if (candidate){
-                return res.status(400).json({message: "Пользователь с таким именем уже существует"})
+                return res.status(400).json({usernameError: "A user with this name already exists"})
             }
 
             const hashPassword = bcrypt.hashSync(password)
             const userRole = await Role.findOne({value:"USER"})
             const user = User.create({userName: username, password: hashPassword, role: userRole.value})
-            return res.status(200).json({message: "Пользователь зарегистрирован"})
+            return res.status(200).json({usernameError: "The user is registered"})
             
         } catch (error) {
             console.log(error.message);
-            res.status(400).json({message:"Registration error"})
+            res.status(400).json({registrationError:"Registration error"})
         }
     }
 
@@ -45,17 +45,17 @@ class authController{
             const {username, password} = req.body;
             const user = await User.findOne({userName: username});
             if (!user){
-                return res.status(400).json({userError: `Пользователь ${username} не найден`})
+                return res.status(400).json({usernameError: `User ${username} not low`})
             }
             const validPassword = bcrypt.compareSync(password, user.password )
             if(!validPassword){
-                return res.status(400).json({passwordError: `Неверный пароль`})
+                return res.status(400).json({passwordError: `Incorrect password`})
             }
             const token = generateAccessToken(user._id, user.role);
             return res.json({token})
         } catch (error) {
             console.log(error.message);
-            res.status(400).json({message:"Login error"})
+            res.status(400).json({loginError: "Login error"})
         }
     }
 

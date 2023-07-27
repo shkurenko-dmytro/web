@@ -5,8 +5,8 @@ const authRouter = new Router();
 import roleMiddleware from "./middleware/roleMiddleware.js"
 
 authRouter.post('/registration', [
-    check('username', 'Имя пользователя не должно быть пустым').notEmpty(),
-    check('password', 'Пароль должен быть от 4 до 10 символов').isLength({ min: 4, max: 10 })
+    check('username', 'The username should not be empty').notEmpty(),
+    check('password', 'The password should be from 4 to 10 characters').isLength({ min: 4, max: 10 })
 ], authController.registration);
 authRouter.post('/login', authController.login);
 authRouter.get('/users', roleMiddleware("ADMIN"), authController.getUsers);
