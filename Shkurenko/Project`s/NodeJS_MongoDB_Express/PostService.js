@@ -40,6 +40,11 @@ class PostService {
     }
     async getPage(){
         const dirname = path.resolve(); 
+        return path.resolve(dirname, 'front','test', 'account.html');
+}
+
+    async getPagea(){
+        const dirname = path.resolve(); 
         return path.resolve(dirname, 'front','test', 'index.html');
 }
 }

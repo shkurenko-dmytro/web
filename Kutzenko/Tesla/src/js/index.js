@@ -1,21 +1,34 @@
-'use strict';
+"use strict"
 
-import Swiper from 'swiper';
-import { Navigation, Pagination, Virtual, Parallax, Keyboard } from 'swiper/modules';
+import Swiper from "swiper"
+import {
+  Navigation,
+  Pagination,
+  Virtual,
+  Parallax,
+  Keyboard,
+} from "swiper/modules"
 
-import addDeviceClass from './modules/isMobile';
-import addMenuClass from './modules/menu';
-import urlList from './modules/urlList';
+import addDeviceClass from "./modules/isMobile"
+import addMenuClass from "./modules/menu"
+import urlList from "./modules/urlList"
 
-if(document.querySelector('.myswiper')){
-  const swiper = new Swiper('.myswiper', {
+// Which device
+addDeviceClass()
+
+//Menu
+addMenuClass()
+
+
+if (document.querySelector(".myswiper")) {
+  const swiper = new Swiper(".myswiper", {
     modules: [Navigation, Pagination, Virtual, Parallax, Keyboard],
     navigation: {
-      nextEl: '.myswiper__button-next',
-      prevEl: '.myswiper__button-prev',
+      nextEl: ".myswiper__button-next",
+      prevEl: ".myswiper__button-prev",
     },
     pagination: {
-      el: '.myswiper-pagination',
+      el: ".myswiper-pagination",
       clickable: true,
     },
     simulateTouch: false,
@@ -25,17 +38,17 @@ if(document.querySelector('.myswiper')){
       enabled: true,
     },
     parallax: true,
-    keyboard: true
-  });
-  
+    keyboard: true,
+  })
+
   async function getData(url) {
-    const response = await fetch(url);
-    let data = await response.json();
-    data = data.splice(0, 4);
-  
-    let key;
-    let arr = [];
-  
+    const response = await fetch(url)
+    let data = await response.json()
+    data = data.splice(0, 4)
+
+    let key
+    let arr = []
+
     for (key in data) {
       let slideHtml = `<div class="swiper-slide myswiper__slide">
                           <div class="myswiper__slide-body">
@@ -78,26 +91,21 @@ if(document.querySelector('.myswiper')){
                               </div>
                             </div>
                           </div>
-                        </div>`;
-  
-      arr.push(slideHtml);
-    };
-    
-    swiper.virtual.appendSlide(arr);
-  
-    setTimeout(function() {
-      let preloader = document.querySelector('.preloader');
-      if(!preloader.classList.contains('done')){
-        preloader.classList.add('done');
+                        </div>`
+
+      arr.push(slideHtml)
+    }
+
+    swiper.virtual.appendSlide(arr)
+
+    setTimeout(function () {
+      let preloader = document.querySelector(".preloader")
+      if (!preloader.classList.contains("done")) {
+        preloader.classList.add("done")
       }
-    }, 500);
-  };
-  
-  getData(urlList.database);
+    }, 500)
+  }
+
+  getData(urlList.database)
 }
 
-// Which device
-addDeviceClass();
-
-//Menu
-addMenuClass();

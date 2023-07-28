@@ -1,220 +1,230 @@
-'use strict';
+"use strict"
 
-import addDeviceClass from './modules/isMobile';
-import addMenuClass from './modules/menu';
-import urlList from './modules/urlList';
+import htmlUrlList from "./modules/htmlUrlList"
+import addDeviceClass from "./modules/isMobile"
+import addMenuClass from "./modules/menu"
+import urlList from "./modules/urlList"
 
-const preloader = document.querySelector('.preloader');
-const signUpURL = urlList.signUp;
-const loginURL = urlList.login;
+const preloader = document.querySelector(".preloader")
+const signUpURL = urlList.signUp
+const loginURL = urlList.login
 
 document.body.onload = function () {
   setTimeout(function () {
-    if (!preloader.classList.contains('done')) {
-      preloader.classList.add('done');
+    if (!preloader.classList.contains("done")) {
+      preloader.classList.add("done")
     }
-  }, 500);
+  }, 500)
 }
 
-if (document.querySelector('.form')) {
-  const formContainer = document.querySelector('.container-form');
+if (document.querySelector(".form")) {
+  const formContainer = document.querySelector(".container-form")
 
-  const formLogin = document.querySelector('.form__login');
-  const formSignUp = document.querySelector('.form__sign-up');
+  const formLogin = document.querySelector(".form__login")
+  const formSignUp = document.querySelector(".form__sign-up")
 
   //Login
-  const username = document.querySelector('#username');
-  const password = document.querySelector('#password');
-  const usernameError = document.querySelector('#username-error');
-  const passwordError = document.querySelector('#password-error');
+  const username = document.querySelector("#username")
+  const password = document.querySelector("#password")
+  const usernameError = document.querySelector("#username-error")
+  const passwordError = document.querySelector("#password-error")
 
   //Sign Up
-  const usernameSignUp = document.querySelector('#username-signUp');
-  const passwordSignUp = document.querySelector('#password-signUp');
-  const confirmPassword = document.querySelector('#confirm-password');
-  const usernameSignUpError = document.querySelector('#username-signUp-error');
-  const passwordSignUpError = document.querySelector('#password-signUp-error');
-  const confirmPasswordError = document.querySelector('#confirm-password-error');
+  const usernameSignUp = document.querySelector("#username-signUp")
+  const passwordSignUp = document.querySelector("#password-signUp")
+  const confirmPassword = document.querySelector("#confirm-password")
+  const usernameSignUpError = document.querySelector("#username-signUp-error")
+  const passwordSignUpError = document.querySelector("#password-signUp-error")
+  const confirmPasswordError = document.querySelector("#confirm-password-error")
 
-  const linkToSignUp = document.querySelector('#link-to-signUp');
-  const linkToLogin = document.querySelector('#link-to-login');
+  const linkToSignUp = document.querySelector("#link-to-signUp")
+  const linkToLogin = document.querySelector("#link-to-login")
 
-  username.addEventListener('input', hiddenError);
-  username.addEventListener('input', hiddenError);
-  usernameSignUp.addEventListener('input', hiddenError);
-  passwordSignUp.addEventListener('input', hiddenError);
-  confirmPassword.addEventListener('input', confirmPassword_Verify);
+  username.addEventListener("input", hiddenError)
+  password.addEventListener("input", hiddenError)
+  usernameSignUp.addEventListener("input", hiddenError)
+  passwordSignUp.addEventListener("input", hiddenError)
+  confirmPassword.addEventListener("input", confirmPassword_Verify)
 
   function validated(pass, confirm_pass, confirm_passError) {
     if (confirm_pass) {
       if (confirm_pass.value !== pass.value) {
-        confirm_pass.style.borderColor = "red";
-        confirm_passError.style.display = "block";
-        confirm_pass.focus();
+        confirm_pass.style.borderColor = "red"
+        confirm_passError.style.display = "block"
+        confirm_pass.focus()
 
-        return false;
+        return false
       }
     }
 
-    return true;
+    return true
   }
 
   function confirmPassword_Verify(e) {
     if (e.target.value === passwordSignUp.value) {
-      e.target.style.borderColor = "gray";
-      confirmPasswordError.style.display = "none";
+      e.target.style.borderColor = "gray"
+      confirmPasswordError.style.display = "none"
 
-      return true;
+      return true
     }
   }
 
   function hiddenError(e) {
-    e.target.style.borderColor = "gray";
-    e.target.nextElementSibling.style.display = "none";
+    e.target.style.borderColor = "gray"
+    e.target.nextElementSibling.style.display = "none"
   }
 
   // Transition between Login and Sign Up
-  linkToSignUp.addEventListener('click', (e) => {
-    e.preventDefault();
+  linkToSignUp.addEventListener("click", (e) => {
+    e.preventDefault()
 
-    formContainer.classList.add('active');
+    formContainer.classList.add("active")
   })
 
-  linkToLogin.addEventListener('click', (e) => {
-    e.preventDefault();
+  linkToLogin.addEventListener("click", (e) => {
+    e.preventDefault()
 
-    formContainer.classList.remove('active');
+    formContainer.classList.remove("active")
   })
 
   // Login
-  formLogin.addEventListener('submit', (e) => {
-    e.preventDefault();
+  formLogin.addEventListener("submit", (e) => {
+    e.preventDefault()
 
-    let dataForm = new FormData();
+    let dataForm = new FormData()
 
-    dataForm.append('username', username.value);
-    dataForm.append('password', password.value);
+    dataForm.append("username", username.value)
+    dataForm.append("password", password.value)
 
-    if (preloader.classList.contains('done')) {
-      preloader.classList.remove('done');
+    if (preloader.classList.contains("done")) {
+      preloader.classList.remove("done")
     }
 
     async function getData(url, body) {
       const response = await fetch(url, {
-        method: 'POST',
-        body: body
-      });
+        method: "POST",
+        body: body,
+      })
 
-      let data = await response.json();
+      let data = await response.json()
 
       if (response.ok) {
         setTimeout(function () {
-          if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
+          if (!preloader.classList.contains("done")) {
+            preloader.classList.add("done")
           }
-        }, 100);
+        }, 100)
 
-        formContainer.style.display = 'none';
+        formContainer.style.display = "none"
 
-        await localStorage.setItem("token", JSON.stringify(data.token));
-        await localStorage.setItem("username", JSON.stringify( username.value));
-        console.log('login');
+        await localStorage.setItem("token", JSON.stringify(data.token))
+        await localStorage.setItem("username", JSON.stringify(username.value))
 
+        if (username.value === "admin") {
+          document.location = htmlUrlList.adminPage
+        } else {
+          document.location = htmlUrlList.userPage
+        }
       } else {
         setTimeout(function () {
-          if (!preloader.classList.contains('done')) {
-            preloader.classList.add('done');
+          if (!preloader.classList.contains("done")) {
+            preloader.classList.add("done")
           }
-        }, 100);
+        }, 100)
 
-        console.log(data);
+        console.log(data)
 
-        if (data.message) {
-          username.style.borderColor = "red";
-          usernameError.style.display = "block";
-          usernameError.innerText = data.message;
-          username.focus();
+        if (data.usernameError) {
+          username.style.borderColor = "red"
+          usernameError.style.display = "block"
+          usernameError.innerText = data.usernameError
+          username.focus()
+        }
+
+        if (data.passwordError) {
+          password.style.borderColor = "red"
+          passwordError.style.display = "block"
+          passwordError.innerText = data.passwordError
+          password.focus()
         }
       }
     }
 
-    getData(loginURL, dataForm);
+    getData(loginURL, dataForm)
   })
 
   // Sign Up
-  formSignUp.addEventListener('submit', (e) => {
-    e.preventDefault();
+  formSignUp.addEventListener("submit", (e) => {
+    e.preventDefault()
 
     if (validated(passwordSignUp, confirmPassword, confirmPasswordError)) {
-      let dataForm = new FormData();
+      let dataForm = new FormData()
 
-      dataForm.append('username', usernameSignUp.value);
-      dataForm.append('password', passwordSignUp.value);
+      dataForm.append("username", usernameSignUp.value)
+      dataForm.append("password", passwordSignUp.value)
 
-      if (preloader.classList.contains('done')) {
-        preloader.classList.remove('done');
+      if (preloader.classList.contains("done")) {
+        preloader.classList.remove("done")
       }
 
       async function getData(url, body) {
         const response = await fetch(url, {
-          method: 'POST',
-          body: body
-        });
+          method: "POST",
+          body: body,
+        })
 
-        let data = await response.json();
+        let data = await response.json()
 
         if (response.ok) {
           setTimeout(function () {
-            if (!preloader.classList.contains('done')) {
-              preloader.classList.add('done');
+            if (!preloader.classList.contains("done")) {
+              preloader.classList.add("done")
             }
-          }, 100);
+          }, 100)
 
-          formContainer.style.display = 'none';
+          formContainer.style.display = "none"
 
-          document.querySelector('.account__signup-text').style.display = "block";
+          document.querySelector(".account__signup-text").style.display =
+            "block"
         } else {
           setTimeout(function () {
-            if (!preloader.classList.contains('done')) {
-              preloader.classList.add('done');
+            if (!preloader.classList.contains("done")) {
+              preloader.classList.add("done")
             }
-          }, 100);
+          }, 100)
 
-          console.log(data);
+          console.log(data)
 
           if (data.errors && data.message) {
-            if (data.errors.errors[0].path === 'username') {
-              usernameSignUp.style.borderColor = "red";
-              usernameSignUpError.style.display = "block";
-              usernameSignUpError.innerText = data.errors.errors[0].msg;
-              usernameSignUp.focus();
-
-            } else if (data.errors.errors[0].path === 'password') {
-              passwordSignUp.style.borderColor = "red";
-              passwordSignUpError.style.display = "block";
-              passwordSignUpError.innerText = data.errors.errors[0].msg;
-              passwordSignUp.focus();
-            };
-
+            if (data.errors.errors[0].path === "username") {
+              usernameSignUp.style.borderColor = "red"
+              usernameSignUpError.style.display = "block"
+              usernameSignUpError.innerText = data.errors.errors[0].msg
+              usernameSignUp.focus()
+            } else if (data.errors.errors[0].path === "password") {
+              passwordSignUp.style.borderColor = "red"
+              passwordSignUpError.style.display = "block"
+              passwordSignUpError.innerText = data.errors.errors[0].msg
+              passwordSignUp.focus()
+            }
           } else if (data.message) {
-            usernameSignUp.style.borderColor = "red";
-            usernameSignUpError.style.display = "block";
-            usernameSignUpError.innerText = data.message;
-            usernameSignUp.focus();
+            usernameSignUp.style.borderColor = "red"
+            usernameSignUpError.style.display = "block"
+            usernameSignUpError.innerText = data.message
+            usernameSignUp.focus()
           }
         }
       }
 
-      getData(signUpURL, dataForm);
-
+      getData(signUpURL, dataForm)
     } else {
-      return false;
+      return false
     }
   })
 }
 
 // Which device
-addDeviceClass();
+addDeviceClass()
 
 //Menu
-addMenuClass();
+addMenuClass()
