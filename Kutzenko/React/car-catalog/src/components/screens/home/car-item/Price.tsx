@@ -1,6 +1,10 @@
-import React, { FC } from "react";
+import React, { FC } from "react"
 
-const Price:FC<{price: number}> = ({ price }) => {
+interface IPrice {
+  price: number
+}
+
+const Price: FC<IPrice> = ({ price }) => {
   return (
     <p>
       {new Intl.NumberFormat("en-US", {
@@ -8,7 +12,7 @@ const Price:FC<{price: number}> = ({ price }) => {
         currency: "USD",
       }).format(price)}
     </p>
-  );
-};
+  )
+}
 
-export default React.memo(Price);
+export default React.memo(Price)
