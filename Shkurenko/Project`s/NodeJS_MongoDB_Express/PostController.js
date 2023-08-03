@@ -47,7 +47,7 @@ class PostController{
             res.status(500).json(error.message);
         }
     async getPage(req, res){
-        const filepath = await PostService.getPage()
+        const filepath = await PostService.getPage(req.params.id)
             return res.status(200).sendFile(filepath);
         } catch (error) {
             res.status(500).json(error.message);

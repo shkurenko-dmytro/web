@@ -4,7 +4,7 @@ import router from "./router.js";
 import cors from 'cors'
 import fileUpload from "express-fileupload";
 import authRouter from "./authRouter.js";
-
+import path from "path";
 const PORT = 5000;
 
 const DB_URL = 'mongodb+srv://user:pass@cluster0.ixu7ysd.mongodb.net/'
@@ -14,7 +14,7 @@ app.use(fileUpload({}))
 app.use(cors())
 app.use(express.json())
 app.use(express.static('images'))
-app.use(express.static('front'))
+app.use(express.static('front/Tesla'))
 app.use('/api', router)
 app.use('/auth', authRouter)
 

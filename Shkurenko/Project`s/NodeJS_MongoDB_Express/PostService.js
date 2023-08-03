@@ -38,9 +38,10 @@ class PostService {
             return deletedPost
 
     }
-    async getPage(){
+    async getPage(id){
+        console.log(id);
         const dirname = path.resolve(); 
-        return path.resolve(dirname, 'front','test', 'index.html');
+        return path.resolve(dirname, 'front','Tesla','build' ,`${id}.html`);
 }
 }
 

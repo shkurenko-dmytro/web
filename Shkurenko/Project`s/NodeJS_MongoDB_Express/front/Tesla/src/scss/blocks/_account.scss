@@ -1,0 +1,101 @@
+.container-form{
+  max-width: 500px;
+  margin: 20px auto 0;
+  background: #dedede;
+  border-radius: 5px;
+}
+
+.form{
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+
+  &__title{
+    padding: 20px 20px;
+    font-size: 35px;
+    color: #292929;
+    text-align: center;
+  }
+
+  &__input-box{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  &__label{
+    font-size: 18px;
+    color: #292929;
+  }
+
+  &__input{
+    height: 40px;
+    width: 100%;
+    padding: 0 5px;
+    font-size: 18px;
+    border: 2px solid gray;
+    border-radius: 5px;
+  }
+
+  &__button{
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    font-size: 20px;
+    color: #292929;
+    background-color: #9B9B9B;
+    border: 1px solid #9B9B9B;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: 0.3s all;
+  }
+
+  &__error{
+    font-size: 18px;
+    color: #c62828;
+    background: #ef9a9a;
+    text-align: center;
+    padding: 5px 8px;
+    border-radius: 3px;
+    border: 1px solid rgba(255, 0, 0, 1);
+    display: none;
+  }
+
+  &__text{
+    color: #292929;
+  }
+
+  &__link{
+    color: #292929;
+    opacity: 0.5;
+    transition: 0.3s all;
+  }
+}
+
+body._pc .form__button{
+  &:hover{
+    background-color: #292929;
+    color: #9B9B9B;
+  }
+}
+
+body._pc .form__link{
+  &:hover{
+    opacity: 1;
+  }
+}
+
+.form__sign-up{
+  display: none;
+}
+
+.container-form.active{
+  .form__login{
+    display: none;
+  }
+
+  .form__sign-up{
+    display: flex;
+  }
+}

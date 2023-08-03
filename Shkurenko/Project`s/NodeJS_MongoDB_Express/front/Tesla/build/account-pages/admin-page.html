@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tesla</title>
+  <link rel="stylesheet" href="./../css/main.css" />
+</head>
+
+<body>
+  <div class="preloader">
+  <div class="loader"></div>
+</div>
+  <div class="wrapper">
+    <header class="header">
+    <div class="header__container">
+        <a href="#" class="header__logo">
+            <img src="./../img/logo.png" alt="">
+        </a>
+        <nav class="header__menu menu">
+            <div class="menu__body">
+                <a href="#" class="header__search">
+                    <img src="./../img/search-icon.svg" class="header__search-icon">
+                </a>
+                <ul class="menu__list">
+                    <li class="menu__list-item">
+                        <a href="#" class="menu__list-link">
+                            Home
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="#" class="menu__list-link">
+                            Product
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="#" class="menu__list-link">
+                            Account
+                        </a>
+                    </li>
+                    <li class="menu__list-item">
+                        <a href="#" class="menu__list-link">
+                            Menu
+                        </a>
+                    </li>
+                </ul>
+                <a href="#" class="header__cart">
+                    <img src="./../img/cart-icon.svg" class="header__cart-icon">
+                </a>
+            </div>
+            <div class="menu__icon">
+                <span></span>
+            </div>
+        </nav>
+    </div>
+</header>
+    <main class="main">
+      <div class="main__container">
+        <section class="main__admin-page admin-page">
+          <div class="admin-page__container">
+            <h1 class="admin-page__title">Profile</h1>
+            <div class="admin-page__head">
+              <div class="admin-page__avatar">
+                
+              </div>
+              <p class="admin-page__username" id="username">
+                <span>Admin: </span>Stepan
+              </p>
+            </div>
+            <div class="admin-page__panel-add">
+              <h1 class="admin-page__title admin-page__panel-title">Add Panel</h1>
+              <div class="admin-page__panel">
+                <div class="admin-page__input-box">
+                  <label for="model" class="admin-page__label">Model</label>
+                  <input id="model" type="text" class="admin-page__input" name="model" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="range" class="admin-page__label">Range</label>
+                  <input id="range" type="text" class="admin-page__input" name="range" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="top_speed" class="admin-page__label">Top Speed</label>
+                  <input id="top_speed" type="text" class="admin-page__input" name="top_speed" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="mph" class="admin-page__label">Mph</label>
+                  <input id="mph" type="text" class="admin-page__input" name="mph" autocomplete="off">
+                </div>
+                <div class="admin-page__input-box">
+                  <label for="image" class="admin-page__label">Image</label>
+                  <input id="image" type="file" class="admin-page__input admin-page__input-file" name="image" autocomplete="off">
+                </div>
+                <button type="submit" class="admin-page__button" id="send">Send</button>
+              </div>
+            </div>
+            <div class="admin-page__logout-block logout-block">
+              <button type="button" class="admin-page__logout logout">
+                Log out
+              </button>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <script src="./../js/adminPage.bundle.js"></script>
+</body>
+
+</html>
