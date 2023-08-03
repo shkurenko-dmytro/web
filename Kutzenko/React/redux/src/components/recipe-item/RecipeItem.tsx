@@ -1,8 +1,13 @@
 import { useActions } from "../../hooks/useActions"
 import { useFavorites } from "../../hooks/useFavorites"
+import { IRecipe } from "../../types/recipe.types"
 import styles from "./RecipeItem.module.css"
 
-function RecipeItem({ recipe }) {
+interface IRecipeItem {
+  recipe: IRecipe
+}
+
+function RecipeItem({ recipe }: IRecipeItem) {
   const { favorites } = useFavorites()
 
   const { toggleFavorites } = useActions()
