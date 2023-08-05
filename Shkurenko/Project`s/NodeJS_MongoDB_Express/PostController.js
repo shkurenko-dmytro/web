@@ -52,6 +52,13 @@ class PostController{
         } catch (error) {
             res.status(500).json(error.message);
         }
+
+        async getPagea(req, res){
+            const filepath = await PostService.getPagea()
+                return res.status(200).sendFile(filepath);
+            } catch (error) {
+                res.status(500).json(error.message);
+            }
     }
 
 

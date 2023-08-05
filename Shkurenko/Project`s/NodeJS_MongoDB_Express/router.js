@@ -10,6 +10,7 @@ router.get('/posts', PostController.getAll)
 router.get('/posts/:id', PostController.getOne)
 router.put('/posts', PostController.update)
 router.delete('/posts/:id', PostController.delete)
+<<<<<<< HEAD
 router.get('/test/:id', PostController.getPage)
 router.get('/testIndex', (req,res)=>{
     //res.redirect('./testPage')
@@ -32,6 +33,10 @@ router.get('/testPage', (req,res) =>{
     res.status(200).sendFile(path.resolve(dirname,'front', 'test', 'index.html'))
     
 })
+=======
+router.get('/test', PostController.getPage)
+router.get('/testa', PostController.getPagea)
+>>>>>>> 24bdf9a8e9a4a9a9eee695ff224cddb6ca8cdfa2
 
 
 export default router;

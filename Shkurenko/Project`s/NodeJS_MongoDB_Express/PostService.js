@@ -41,7 +41,16 @@ class PostService {
     async getPage(id){
         console.log("ID = "+ id);
         const dirname = path.resolve(); 
+<<<<<<< HEAD
         return path.resolve(dirname, 'front','Tesla','build' ,`${id}.html`);
+=======
+        return path.resolve(dirname, 'front','test', 'account.html');
+}
+
+    async getPagea(){
+        const dirname = path.resolve(); 
+        return path.resolve(dirname, 'front','test', 'index.html');
+>>>>>>> 24bdf9a8e9a4a9a9eee695ff224cddb6ca8cdfa2
 }
 }
 

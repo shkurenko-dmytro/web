@@ -1,37 +1,37 @@
-'use strict';
+"use strict"
 
-import addDeviceClass from './modules/isMobile';
-import addMenuClass from './modules/menu';
-import urlList from './modules/urlList';
+import addDeviceClass from "./modules/isMobile"
+import addMenuClass from "./modules/menu"
+import urlList from "./modules/urlList"
 
-const preloader = document.querySelector('.preloader');
-const productContainer = document.querySelector('.product__container');
-const productButton = document.querySelector('.product__button');
+const preloader = document.querySelector(".preloader")
+const productContainer = document.querySelector(".product__container")
+const productButton = document.querySelector(".product__button")
 
 function sendRequest(method, url, body = null) {
   return fetch(url, {
     method: method,
-  }).then(response => {
+  }).then((response) => {
     if (response.ok) {
-      return response.json();
+      return response.json()
     }
 
-    return response.json().then(err => {
-      const e = new Error('Не працює');
-      e.data = err;
-      throw e;
+    return response.json().then((err) => {
+      const e = new Error("Не працює")
+      e.data = err
+      throw e
     })
   })
 }
 
-window.addEventListener("load", function() {
-  if(document.querySelector('.product')){
-    sendRequest('GET', urlList.database)
-      .then(data => {
-        let filteredData = data.splice(0, 3);
+window.addEventListener("load", function () {
+  if (document.querySelector(".product")) {
+    sendRequest("GET", urlList.database)
+      .then((data) => {
+        let filteredData = data.splice(0, 3)
 
-        filteredData.forEach(element => {
-            let productHtml = `
+        filteredData.forEach((element) => {
+          let productHtml = `
                               <a href="#" class="product__item" data-pid="${element._id}">
                                 <div class="product__image">
                                   <img src="https://tests-ipny.onrender.com/${element.image}" onerror="this.src = './img/teslaX.png'" alt="Tesla">
@@ -59,35 +59,37 @@ window.addEventListener("load", function() {
                                   </div>
                                 </div>
                               </a>
-            `;
+            `
 
-            productContainer.insertAdjacentHTML('beforeend', productHtml);
-        });
+          productContainer.insertAdjacentHTML("beforeend", productHtml)
+        })
 
-        setTimeout(function() {
-          if(!preloader.classList.contains('done')){
-            preloader.classList.add('done');
+        setTimeout(function () {
+          if (!preloader.classList.contains("done")) {
+            preloader.classList.add("done")
           }
-        }, 500);
+        }, 500)
       })
-      .catch(err => {
-        console.log(err);
+      .catch((err) => {
+        console.log(err)
       })
-  };
-});
+  }
+})
 
-productButton.addEventListener( 'click', function(e) {
-  productButton.parentElement.classList.add('loading');
+productButton.addEventListener("click", function (e) {
+  productButton.parentElement.classList.add("loading")
 
-  let productList = Array.from(document.querySelectorAll('.product__item[data-pid]'));
+  let productList = Array.from(
+    document.querySelectorAll(".product__item[data-pid]")
+  )
 
-  sendRequest('GET', urlList.database)
-      .then(data => {
-        function filterData(){
-          let filteredData = data.splice(productList.length, 3);
+  sendRequest("GET", urlList.database)
+    .then((data) => {
+      function filterData() {
+        let filteredData = data.splice(productList.length, 3)
 
-          filteredData.forEach(itemData => {
-              let productHtml = `
+        filteredData.forEach((itemData) => {
+          let productHtml = `
                                 <a href="#" class="product__item" data-pid="${itemData._id}">
                                   <div class="product__image">
                                     <img src="https://tests-ipny.onrender.com/${itemData.image}" onerror="this.src = './img/teslaX.png'" alt="Tesla">
@@ -115,31 +117,31 @@ productButton.addEventListener( 'click', function(e) {
                                     </div>
                                   </div>
                                 </a>
-              `;
+              `
 
-              productContainer.insertAdjacentHTML('beforeend', productHtml);
-          });
+          productContainer.insertAdjacentHTML("beforeend", productHtml)
+        })
 
-          productButton.parentElement.classList.remove('loading');
-        }
+        productButton.parentElement.classList.remove("loading")
+      }
 
-        if(productList.length + 3 >= data.length) {
-          filterData();
-          
-          productButton.style.display = "none";
-        } else {
-          filterData();
-        }
-      })
-      .catch(err => {
-        console.log(err);
-      });
+      if (productList.length + 3 >= data.length) {
+        filterData()
 
-  e.preventDefault();
-});
+        productButton.style.display = "none"
+      } else {
+        filterData()
+      }
+    })
+    .catch((err) => {
+      console.log(err)
+    })
+
+  e.preventDefault()
+})
 
 // Which device
-addDeviceClass();
+addDeviceClass()
 
 //Menu
-addMenuClass();
+addMenuClass()
