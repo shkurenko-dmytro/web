@@ -1,32 +1,20 @@
-const reqURL = "https://tests-ipny.onrender.com";
+//import { response } from "express";
 
-function sendRequest(method, url, body = null) {
-  const headers = {
-    "Content-Type": 'application/json'
-  }
+let a = document.getElementsByTagName('html')
 
-  return fetch(url, {
-    method: method,
-    mode : "no-cors",
-    body: JSON.stringify(body),
-    headers: headers
-  }).then(response => {
-    console.log(response);
-    
-  }).catch(error => {
-    console.log(error);
-  })
+const btn = document.querySelector('button')
+const reqURL = "";
+
+btn.addEventListener('click', (event) => {
+  async function reque(){
+    const response = await fetch('/api/testIndex')
+  //await console.log(response.headers)
+ //window.location.href = response.url  
+ //await response.formData()
+ console.log(a)
+  a.innerHTML = 'deffw4'
 }
+ reque()
 
-// sendRequest('GET', reqURL)
-//   .then(data => console.log(data))
-//   .catch(err => console.log(err))
+})
 
-const body = {
-  name: 'Max',
-  age: 20
-}
-
-sendRequest('POST', reqURL, body)
-  .then(data => console.log(data))
-  .catch(err => console.log(err))

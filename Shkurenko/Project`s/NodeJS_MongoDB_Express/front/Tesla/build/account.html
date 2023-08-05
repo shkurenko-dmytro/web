@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Tesla</title>
-  <link rel="stylesheet" href="/build/css/main.css" />
+  <link rel="stylesheet" href="/css/main.css" />
 </head>
 
 <body>
@@ -16,27 +16,27 @@
   <div class="wrapper">
     <header class="header">
     <div class="header__container">
-        <a href="#" class="header__logo">
-            <img src="./img/logo.png" alt="">
+        <a href="/api/test/index" class="header__logo">
+            <img src="/img/logo.png" alt="">
         </a>
         <nav class="header__menu menu">
             <div class="menu__body">
                 <a href="#" class="header__search">
-                    <img src="./img/search-icon.svg" class="header__search-icon">
+                    <img src="/img/search-icon.svg" class="header__search-icon">
                 </a>
                 <ul class="menu__list">
                     <li class="menu__list-item">
-                        <a href="#" class="menu__list-link">
+                        <a href="/api/test/index" class="menu__list-link">
                             Home
                         </a>
                     </li>
                     <li class="menu__list-item">
-                        <a href="#" class="menu__list-link">
+                        <a href="/api/test/product" class="menu__list-link">
                             Product
                         </a>
                     </li>
                     <li class="menu__list-item">
-                        <a href="#" class="menu__list-link">
+                        <a href="/api/test/account" class="menu__list-link">
                             Account
                         </a>
                     </li>
@@ -47,7 +47,7 @@
                     </li>
                 </ul>
                 <a href="#" class="header__cart">
-                    <img src="./img/cart-icon.svg" class="header__cart-icon">
+                    <img src="/img/cart-icon.svg" class="header__cart-icon">
                 </a>
             </div>
             <div class="menu__icon">
@@ -63,12 +63,12 @@
             <h1 class="form__title">Login</h1>
             <div class="form__input-box">
               <label for="username" class="form__label">Username</label>
-              <input id="username" value="Dimon" type="text" class="form__input" name="username" autocomplete="off">
+              <input id="username" type="text" class="form__input" name="username" autocomplete="off">
               <div id="username-error" class="form__error">Please fill up username</div>
             </div>
             <div class="form__input-box">
               <label for="password" class="form__label">Password</label>
-              <input id="password" value="12345" type="text" class="form__input" name="password" autocomplete="off">
+              <input id="password" type="text" class="form__input" name="password" autocomplete="off">
               <div id="password-error" class="form__error">Please fill up password</div>
             </div>
             <button type="submit" class="form__button">Log in</button>
@@ -98,7 +98,7 @@
       </div>
     </main>
   </div>
-  <script src="/build/js/account.bundle.js"></script>
+  <script src="/js/account.bundle.js"></script>
 </body>
 
 </html>

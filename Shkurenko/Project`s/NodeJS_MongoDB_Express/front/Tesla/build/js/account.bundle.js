@@ -1,1 +1,380 @@
-!function(){"use strict";const e={Android:function(){return navigator.userAgent.match(/Android/i)},Blackberry:function(){return navigator.userAgent.match(/Blackberry/i)},iOS:function(){return navigator.userAgent.match(/iPhone|iPad|iPod/i)},Opera:function(){return navigator.userAgent.match(/Opera Mini/i)},Windows:function(){return navigator.userAgent.match(/IEMobile/i)},any:function(){return e.Android()||e.Blackberry()||e.iOS()||e.Opera()||e.Windows()}};const t=document.querySelector(".menu__icon"),o=document.querySelector(".menu__body");var n="http://localhost:5000/auth/registration",r="http://localhost:5000/auth/login";const s=document.querySelector(".preloader"),a=n,i=r;if(document.body.onload=function(){setTimeout((function(){s.classList.contains("done")||s.classList.add("done")}),500)},document.querySelector(".form")){const c=document.querySelector(".container-form"),l=document.querySelector(".form__login"),d=document.querySelector(".form__sign-up"),u=document.querySelector("#username"),m=document.querySelector("#password"),y=document.querySelector("#username-error"),p=(document.querySelector("#password-error"),document.querySelector("#username-signUp")),g=document.querySelector("#password-signUp"),f=document.querySelector("#confirm-password"),v=document.querySelector("#username-signUp-error"),L=document.querySelector("#password-signUp-error"),S=document.querySelector("#confirm-password-error"),b=document.querySelector("#link-to-signUp"),q=document.querySelector("#link-to-login");function h(e){if(e.target.value===g.value)return e.target.style.borderColor="gray",S.style.display="none",!0}function k(e){e.target.style.borderColor="gray",e.target.nextElementSibling.style.display="none"}u.addEventListener("input",k),u.addEventListener("input",k),p.addEventListener("input",k),g.addEventListener("input",k),f.addEventListener("input",h),b.addEventListener("click",(e=>{e.preventDefault(),c.classList.add("active")})),q.addEventListener("click",(e=>{e.preventDefault(),c.classList.remove("active")})),l.addEventListener("submit",(e=>{e.preventDefault();let t=new FormData;t.append("username",u.value),t.append("password",m.value),s.classList.contains("done")&&s.classList.remove("done"),async function(e,t){const o=await fetch(e,{method:"POST",body:t});let n=await o.json();o.ok?(setTimeout((function(){s.classList.contains("done")||s.classList.add("done")}),100),c.style.display="none",await localStorage.setItem("token",JSON.stringify(n.token)),await localStorage.setItem("username",JSON.stringify(u.value)),console.log("login")):(setTimeout((function(){s.classList.contains("done")||s.classList.add("done")}),100),console.log(n),n.message&&(u.style.borderColor="red",y.style.display="block",y.innerText=n.message,u.focus()))}(i,t)})),d.addEventListener("submit",(e=>{if(e.preventDefault(),t=g,n=S,(o=f)&&o.value!==t.value&&(o.style.borderColor="red",n.style.display="block",o.focus(),1))return!1;{let r=new FormData;async function i(e,t){const o=await fetch(e,{method:"POST",body:t});let n=await o.json();o.ok?(setTimeout((function(){s.classList.contains("done")||s.classList.add("done")}),100),c.style.display="none",document.querySelector(".account__signup-text").style.display="block"):(setTimeout((function(){s.classList.contains("done")||s.classList.add("done")}),100),console.log(n),n.errors&&n.message?"username"===n.errors.errors[0].path?(p.style.borderColor="red",v.style.display="block",v.innerText=n.errors.errors[0].msg,p.focus()):"password"===n.errors.errors[0].path&&(g.style.borderColor="red",L.style.display="block",L.innerText=n.errors.errors[0].msg,g.focus()):n.message&&(p.style.borderColor="red",v.style.display="block",v.innerText=n.message,p.focus()))}r.append("username",p.value),r.append("password",g.value),s.classList.contains("done")&&s.classList.remove("done"),i(a,r)}var t,o,n}))}e.any()?document.body.classList.add("_touch"):document.body.classList.add("_pc"),t&&t.addEventListener("click",(function(){document.body.classList.toggle("_lock"),t.classList.toggle("_active"),o.classList.toggle("_active")}))}();
+/******/ (function() { // webpackBootstrap
+/******/ 	"use strict";
+/******/ 	var __webpack_modules__ = ({
+
+/***/ 35:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const isMobile = {
+  Android: function () {
+    return navigator.userAgent.match(/Android/i);
+  },
+  Blackberry: function () {
+    return navigator.userAgent.match(/Blackberry/i);
+  },
+  iOS: function () {
+    return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+  },
+  Opera: function () {
+    return navigator.userAgent.match(/Opera Mini/i);
+  },
+  Windows: function () {
+    return navigator.userAgent.match(/IEMobile/i);
+  },
+  any: function () {
+    return (
+      isMobile.Android() ||
+      isMobile.Blackberry() ||
+      isMobile.iOS() ||
+      isMobile.Opera() ||
+      isMobile.Windows());
+  }
+};
+
+function addDeviceClass(){
+  if (isMobile.any()) {
+    document.body.classList.add('_touch');
+  } else {
+    document.body.classList.add('_pc');
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (addDeviceClass);
+
+/***/ }),
+
+/***/ 36:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const iconMenu = document.querySelector('.menu__icon');
+const menuBody = document.querySelector('.menu__body');
+
+function addMenuClass(){
+  if (iconMenu) {
+    iconMenu.addEventListener('click', function () {
+      document.body.classList.toggle('_lock');
+      iconMenu.classList.toggle('_active');
+      menuBody.classList.toggle('_active');
+    })
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (addMenuClass);
+
+/***/ }),
+
+/***/ 37:
+/***/ (function(__unused_webpack_module, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+const urlList = {
+  database: 'https://tests-ipny.onrender.com/api/posts',
+  fakeJson: 'https://my-json-server.typicode.com/typicode/demo/posts',
+  signUp: '/auth/registration',
+  login: '/auth/login',
+  page: '/auth/usersb'
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (urlList);
+
+/***/ })
+
+/******/ 	});
+/************************************************************************/
+/******/ 	// The module cache
+/******/ 	var __webpack_module_cache__ = {};
+/******/ 	
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/ 		// Check if module is in cache
+/******/ 		var cachedModule = __webpack_module_cache__[moduleId];
+/******/ 		if (cachedModule !== undefined) {
+/******/ 			return cachedModule.exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = __webpack_module_cache__[moduleId] = {
+/******/ 			// no module.id needed
+/******/ 			// no module.loaded needed
+/******/ 			exports: {}
+/******/ 		};
+/******/ 	
+/******/ 		// Execute the module function
+/******/ 		__webpack_modules__[moduleId](module, module.exports, __webpack_require__);
+/******/ 	
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/ 	
+/************************************************************************/
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	!function() {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = function(exports) {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	}();
+/******/ 	
+/************************************************************************/
+var __webpack_exports__ = {};
+// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+!function() {
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _modules_isMobile__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(35);
+/* harmony import */ var _modules_menu__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(36);
+/* harmony import */ var _modules_urlList__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(37);
+
+
+
+
+
+
+const preloader = document.querySelector('.preloader');
+const signUpURL = _modules_urlList__WEBPACK_IMPORTED_MODULE_2__["default"].signUp;
+const loginURL = _modules_urlList__WEBPACK_IMPORTED_MODULE_2__["default"].login;
+const pageURL = _modules_urlList__WEBPACK_IMPORTED_MODULE_2__["default"].page;
+
+document.body.onload = function () {
+  setTimeout(function () {
+    if (!preloader.classList.contains('done')) {
+      preloader.classList.add('done');
+    }
+  }, 500);
+}
+
+if (document.querySelector('.form')) {
+  const formContainer = document.querySelector('.container-form');
+
+  const formLogin = document.querySelector('.form__login');
+  const formSignUp = document.querySelector('.form__sign-up');
+
+  //Login
+  const username = document.querySelector('#username');
+  const password = document.querySelector('#password');
+  const usernameError = document.querySelector('#username-error');
+  const passwordError = document.querySelector('#password-error');
+
+  //Sign Up
+  const usernameSignUp = document.querySelector('#username-signUp');
+  const passwordSignUp = document.querySelector('#password-signUp');
+  const confirmPassword = document.querySelector('#confirm-password');
+  const usernameSignUpError = document.querySelector('#username-signUp-error');
+  const passwordSignUpError = document.querySelector('#password-signUp-error');
+  const confirmPasswordError = document.querySelector('#confirm-password-error');
+
+  const linkToSignUp = document.querySelector('#link-to-signUp');
+  const linkToLogin = document.querySelector('#link-to-login');
+
+  username.addEventListener('input', hiddenError);
+  username.addEventListener('input', hiddenError);
+  usernameSignUp.addEventListener('input', hiddenError);
+  passwordSignUp.addEventListener('input', hiddenError);
+  confirmPassword.addEventListener('input', confirmPassword_Verify);
+
+  username.value = localStorage.setItem("username", JSON.stringify( username.value));
+
+  function validated(pass, confirm_pass, confirm_passError) {
+    if (confirm_pass) {
+      if (confirm_pass.value !== pass.value) {
+        confirm_pass.style.borderColor = "red";
+        confirm_passError.style.display = "block";
+        confirm_pass.focus();
+
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  function confirmPassword_Verify(e) {
+    if (e.target.value === passwordSignUp.value) {
+      e.target.style.borderColor = "gray";
+      confirmPasswordError.style.display = "none";
+
+      return true;
+    }
+  }
+
+  function hiddenError(e) {
+    e.target.style.borderColor = "gray";
+    e.target.nextElementSibling.style.display = "none";
+  }
+
+  // Transition between Login and Sign Up
+  linkToSignUp.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    formContainer.classList.add('active');
+  })
+
+  linkToLogin.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    formContainer.classList.remove('active');
+  })
+
+  // Login
+  formLogin.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    let dataForm = new FormData();
+
+    dataForm.append('username', username.value);
+    dataForm.append('password', password.value);
+
+    if (preloader.classList.contains('done')) {
+      preloader.classList.remove('done');
+    }
+
+    async function sendForm(url, body) {
+      const response = await fetch(url, {
+        method: 'POST',
+        body: body
+      });
+
+      let data = await response.json();
+
+      if (response.ok) {
+        setTimeout(function () {
+          if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+          }
+        }, 100);
+
+        formContainer.style.display = 'none';
+        
+        await localStorage.setItem("token", JSON.stringify(data));
+        await localStorage.setItem("username", JSON.stringify( username.value));
+        console.log('login');
+
+        // async function getPage(url) {
+        //   const response = await fetch(url, {
+        //     method: "GET",
+        //     "referrerPolicy": "unsafe-url",
+        //     "Sec-Fetch-Dest": "document",
+        //     "Sec-Fetch-Mode":"navigate"
+        //   });
+              
+        //   console.log(response.type)
+          
+
+        // }
+        let token = JSON.parse(localStorage.getItem('token'))
+        window.location.href = `${pageURL}?token=${token}`
+        // async function getPage(url) {
+        //   let xhr = new XMLHttpRequest()
+        //   xhr.open("GET", url, true)
+        //   xhr.setRequestHeader("Authorization", JSON.parse(localStorage.getItem('token')))
+        //   xhr.send(null)
+        //   console.log(xhr.responseType)
+        //   return xhr.responseText
+        // }
+
+        //await getPage(pageURL)
+
+      } else {
+        setTimeout(function () {
+          if (!preloader.classList.contains('done')) {
+            preloader.classList.add('done');
+          }
+        }, 100);
+
+        console.log("data "+ data);
+
+        if (data.message) {
+          username.style.borderColor = "red";
+          usernameError.style.display = "block";
+          usernameError.innerText = data.message;
+          username.focus();
+        }
+      }
+    }
+
+    sendForm(loginURL, dataForm);
+  })
+
+  // Sign Up
+  formSignUp.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    if (validated(passwordSignUp, confirmPassword, confirmPasswordError)) {
+      let dataForm = new FormData();
+
+      dataForm.append('username', usernameSignUp.value);
+      dataForm.append('password', passwordSignUp.value);
+
+      if (preloader.classList.contains('done')) {
+        preloader.classList.remove('done');
+      }
+
+      async function getData(url, body) {
+        const response = await fetch(url, {
+          method: 'POST',
+          body: body
+        });
+
+        let data = await response.json();
+
+        if (response.ok) {
+          setTimeout(function () {
+            if (!preloader.classList.contains('done')) {
+              preloader.classList.add('done');
+            }
+          }, 100);
+
+          formContainer.style.display = 'none';
+
+          document.querySelector('.account__signup-text').style.display = "block";
+        } else {
+          setTimeout(function () {
+            if (!preloader.classList.contains('done')) {
+              preloader.classList.add('done');
+            }
+          }, 100);
+
+          console.log(data);
+
+          if (data.errors && data.message) {
+            if (data.errors.errors[0].path === 'username') {
+              usernameSignUp.style.borderColor = "red";
+              usernameSignUpError.style.display = "block";
+              usernameSignUpError.innerText = data.errors.errors[0].msg;
+              usernameSignUp.focus();
+
+            } else if (data.errors.errors[0].path === 'password') {
+              passwordSignUp.style.borderColor = "red";
+              passwordSignUpError.style.display = "block";
+              passwordSignUpError.innerText = data.errors.errors[0].msg;
+              passwordSignUp.focus();
+            };
+
+          } else if (data.message) {
+            usernameSignUp.style.borderColor = "red";
+            usernameSignUpError.style.display = "block";
+            usernameSignUpError.innerText = data.message;
+            usernameSignUp.focus();
+          }
+        }
+      }
+
+      getData(signUpURL, dataForm);
+
+    } else {
+      return false;
+    }
+  })
+}
+
+// Which device
+(0,_modules_isMobile__WEBPACK_IMPORTED_MODULE_0__["default"])();
+
+//Menu
+(0,_modules_menu__WEBPACK_IMPORTED_MODULE_1__["default"])();
+}();
+/******/ })()
+;

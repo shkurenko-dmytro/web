@@ -4,6 +4,8 @@ import bcrypt from "bcryptjs"
 import { validationResult } from "express-validator";
 import  jwt  from "jsonwebtoken";
 import  config  from "./config.js";
+import path, { dirname } from "path"
+import { Url } from "url";
 const generateAccessToken = (id, role) => {
     const payload = {
         id,
@@ -52,19 +54,45 @@ class authController{
                 return res.status(400).json({passwordError: `Incorrect password`})
             }
             const token = generateAccessToken(user._id, user.role);
-            return res.json({token})
+            //res.status(200).redirect('/auth/usersb')
+             return res.json(token)
         } catch (error) {
             console.log(error.message);
             res.status(400).json({loginError: "Login error"})
         }
     }
 
-    async getUsers(req, res){
+    async getUserPage(req, res){
 
         try {
-            const users = await User.find()
-            res.json(users);
-            
+            console.log("reg id = " + req.id)
+            const dirname = path.resolve();
+            res.status(200).sendFile(path.resolve(dirname,'front', 'Tesla', 'build', 'account-pages', 'user-page.html'))
+
+        } catch (error) {
+            console.log(error.message);
+            res.json(error.message);
+        }
+    }
+    async getUsers1(req, res){
+
+        try {
+            //console.log(req.params.value)
+            console.log(req.query.token)
+            //res.redirect('./usersb')
+
+        } catch (error) {
+            console.log(error.message);
+            res.json(error.message);
+        }
+    }
+    async getUsers2(req, res){
+
+        try {
+            console.log("reg id = " + req.id)
+            const dirname = path.resolve();
+            res.status(200).sendFile(path.resolve(dirname,'front', 'Tesla', 'build', 'account-pages', 'admin-page.html'))
+
         } catch (error) {
             console.log(error.message);
             res.json(error.message);
