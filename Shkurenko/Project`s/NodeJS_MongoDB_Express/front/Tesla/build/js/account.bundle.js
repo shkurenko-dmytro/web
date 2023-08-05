@@ -175,7 +175,7 @@ if (document.querySelector('.form')) {
   passwordSignUp.addEventListener('input', hiddenError);
   confirmPassword.addEventListener('input', confirmPassword_Verify);
 
-  username.value = localStorage.setItem("username", JSON.stringify( username.value));
+  username.value = JSON.parse(localStorage.getItem('username'));
 
   function validated(pass, confirm_pass, confirm_passError) {
     if (confirm_pass) {
@@ -252,30 +252,8 @@ if (document.querySelector('.form')) {
         await localStorage.setItem("username", JSON.stringify( username.value));
         console.log('login');
 
-        // async function getPage(url) {
-        //   const response = await fetch(url, {
-        //     method: "GET",
-        //     "referrerPolicy": "unsafe-url",
-        //     "Sec-Fetch-Dest": "document",
-        //     "Sec-Fetch-Mode":"navigate"
-        //   });
-              
-        //   console.log(response.type)
-          
-
-        // }
         let token = JSON.parse(localStorage.getItem('token'))
         window.location.href = `${pageURL}?token=${token}`
-        // async function getPage(url) {
-        //   let xhr = new XMLHttpRequest()
-        //   xhr.open("GET", url, true)
-        //   xhr.setRequestHeader("Authorization", JSON.parse(localStorage.getItem('token')))
-        //   xhr.send(null)
-        //   console.log(xhr.responseType)
-        //   return xhr.responseText
-        // }
-
-        //await getPage(pageURL)
 
       } else {
         setTimeout(function () {
@@ -284,13 +262,18 @@ if (document.querySelector('.form')) {
           }
         }, 100);
 
-        console.log("data "+ data);
+        if (data.usernameError) {
+          username.style.borderColor = "red"
+          usernameError.style.display = "block"
+          usernameError.innerText = data.usernameError
+          username.focus()
+        }
 
-        if (data.message) {
-          username.style.borderColor = "red";
-          usernameError.style.display = "block";
-          usernameError.innerText = data.message;
-          username.focus();
+        if (data.passwordError) {
+          password.style.borderColor = "red"
+          passwordError.style.display = "block"
+          passwordError.innerText = data.passwordError
+          password.focus()
         }
       }
     }
@@ -312,7 +295,7 @@ if (document.querySelector('.form')) {
         preloader.classList.remove('done');
       }
 
-      async function getData(url, body) {
+      async function sendRegForm(url, body) {
         const response = await fetch(url, {
           method: 'POST',
           body: body
@@ -329,7 +312,12 @@ if (document.querySelector('.form')) {
 
           formContainer.style.display = 'none';
 
-          document.querySelector('.account__signup-text').style.display = "block";
+          await localStorage.setItem("token", JSON.stringify(data));
+          await localStorage.setItem("username", JSON.stringify( usernameSignUp.value));
+          console.log('register');
+
+          window.location.href = `${signUpURL}`
+
         } else {
           setTimeout(function () {
             if (!preloader.classList.contains('done')) {
@@ -362,7 +350,7 @@ if (document.querySelector('.form')) {
         }
       }
 
-      getData(signUpURL, dataForm);
+      sendRegForm(signUpURL, dataForm);
 
     } else {
       return false;
