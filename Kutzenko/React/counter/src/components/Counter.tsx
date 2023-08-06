@@ -9,8 +9,8 @@ const Counter = () => {
       <h1>Counter</h1>
       <span className={styles.counter}>{count}</span>
       <div className={styles.buttons}>
-        <button type="button" onClick={() => setCount(count => count-=1)}>Minus</button>
-        <button type="button"onClick={() => setCount(count => count+=1)}>Plus</button>
+        <button type="button" onClick={() => setCount(count - 1)}>Minus</button>
+        <button type="button"onClick={() => setCount(count + 1)}>Plus</button>
       </div>
     </div>
   )
