@@ -1,7 +1,7 @@
 import "./App.scss"
 import Header from "./components/layout/header/Header"
-import { SliderCars } from "./components/screens/home/swiper/Slider"
-import { sliderIMages } from "./components/screens/home/swiper/data"
+import { SliderCars } from "./components/screens/home/slider/Slider"
+import { sliderIMages } from "./components/screens/home/slider/data"
 
 function App() {
   return (
