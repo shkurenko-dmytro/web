@@ -33,12 +33,13 @@ class authController{
             const hashPassword = bcrypt.hashSync(password)
             const userRole = await Role.findOne({value:"USER"})
             const user = User.create({userName: username, password: hashPassword, role: userRole.value})
+            //res.redirect('/auth/profile')
             return res.status(200).json({usernameError: "The user is registered"})
             
         } catch (error) {
             console.log(error.message);
             res.status(400).json({registrationError:"Registration error"})
-        }
+        } 
     }
 
     async login (req, res){
@@ -47,7 +48,7 @@ class authController{
             const {username, password} = req.body;
             const user = await User.findOne({userName: username});
             if (!user){
-                return res.status(400).json({usernameError: `User ${username} not low`})
+                return res.status(400).json({usernameError: `User ${username} not found`})
             }
             const validPassword = bcrypt.compareSync(password, user.password )
             if(!validPassword){
@@ -74,19 +75,8 @@ class authController{
             res.json(error.message);
         }
     }
-    async getUsers1(req, res){
 
-        try {
-            //console.log(req.params.value)
-            console.log(req.query.token)
-            //res.redirect('./usersb')
-
-        } catch (error) {
-            console.log(error.message);
-            res.json(error.message);
-        }
-    }
-    async getUsers2(req, res){
+    async getAdminPage(req, res){
 
         try {
             console.log("reg id = " + req.id)
@@ -98,6 +88,7 @@ class authController{
             res.json(error.message);
         }
     }
+   
 }
 
 export default new authController()

@@ -74,7 +74,7 @@ const urlList = {
   fakeJson: 'https://my-json-server.typicode.com/typicode/demo/posts',
   signUp: '/auth/registration',
   login: '/auth/login',
-  page: '/auth/usersb'
+  page: '/auth/admin'
 }
 
 /* harmony default export */ __webpack_exports__["default"] = (urlList);
@@ -139,6 +139,17 @@ const loginURL = _modules_urlList__WEBPACK_IMPORTED_MODULE_2__["default"].login;
 const pageURL = _modules_urlList__WEBPACK_IMPORTED_MODULE_2__["default"].page;
 
 document.body.onload = function () {
+  if(localStorage.getItem('token')) {
+    let token = JSON.parse(localStorage.getItem('token'))
+  
+    fetch(`${pageURL}?token=${token}`, {method: "GET",})
+      .then(response => {
+        if(response.ok) {
+          window.location.href = `${pageURL}?token=${token}`
+        }
+      });
+  }
+
   setTimeout(function () {
     if (!preloader.classList.contains('done')) {
       preloader.classList.add('done');
@@ -151,6 +162,8 @@ if (document.querySelector('.form')) {
 
   const formLogin = document.querySelector('.form__login');
   const formSignUp = document.querySelector('.form__sign-up');
+
+  const successSignUp = document.querySelector('#success-reg');
 
   //Login
   const username = document.querySelector('#username');
@@ -210,12 +223,14 @@ if (document.querySelector('.form')) {
     e.preventDefault();
 
     formContainer.classList.add('active');
+    successSignUp.style.display = 'none';
   })
 
   linkToLogin.addEventListener('click', (e) => {
     e.preventDefault();
 
     formContainer.classList.remove('active');
+    successSignUp.style.display = 'none';
   })
 
   // Login
@@ -247,10 +262,10 @@ if (document.querySelector('.form')) {
         }, 100);
 
         formContainer.style.display = 'none';
+        successSignUp.style.display = 'none';
         
         await localStorage.setItem("token", JSON.stringify(data));
         await localStorage.setItem("username", JSON.stringify( username.value));
-        console.log('login');
 
         let token = JSON.parse(localStorage.getItem('token'))
         window.location.href = `${pageURL}?token=${token}`
@@ -310,13 +325,13 @@ if (document.querySelector('.form')) {
             }
           }, 100);
 
-          formContainer.style.display = 'none';
+          usernameSignUp.value = '';
+          passwordSignUp.value = '';
+          confirmPassword.value = '';
 
-          await localStorage.setItem("token", JSON.stringify(data));
-          await localStorage.setItem("username", JSON.stringify( usernameSignUp.value));
-          console.log('register');
-
-          window.location.href = `${signUpURL}`
+          formContainer.classList.remove('active');
+          
+          successSignUp.style.display = 'block';
 
         } else {
           setTimeout(function () {
@@ -327,7 +342,7 @@ if (document.querySelector('.form')) {
 
           console.log(data);
 
-          if (data.errors && data.message) {
+          if (data.errors) {
             if (data.errors.errors[0].path === 'username') {
               usernameSignUp.style.borderColor = "red";
               usernameSignUpError.style.display = "block";
@@ -341,10 +356,10 @@ if (document.querySelector('.form')) {
               passwordSignUp.focus();
             };
 
-          } else if (data.message) {
+          } else if (data.usernameError) {
             usernameSignUp.style.borderColor = "red";
             usernameSignUpError.style.display = "block";
-            usernameSignUpError.innerText = data.message;
+            usernameSignUpError.innerText = data.usernameError;
             usernameSignUp.focus();
           }
         }
@@ -357,6 +372,15 @@ if (document.querySelector('.form')) {
     }
   })
 }
+
+const links = Array.from(document.querySelectorAll('.menu__list-link'))
+links.forEach(link => {
+  let splitLink = link.href.split('/').pop()
+  
+  if('/' + splitLink === window.location.pathname){
+    link.style.opacity = '1'
+  }
+});
 
 // Which device
 (0,_modules_isMobile__WEBPACK_IMPORTED_MODULE_0__["default"])();

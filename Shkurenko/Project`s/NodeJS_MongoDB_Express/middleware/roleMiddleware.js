@@ -17,7 +17,7 @@ export default function (role) {
                 hasRole = true;
             }
             if(!hasRole){
-                res.redirect('/auth/profile')
+                res.redirect('/auth/profile'+ `?token=${token}`)
                 //return res.status(403).json({accessError: "You have no access"});
             }
             next();
@@ -25,6 +25,7 @@ export default function (role) {
     
         } catch (error) {
             console.log(error);
+            //return res.redirect('/account')
             return res.status(403).json({accessError: "The user is not authorized"});
         }    }
     

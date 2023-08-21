@@ -38,11 +38,7 @@ class PostService {
             return deletedPost
 
     }
-    async getPage(id){
-        console.log("ID = "+ id);
-        const dirname = path.resolve(); 
-        return path.resolve(dirname, 'front','Tesla','build' ,`${id}.html`);
-}
+   
 }
 
 export default new PostService();
