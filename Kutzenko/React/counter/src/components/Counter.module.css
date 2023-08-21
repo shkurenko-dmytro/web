@@ -1,0 +1,10 @@
+.buttons{
+  display: flex;
+  justify-content: space-between;
+}
+
+.counter{
+  display: block;
+  font-size: 30px;
+  padding-bottom: 30px;
+}
