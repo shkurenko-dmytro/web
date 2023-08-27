@@ -9,7 +9,7 @@ function App() {
       <Header />
       <main className="main">
         <div className="main__container">
-          <SliderCars dots={true} arrows={true} images={sliderIMages} />
+          <SliderCars images={sliderIMages} />
         </div>
       </main>
     </div>

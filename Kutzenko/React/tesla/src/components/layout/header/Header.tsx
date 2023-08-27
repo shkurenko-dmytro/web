@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 
 import "./Header.scss"
 
@@ -6,7 +6,7 @@ import logo from "../../../assets/images/logo.png"
 import searchIcon from "../../../assets/images/search-icon.svg"
 import cartIcon from "../../../assets/images/cart-icon.svg"
 
-const Header = () => {
+const Header:FC = () => {
   const [open, setOpen] = useState(false)
 
   const handleClick = (): void => {

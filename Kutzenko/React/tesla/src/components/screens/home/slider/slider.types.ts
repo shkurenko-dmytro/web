@@ -3,11 +3,10 @@ export type TSliderProps = {
   arrows?:boolean
   className?:string
   dots?:boolean
-  fade?:boolean
   images?:string[]
   nextArrow?:JSX.Element
   prevArrow?:JSX.Element
   speed?:number
-  swipeToSlide?:boolean
+  draggable?:boolean
   infinite?:boolean
 }
