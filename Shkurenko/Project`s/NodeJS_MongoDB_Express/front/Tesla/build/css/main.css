@@ -1269,6 +1269,14 @@ body._pc .form__link:hover {
   display: none;
 }
 
+.form__reg-succesfully{
+  display: none;
+  color: green;
+  border: 2px solid green;
+  padding: 10px;
+  text-transform: uppercase;
+}
+
 .container-form.active .form__login {
   display: none;
 }

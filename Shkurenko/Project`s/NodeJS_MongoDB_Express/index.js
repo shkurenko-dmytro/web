@@ -1,9 +1,10 @@
 import  express  from "express";
 import mongoose from "mongoose";
-import router from "./router.js";
+import apiRouter from "./PostRouter.js";
 import cors from 'cors'
 import fileUpload from "express-fileupload";
 import authRouter from "./authRouter.js";
+import navigationRouter from "./navigationRouter.js"
 import path from "path";
 const PORT = 5000;
 
@@ -17,8 +18,9 @@ app.use(express.static('images'))
 app.use(express.static('front/test'))
 app.use(express.static('front/Tesla/build'))
 app.use(express.static('front/Tesla/build/account-pages'))
-app.use('/api', router)
+app.use('/api', apiRouter)
 app.use('/auth', authRouter)
+app.use(navigationRouter)
 
 
 

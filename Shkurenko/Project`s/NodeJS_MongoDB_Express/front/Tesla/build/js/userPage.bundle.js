@@ -138,7 +138,7 @@ username.innerHTML = `<span>User: </span>${user}`
 logout.addEventListener('click', function(){
   localStorage.clear();
 
-  window.location.href = '/api/test/account'
+  window.location.href = '/account'
 })
 
 // Which device

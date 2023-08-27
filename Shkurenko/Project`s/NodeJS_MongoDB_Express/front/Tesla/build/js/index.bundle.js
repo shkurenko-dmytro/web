@@ -9950,6 +9950,17 @@ if(document.querySelector('.myswiper')){
   getData(_modules_urlList__WEBPACK_IMPORTED_MODULE_4__["default"].database);
 }
 
+const links = Array.from(document.querySelectorAll('.menu__list-link'))
+
+links.forEach(link => {
+  let splitLink = link.href.split('/').pop()
+  
+  if('/' + splitLink === window.location.pathname){
+    link.style.opacity = '1'
+  }
+});
+
+
 // Which device
 (0,_modules_isMobile__WEBPACK_IMPORTED_MODULE_2__["default"])();
 
