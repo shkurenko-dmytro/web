@@ -1,7 +1,6 @@
 import "./App.scss"
 import Header from "./components/layout/header/Header"
 import { SliderCars } from "./components/screens/home/slider/Slider"
-import { sliderIMages } from "./components/screens/home/slider/data"
 
 function App() {
   return (
@@ -9,7 +8,7 @@ function App() {
       <Header />
       <main className="main">
         <div className="main__container">
-          <SliderCars images={sliderIMages} />
+          <SliderCars />
         </div>
       </main>
     </div>
