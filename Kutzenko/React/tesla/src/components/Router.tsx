@@ -7,7 +7,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SliderCars />} />
-        <Route path="product" element={<Product />} />
+        <Route path="/product" element={<Product />} />
       </Routes>
     </BrowserRouter>
   )

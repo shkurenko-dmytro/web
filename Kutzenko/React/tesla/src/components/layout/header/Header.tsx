@@ -32,7 +32,7 @@ const Header: FC = () => {
                 </Link>
               </li>
               <li className="menu__list-item">
-                <Link to="product" className="menu__list-link">
+                <Link to="/product" className="menu__list-link">
                   Product
                 </Link>
               </li>
