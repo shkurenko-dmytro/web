@@ -7,7 +7,8 @@ import type { FC } from "react"
 import type { TSliderProps } from "./slider.types"
 import { SLIDER_CARS_SETTINGS } from "./settings"
 import Info from "./info/Info"
-import { useSliderCars } from "../../../../hooks/useSliderCars"
+import { useSliderCars } from "../../../../hooks/useCars"
+import Header from "../../../layout/header/Header"
 
 const SliderCarsComponent: FC<TSliderProps> = (props) => {
   const settings = SLIDER_CARS_SETTINGS(props).settings
@@ -19,27 +20,34 @@ const SliderCarsComponent: FC<TSliderProps> = (props) => {
       <div className="loader"></div>
     </div>
   ) : data?.length ? (
-    <Slider {...settings}>
-      {data?.map((car) => {
-        return (
-          <div className="slidercars__item" key={car._id}>
-            <div className="slidecars__body">
-              <p className="slidercars__name">Model {car.model}</p>
-              <div className="slidecars__image">
-                <img
-                  src={car.image}
-                  onError={({ currentTarget }) => {
-                    currentTarget.onerror = null
-                    currentTarget.src = "/teslaX.png"
-                  }}
-                />
-              </div>
-            </div>
-            <Info car={car} />
-          </div>
-        )
-      })}
-    </Slider>
+    <div className="wrapper">
+      <Header />
+      <main className="main">
+        <div className="main__container">
+          <Slider {...settings}>
+            {data?.map((car) => {
+              return (
+                <div className="slidercars__item" key={car._id}>
+                  <div className="slidecars__body">
+                    <p className="slidercars__name">Model {car.model}</p>
+                    <div className="slidecars__image">
+                      <img
+                        src={car.image}
+                        onError={({ currentTarget }) => {
+                          currentTarget.onerror = null
+                          currentTarget.src = "/teslaX.png"
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <Info car={car} />
+                </div>
+              )
+            })}
+          </Slider>
+        </div>
+      </main>
+    </div>
   ) : (
     <div>Data not found</div>
   )

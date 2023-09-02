@@ -5,8 +5,9 @@ import "./Header.scss"
 import logo from "../../../assets/images/logo.png"
 import searchIcon from "../../../assets/images/search-icon.svg"
 import cartIcon from "../../../assets/images/cart-icon.svg"
+import { Link } from "react-router-dom"
 
-const Header:FC = () => {
+const Header: FC = () => {
   const [open, setOpen] = useState(false)
 
   const handleClick = (): void => {
@@ -26,14 +27,14 @@ const Header:FC = () => {
             </a>
             <ul className="menu__list">
               <li className="menu__list-item">
-                <a href="#" className="menu__list-link">
+                <Link to="/" className="menu__list-link">
                   Home
-                </a>
+                </Link>
               </li>
               <li className="menu__list-item">
-                <a href="#" className="menu__list-link">
+                <Link to="product" className="menu__list-link">
                   Product
-                </a>
+                </Link>
               </li>
               <li className="menu__list-item">
                 <a href="#" className="menu__list-link">
