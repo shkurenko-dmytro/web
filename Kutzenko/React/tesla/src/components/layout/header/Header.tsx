@@ -5,7 +5,7 @@ import "./Header.scss"
 import logo from "../../../assets/images/logo.png"
 import searchIcon from "../../../assets/images/search-icon.svg"
 import cartIcon from "../../../assets/images/cart-icon.svg"
-import { Link } from "react-router-dom"
+import { NavLink } from "react-router-dom"
 
 const Header: FC = () => {
   const [open, setOpen] = useState(false)
@@ -17,9 +17,9 @@ const Header: FC = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="#" className="header__logo">
+        <NavLink to="/" className="header__logo">
           <img src={logo} alt="" />
-        </a>
+        </NavLink>
         <nav className="header__menu menu">
           <div className={`menu__body ${open ? "_active" : ""}`}>
             <a href="#" className="header__search">
@@ -27,14 +27,14 @@ const Header: FC = () => {
             </a>
             <ul className="menu__list">
               <li className="menu__list-item">
-                <Link to="/" className="menu__list-link">
+                <NavLink to="/" className="menu__list-link">
                   Home
-                </Link>
+                </NavLink>
               </li>
               <li className="menu__list-item">
-                <Link to="/product" className="menu__list-link">
+                <NavLink to="/product" className="menu__list-link">
                   Product
-                </Link>
+                </NavLink>
               </li>
               <li className="menu__list-item">
                 <a href="#" className="menu__list-link">

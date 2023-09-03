@@ -3,15 +3,17 @@ import type { FC } from "react"
 import Header from "../../layout/header/Header"
 import { useProductCars } from "../../../hooks/useCars"
 import ProductItem from "./product-item/ProductItem"
+import React from "react"
 
 const Product: FC = () => {
-  const { isLoading, data } = useProductCars()
+  const pageSize = 3
+  const { data, error, isLoading, fetchNextPage, isFetchingNextPage } =
+    useProductCars({ pageSize })
 
-  return isLoading ? (
-    <div className="preloader">
-      <div className="loader"></div>
-    </div>
-  ) : data?.length ? (
+  if (isLoading) return <p>Loading...</p>
+  if (error) return <p>{error.message}</p>
+  
+  return (
     <div className="wrapper">
       <Header />
       <main className="main">
@@ -19,16 +21,24 @@ const Product: FC = () => {
           <section className="main__product product">
             <h1 className="product__title">Product</h1>
             <div className="product__container">
-              {data?.map((car) => {
-                return <ProductItem car={car} key={car._id}/>
-              })}
+              {data.pages.map((page, index) => (
+                <React.Fragment key={index}>
+                  {page.map((car) => (
+                    <ProductItem car={car} key={car._id} />
+                  ))}
+                </React.Fragment>
+              ))}
             </div>
+            <button
+              disabled={isFetchingNextPage}
+              onClick={() => fetchNextPage()}
+            >
+              {isFetchingNextPage ? "Loading..." : "Load More"}
+            </button>
           </section>
         </div>
       </main>
     </div>
-  ) : (
-    <div>Data not found</div>
   )
 }
 

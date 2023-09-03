@@ -16,7 +16,7 @@ const SliderCarsComponent: FC<TSliderProps> = (props) => {
   const { isLoading, data } = useSliderCars()
 
   return isLoading ? (
-    <div className="preloader">
+    <div className={`preloader  ${isLoading ? "" : "done"}`}>
       <div className="loader"></div>
     </div>
   ) : data?.length ? (
