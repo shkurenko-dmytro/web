@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { FC, useState } from "react"
 
 import "./Header.scss"
 
 import logo from "../../../assets/images/logo.png"
 import searchIcon from "../../../assets/images/search-icon.svg"
 import cartIcon from "../../../assets/images/cart-icon.svg"
+import { NavLink } from "react-router-dom"
 
-const Header = () => {
+const Header: FC = () => {
   const [open, setOpen] = useState(false)
 
   const handleClick = (): void => {
@@ -16,9 +17,9 @@ const Header = () => {
   return (
     <header className="header">
       <div className="header__container">
-        <a href="#" className="header__logo">
+        <NavLink to="/" className="header__logo">
           <img src={logo} alt="" />
-        </a>
+        </NavLink>
         <nav className="header__menu menu">
           <div className={`menu__body ${open ? "_active" : ""}`}>
             <a href="#" className="header__search">
@@ -26,14 +27,14 @@ const Header = () => {
             </a>
             <ul className="menu__list">
               <li className="menu__list-item">
-                <a href="#" className="menu__list-link">
+                <NavLink to="/" className="menu__list-link">
                   Home
-                </a>
+                </NavLink>
               </li>
               <li className="menu__list-item">
-                <a href="#" className="menu__list-link">
+                <NavLink to="/product" className="menu__list-link">
                   Product
-                </a>
+                </NavLink>
               </li>
               <li className="menu__list-item">
                 <a href="#" className="menu__list-link">

@@ -4,15 +4,14 @@ import { TSliderProps } from "./slider.types"
 
 export const SLIDER_CARS_SETTINGS = (props: TSliderProps) => {
   const {
-    arrows = false,
+    arrows = true,
     className,
-    dots = false,
-    fade = false,
+    dots = true,
     speed = 500,
-    swipeToSlide = false,
+    draggable = false,
     nextArrow,
     prevArrow,
-    infinite = false
+    infinite = false,
   } = props
 
   return {
@@ -20,20 +19,16 @@ export const SLIDER_CARS_SETTINGS = (props: TSliderProps) => {
       arrows,
       className,
       dots,
-      fade,
       speed,
-      swipeToSlide,
+      draggable,
       infinite,
       nextArrow: arrows ? (
-        <SliderArrow styles={{ right: "5px" }} type={EnumSliderArrow.Next} />
+        <SliderArrow type={EnumSliderArrow.Next} />
       ) : (
         nextArrow
       ),
       prevArrow: arrows ? (
-        <SliderArrow
-          styles={{ left: "5px" }}
-          type={EnumSliderArrow.Previous}
-        />
+        <SliderArrow type={EnumSliderArrow.Previous} />
       ) : (
         prevArrow
       ),

@@ -55,6 +55,10 @@
   }
   &__list-link {
     opacity: 0.30000001192092896;
+
+    &.active{
+      opacity: 1;
+    }
   }
 }
 
