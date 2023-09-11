@@ -47,6 +47,17 @@ class PostController{
             res.status(500).json(error.message);
         }
 
+    async loadProducts(req, res){
+
+        try {
+            const {start, end} = req.query;
+            const products = await PostService.loadProducts(start,end);
+            return res.status(200).json(products)
+
+        } catch (error) {
+            res.status(500).json(error.message);
+        }
+    }
     }
 
 

@@ -38,6 +38,16 @@ class PostService {
             return deletedPost
 
     }
+    async loadProducts(start, end){
+        if( !start || !end){
+            throw new Error('Error with start or end params')
+        }
+        const posts = await Post.find()
+        const products = posts.slice(start, end);
+
+
+        return products;
+    }
    
 }
 
