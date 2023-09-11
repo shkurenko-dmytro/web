@@ -1,14 +1,15 @@
 .main {
-	&__product { }
+  &__product {
+  }
 }
 .product {
-	&__title {
+  &__title {
     font-size: 50px;
     line-height: 120%;
     text-align: center;
     padding-bottom: 30px;
   }
-	&__container {
+  &__container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     column-gap: 80px;
@@ -16,7 +17,7 @@
 
     padding-bottom: 20px;
   }
-	&__item {
+  &__item {
     background-color: gray;
     padding: 20px 10px;
     border-radius: 10px;
@@ -26,11 +27,11 @@
     flex-direction: column;
     justify-content: space-between;
   }
-	&__image {
+  &__image {
     position: relative;
     padding-bottom: 50%;
 
-    img{
+    img {
       position: absolute;
       top: 0;
       left: 0;
@@ -39,36 +40,36 @@
       object-fit: contain;
     }
   }
-	&__item-body {
+  &__item-body {
     background-color: #292929;
     border-radius: 10px;
     padding: 40px 20px;
   }
-	&__description-box {
+  &__description-box {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-	&__description {
+  &__description {
     display: flex;
     gap: 10px;
     justify-content: space-between;
   }
-	&__name {
+  &__name {
     opacity: 0.5;
   }
-	&__name-value {
+  &__name-value {
     align-self: flex-end;
     text-align: right;
   }
-	&__subtitle {
+  &__subtitle {
     font-size: 20px;
   }
-  &__button-box{
-    position: relative;
-    transition: 1s all;
+  &__button-box {
+    display: flex;
+    justify-content: center;
   }
-  &__button{
+  &__button {
     display: block;
     height: 54px;
     min-width: 267px;
@@ -76,12 +77,12 @@
     color: #292929;
     font-size: 20px;
     border-radius: 3px;
-    background: #D9D9D9;
-    border: 2px solid #D9D9D9;
+    background: #d9d9d9;
+    border: 2px solid #d9d9d9;
     line-height: 54px;
     z-index: 5;
   }
-  &__button-loading{
+  &__button-loading {
     display: none;
     position: absolute;
     left: 50%;
@@ -96,85 +97,69 @@
     z-index: 10;
   }
 }
-
-@keyframes btnLoading{
-  from{
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-  to{
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
-}
-
-.product__button-box{
-  &.loading{
-    .product__button{
-      opacity: 0.3;
-      pointer-events: none;
-    }
-    .product__button-loading{
-      display: block;
+@media (hover: hover) {
+  .product__button {
+    transition-duration: 0.3s;
+    &:hover {
+      color: #d9d9d9;
+      background: #292929;
+      border: 2px solid #d9d9d9;
     }
   }
 }
 
-body._pc .product__button{
-  transition-duration: 0.3s;
-  &:hover{
-    color: #D9D9D9;
-    background: #292929;
-    border: 2px solid #D9D9D9;
-  }
-}
+@media (hover: hover) {
+  .product__item {
+    transition: 0.3s all;
 
-body._pc .product__item{
-  transition: 0.3s all;
+    &:hover {
+      background-color: #292929;
 
-  &:hover{
-    background-color: #292929;
+      .product__item-body {
+        transition: 0.3s all;
+        background-color: gray;
+      }
 
-    .product__item-body {
-      transition: 0.3s all;
-      background-color: gray;
-    }
+      .product__name-value {
+        transition: 0.3s all;
+        color: #292929;
+      }
 
-    .product__name-value{
-      transition: 0.3s all;
-      color: #292929;
-    }
-
-    .product__name {
-      transition: 0.3s all;
-      opacity: 1;
+      .product__name {
+        transition: 0.3s all;
+        opacity: 1;
+      }
     }
   }
 }
 
-@media(max-width: 992px){
-  .product__container{
+@media (max-width: 992px) {
+  .product__container {
     grid-template-columns: repeat(2, 1fr);
     column-gap: 80px;
     row-gap: 30px;
   }
 }
 
-@media(max-width: 767px){
-  .product__container{
+@media (max-width: 767px) {
+  .product__container {
     grid-template-columns: repeat(1, 1fr);
   }
 
-  .product__item{
+  .product__item {
     min-width: 480px;
     margin: 0 auto;
   }
 
-  .product__name, .product__name-value, .product__subtitle{
+  .product__name,
+  .product__name-value,
+  .product__subtitle {
     font-size: 24px;
   }
 }
 
-@media(max-width: 550px){
-  .product__item{
+@media (max-width: 550px) {
+  .product__item {
     min-width: 200px;
   }
 }

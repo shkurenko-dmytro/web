@@ -17,14 +17,13 @@ export const useProductCars = (query: PostQuery) => {
     queryKey: ["products", query],
     queryFn: ({ pageParam = 1 }) =>
       axios
-        .get("https://tests-ipny.onrender.com/api/posts", {
+        .get("https://tests-ipny.onrender.com/api/loadProducts", {
           params: {
-            _start: (pageParam - 1) * query.pageSize,
-            _limit: query.pageSize,
+            start: (pageParam - 1) * query.pageSize,
+            limit: query.pageSize,
           },
         })
         .then((res) => res.data),
-    staleTime: 1 * 60 * 1000,
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.length > 0 ? allPages.length + 1 : undefined

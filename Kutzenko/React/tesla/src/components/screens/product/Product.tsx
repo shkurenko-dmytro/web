@@ -7,13 +7,22 @@ import React from "react"
 
 const Product: FC = () => {
   const pageSize = 3
-  const { data, error, isLoading, fetchNextPage, isFetchingNextPage } =
-    useProductCars({ pageSize })
+  const {
+    data,
+    error,
+    fetchNextPage,
+    status,
+    isFetchingNextPage,
+    hasNextPage,
+  } = useProductCars({ pageSize })
 
-  if (isLoading) return <p>Loading...</p>
-  if (error) return <p>{error.message}</p>
-  
-  return (
+  return status === "loading" ? (
+    <div className={`preloader`}>
+      <div className="loader"></div>
+    </div>
+  ) : status === "error" ? (
+    <p>Error: {error.message}</p>
+  ) : (
     <div className="wrapper">
       <Header />
       <main className="main">
@@ -29,12 +38,19 @@ const Product: FC = () => {
                 </React.Fragment>
               ))}
             </div>
-            <button
-              disabled={isFetchingNextPage}
-              onClick={() => fetchNextPage()}
-            >
-              {isFetchingNextPage ? "Loading..." : "Load More"}
-            </button>
+            <div className="product__button-box">
+              <button
+                disabled={isFetchingNextPage}
+                onClick={() => fetchNextPage()}
+                className={`product__button`}
+              >
+                {isFetchingNextPage
+                  ? "Loading..."
+                  : hasNextPage
+                  ? "Load More"
+                  : "Nothing more to load"}
+              </button>
+            </div>
           </section>
         </div>
       </main>
