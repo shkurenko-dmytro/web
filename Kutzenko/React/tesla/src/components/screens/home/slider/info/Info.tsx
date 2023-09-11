@@ -1,6 +1,7 @@
 import share from "../../../../../assets/images/share-icon.svg"
 import type { FC } from "react"
 import "./Info.scss"
+import { ICarInfo } from "../../../../../interfaces/slider.interface"
 
 const Info: FC<ICarInfo> = ({ car }) => {
   return (

@@ -1,4 +1,5 @@
 import type { FC } from "react"
+import { ICarInfo } from "../../../../interfaces/slider.interface"
 
 const ProductItem: FC<ICarInfo> = ({ car }) => {
   return (

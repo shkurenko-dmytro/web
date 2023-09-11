@@ -42,7 +42,7 @@ const Product: FC = () => {
               <button
                 disabled={isFetchingNextPage}
                 onClick={() => fetchNextPage()}
-                className={`product__button`}
+                className="product__button"
               >
                 {isFetchingNextPage
                   ? "Loading..."

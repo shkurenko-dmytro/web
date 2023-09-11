@@ -1,4 +1,4 @@
-interface ICar {
+export interface ICar {
   _id: string
   model: string
   image: string
@@ -7,6 +7,6 @@ interface ICar {
   mph: string
 }
 
-interface ICarInfo {
+export interface ICarInfo {
   car: ICar
 }

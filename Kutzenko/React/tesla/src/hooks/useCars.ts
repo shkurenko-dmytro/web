@@ -1,4 +1,5 @@
-import axios from "axios"
+import { IProductQuery } from "../interfaces/product.interface"
+import { ICar } from "../interfaces/slider.interface"
 import teslaService from "../services/tesla.service"
 import { useInfiniteQuery, useQuery } from "@tanstack/react-query"
 
@@ -8,22 +9,10 @@ export const useSliderCars = () => {
   })
 }
 
-interface PostQuery {
-  pageSize: number
-}
-
-export const useProductCars = (query: PostQuery) => {
+export const useProductCars = (query: IProductQuery) => {
   return useInfiniteQuery<ICar[], Error>({
     queryKey: ["products", query],
-    queryFn: ({ pageParam = 1 }) =>
-      axios
-        .get("https://tests-ipny.onrender.com/api/loadProducts", {
-          params: {
-            start: (pageParam - 1) * query.pageSize,
-            limit: query.pageSize,
-          },
-        })
-        .then((res) => res.data),
+    queryFn: ({ pageParam = 1 }) => teslaService.getProducts(query, pageParam),
     keepPreviousData: true,
     getNextPageParam: (lastPage, allPages) => {
       return lastPage.length > 0 ? allPages.length + 1 : undefined
