@@ -12,7 +12,6 @@ const autoprefixer = require('gulp-autoprefixer');
 const groupMedia = require('gulp-group-css-media-queries');
 const csso = require('gulp-csso');
 const webpCss = require('gulp-webp-css');
-// const sourceMaps = require('gulp-sourcemaps');
 
 const server = require('gulp-server-livereload');
 const clean = require('gulp-clean');
@@ -22,7 +21,6 @@ const notify = require('gulp-notify');
 const webpack = require('webpack-stream');
 const babel = require('gulp-babel');
 const changed = require('gulp-changed');
-// const rename = require('gulp-rename');
 
 // Images
 const imagemin = require('gulp-imagemin');
@@ -66,14 +64,12 @@ gulp.task('sass:docs', function(){
   return gulp.src('./src/scss/*.scss')
     .pipe(changed('./docs/css/'))
     .pipe(plumber(plumberNotify('SCSS')))
-    // .pipe(sourceMaps.init())
     .pipe(autoprefixer())
     .pipe(sassGlob())
     .pipe(webpCss())
     .pipe(sass())
     .pipe(groupMedia())
     .pipe(csso())
-    // .pipe(sourceMaps.write())
     .pipe(gulp.dest('./docs/css/'))
 });
 

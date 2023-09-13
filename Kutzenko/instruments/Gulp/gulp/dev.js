@@ -9,8 +9,6 @@ const sourceMaps = require('gulp-sourcemaps');
 const plumber = require('gulp-plumber');
 const notify = require('gulp-notify');
 const webpack = require('webpack-stream');
-const babel = require('gulp-babel');
-const imagemin = require('gulp-imagemin');
 const changed = require('gulp-changed');
 
 
@@ -60,7 +58,6 @@ gulp.task('sass:dev', function(){
 gulp.task('images:dev', function(){
   return gulp.src('./src/img/**/*')
     .pipe(changed('./build/img/'))
-    // .pipe(imagemin({verbose: true}))
     .pipe(gulp.dest('./build/img/'))
 });
 
@@ -80,7 +77,6 @@ gulp.task('js:dev', function(){
   return gulp.src('./src/js/*.js')
     .pipe(changed('./build/js/'))
     .pipe(plumber(plumberNotify('JS')))
-    // .pipe(babel())
     .pipe(webpack(require('./../webpack.config.js')))
     .pipe(gulp.dest('./build/js/'))
 });

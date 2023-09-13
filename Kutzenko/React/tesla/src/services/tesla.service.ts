@@ -8,16 +8,16 @@ class TeslaService {
   async getData() {
     return axios.get<ICar[]>(this.URL_SLIDER_DATA)
   }
-  
+
   async getProducts(query: IProductQuery, pageParam: number) {
     return axios
-        .get<ICar[]>(this.URL_PRODUCT_DATA, {
-          params: {
-            start: (pageParam - 1) * query.pageSize,
-            limit: query.pageSize,
-          },
-        })
-        .then((res) => res.data)
+      .get<ICar[]>(this.URL_PRODUCT_DATA, {
+        params: {
+          start: (pageParam - 1) * query.pageSize,
+          limit: query.pageSize,
+        },
+      })
+      .then((res) => res.data)
   }
 }
 
