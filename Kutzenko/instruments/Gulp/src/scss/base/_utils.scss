@@ -1,12 +1,21 @@
+._ibg {
+	height: 100%;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	object-fit: cover;
+}
+
 body._lock {
   overflow: hidden;
 }
 
-.none {
+._none {
 	display: none !important;
 }
 
-.visually-hidden {
+._visually-hidden {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -19,6 +28,6 @@ body._lock {
 	overflow: hidden;
 }
 
-.no-scroll {
+._no-scroll {
 	overflow-y: hidden;
 }
