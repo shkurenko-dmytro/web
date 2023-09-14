@@ -1,3 +1,3 @@
-import mobileNav from './modules/mobile-nav.js';
+import menuNav from "./modules/menuNav.js"
 
-mobileNav();
+menuNav()
