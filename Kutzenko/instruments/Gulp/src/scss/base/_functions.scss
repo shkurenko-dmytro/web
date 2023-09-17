@@ -1,0 +1,11 @@
+@use "sass:math";
+
+@function toRem($px) {
+  $result: math.div($px, $rem-size) + rem;
+  @return $result;
+}
+
+@function toPercentage($pxOne, $pxTwo) {
+  $result: math.div($pxOne, $pxTwo) * 100%;
+  @return $result;
+}

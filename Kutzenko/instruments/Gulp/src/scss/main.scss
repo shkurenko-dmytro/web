@@ -1,8 +1,9 @@
 /* Base */
 @import "./base/reset";
 @import "./base/vars";
-@import "./base/base";
+@import './base/functions';
 @import "./base/utils";
+@import "./base/base";
 @import "./base/containers";
 @import "./base/sticky-footer";
 
