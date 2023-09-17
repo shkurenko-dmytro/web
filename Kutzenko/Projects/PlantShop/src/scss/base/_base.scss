@@ -1,0 +1,30 @@
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--page-bg);
+  color: var(--text-color);
+  font-family: var(--font-main);
+}
+
+.form {
+  border-radius: 50px;
+  border: 1px solid #fff;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  padding: 10px 30px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  font-size: toRem(20);
+  color: var(--text-color);
+}
+
+.btn {
+  border-radius: 50%;
+  background:  linear-gradient(90deg, #2AF598 0%, #009EFD 100%);
+  padding: 10px;
+}

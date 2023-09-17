@@ -1,0 +1,22 @@
+.header {
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: toRem(150);
+
+    @media (max-width: 767px) {
+      justify-content: flex-end;
+    }
+  }
+
+  &__bag {
+    position: absolute;
+    right: toRem(15);
+    
+    @media (max-width: 767px) {
+      right: toRem(100);
+    }
+  }
+}

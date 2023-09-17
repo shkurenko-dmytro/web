@@ -1,0 +1,1 @@
+!function(){"use strict";!function(){const t=document.querySelector(".menu__icon"),e=document.querySelector(".menu__body");t&&t.addEventListener("click",(function(){document.body.classList.toggle("_lock"),t.classList.toggle("_active"),e.classList.toggle("_active")}))}()}();
