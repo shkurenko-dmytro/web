@@ -1,5 +1,5 @@
 .container {
 	padding: 0 $container-padding + px;
-	max-width: toRem($container-width);
+	max-width: $container-width;
 	margin: 0 auto;
 }

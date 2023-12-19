@@ -1,17 +1,32 @@
-:root {
-  --container-width: 1200px;
-  --container-padding: 15px;
-
-  --font-main: "Poppins", sans-serif;
-  --font-accent: "Playfair Display", serif;
-
-  --page-bg: #fff;
-  --text-color: #000;
-  --accent: #ac182c;
-
-  --laptop-size: 1199px;
-  --tablet-size: 959px;
-  --mobile-size: 599px;
-}
-
-$rem-size: 16;
+// Підключення шрифтів
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700&display=swap");
+//-----------------------------
+// Шрифт
+$font-main: "Work Sans", sans-serif;
+// Розмір шрифту за замовчуванням
+$font-size: toRem(24); // де 24(px) - розмір шрифту за замовчуванням з макету
+//-----------------------------
+// Кольори
+$page-bg: #fff;
+$color-main: #fff;
+$color-accent: #081323;
+//-----------------------------
+// Обмежеючий контейнер
+$maxWidth: 1728; // ширина полотна
+$container-width: toRem(1520);
+$container-padding: 15;
+//-----------------------------
+// Брек-поїнти
+$laptop: toEm(1199);
+$tablet: toEm(991.98);
+$mobileL: toEm(767.98);
+$mobileS: toEm(479.98);
+$mobileXS: toEm(320);
+//-----------------------------
+// Z-індекси
+$z1: -1;
+$z2: 1;
+$z3: 5;
+$z4: 10;
+$z5: 20;
+//-----------------------------

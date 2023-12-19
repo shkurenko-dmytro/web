@@ -3,9 +3,9 @@ html {
 }
 
 body {
-  background-color: var(--page-bg);
-  color: var(--text-color);
-  font-family: var(--font-main);
+  background-color: $page-bg;
+  color: $color-main;
+  font-family: $font-main;
 }
 
 .form {
@@ -20,11 +20,30 @@ body {
 
 .input {
   font-size: toRem(20);
-  color: var(--text-color);
+  color: $color-main;
 }
 
 .btn {
   border-radius: 50%;
-  background:  linear-gradient(90deg, #2AF598 0%, #009EFD 100%);
+  background: linear-gradient(90deg, #2af598 0%, #009efd 100%);
   padding: 10px;
+}
+
+.subtitle-block {
+  display: flex;
+  flex-direction: column;
+  gap: toRem(27);
+
+  h2 {
+    color: #081323;
+    font-size: toRem(64);
+    font-weight: 500;
+    line-height: normal;
+  }
+
+  p {
+    color: #4f4f4f;
+    font-size: $font-size;
+    line-height: normal;
+  }
 }

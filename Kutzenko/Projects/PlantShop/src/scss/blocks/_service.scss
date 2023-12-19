@@ -1,0 +1,41 @@
+.page {
+  &__service {
+  }
+}
+
+.service {
+  &__container {
+  }
+  &__row {
+    display: flex;
+    justify-content: space-between;
+    flex: 1 1 24.802632%; /* 377/1520 */
+    gap: toRem(30);
+    flex-wrap: wrap;
+    margin-top: toRem(-70);
+  }
+  &__item {
+    display: flex;
+    gap: toRem(24);
+    
+  }
+  &__icon {
+  }
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+  }
+  &__title {
+    color: $color-accent;
+    font-size: toRem(32);
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__text {
+    font-size: toRem(20);
+    font-weight: 500;
+    line-height: normal;
+    color: #828282;
+  }
+}

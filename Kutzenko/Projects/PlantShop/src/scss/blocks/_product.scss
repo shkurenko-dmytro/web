@@ -1,0 +1,138 @@
+.page {
+  &__product {
+    padding-top: 200px;
+
+    @media (max-width: $laptop) {
+      padding-top: 120px;
+    }
+  }
+}
+
+.product {
+  &__container {
+    display: flex;
+    align-items: center;
+    gap: toRem(38);
+    justify-content: space-between;
+
+    @media (max-width: $laptop) {
+      flex-direction: column;
+    }
+  }
+  &__subtitle-block {
+    flex: 0 0 23.881579%; /* 363px/1520 */
+
+    p {
+      display: flex;
+      align-items: center;
+    }
+
+    @media (max-width: $laptop) {
+      text-align: center;
+      padding-bottom: 70px;
+
+      p {
+        justify-content: center;
+      }
+    }
+  }
+  &__items {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: toRem(30);
+    @media (max-width: $tablet) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media (max-width: $mobileL) {
+      grid-template-columns: 1fr;
+    }
+  }
+  &__item {
+    display: flex;
+    flex-direction: column;
+    min-width: clamp(toRem(250), 20vw + 1rem , toRem(325));
+  }
+  &__image {
+    position: relative;
+    border-radius: 50px;
+    background: #c1d0e4;
+    padding-bottom: 90%;
+
+    img {
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      object-fit: contain;
+      margin-top: -100px;
+    }
+  }
+  &__content {
+    width: 100%;
+    position: relative;
+    margin-top: -70px;
+    border-radius: 50px;
+    background-color: $color-main;
+    padding: 26px;
+    min-height: toRem(250);
+    display: flex;
+    flex-direction: column;
+  }
+  &__content-header {
+    flex: 1;
+    h4 {
+      color: $color-accent;
+      font-size: toRem(32);
+      font-weight: 500;
+      line-height: normal;
+      padding-bottom: 7px;
+      word-break: break-all;
+    }
+  }
+  &__stars {
+    display: flex;
+  }
+  &__content-body {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__price {
+    color: $color-accent;
+    font-size: toRem(32);
+    font-weight: 500;
+    line-height: normal;
+  }
+  &__btn {
+    position: relative;
+    height: 64px;
+    width: 64px;
+
+    span {
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: $color-main;
+      width: 7px;
+      height: 35px;
+      border-radius: 50px;
+
+      &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: $color-main;
+        width: 35px;
+        height: 7px;
+        border-radius: 50px;
+      }
+    }
+  }
+}

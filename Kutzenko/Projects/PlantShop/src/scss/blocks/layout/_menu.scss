@@ -2,8 +2,8 @@
   &__icon {
     display: none;
 
-    @media (max-width: 767px) {
-      z-index: 5;
+    @media (max-width: $mobileL) {
+      z-index: $z4;
       display: block;
       position: relative;
       width: toRem(30);
@@ -57,7 +57,7 @@
   }
 
   &__body {
-    @media (max-width: 767px) {
+    @media (max-width: $mobileL) {
       position: fixed;
       top: 0;
       left: -100%;
@@ -67,7 +67,7 @@
       padding: 110px 30px 30px 30px;
       transition: left 0.3s ease 0s;
       overflow: auto;
-      z-index: 4;
+      z-index: $z3;
       &._active {
         left: 0;
       }
@@ -84,7 +84,7 @@
       position: relative;
     }
 
-    @media (min-width: 767px) {
+    @media (min-width: $mobileL) {
       display: flex;
       align-items: center;
 
@@ -93,7 +93,7 @@
       }
     }
 
-    @media (max-width: 767px) {
+    @media (max-width: $mobileL) {
       flex-direction: column;
       row-gap: toRem(40);
     }
@@ -101,7 +101,7 @@
 
   &__link {
     font-size: $font-size;
-    color: var(--font-main);
+    color: inherit;
     line-height: normal;
   }
 }

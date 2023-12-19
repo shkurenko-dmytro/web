@@ -6,7 +6,7 @@
     justify-content: center;
     min-height: toRem(150);
 
-    @media (max-width: 767px) {
+    @media (max-width: $mobileL) {
       justify-content: flex-end;
     }
   }
@@ -15,7 +15,7 @@
     position: absolute;
     right: toRem(15);
     
-    @media (max-width: 767px) {
+    @media (max-width: $mobileL) {
       right: toRem(100);
     }
   }
