@@ -34,6 +34,7 @@
               <input
                 v-model="ticker"
                 @keyup.enter="addTicker"
+                @input="handleInputTicker"
                 type="text"
                 name="wallet"
                 id="wallet"
@@ -41,29 +42,20 @@
                 placeholder="Например DOGE"
               />
             </div>
-            <div class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap">
+            <div
+              v-if="hintList.length > 0"
+              class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap"
+            >
               <span
+                v-for="hint in hintList"
+                :key="hint.id"
+                @click="addTicker(hint.Symbol)"
                 class="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
               >
-                BTC
-              </span>
-              <span
-                class="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
-              >
-                DOGE
-              </span>
-              <span
-                class="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
-              >
-                BCH
-              </span>
-              <span
-                class="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
-              >
-                CHD
+                {{ hint.Symbol }}
               </span>
             </div>
-            <div class="text-sm text-red-600">Такой тикер уже добавлен</div>
+            <div v-if="check" class="text-sm text-red-600">Такой тикер уже добавлен</div>
           </div>
         </div>
         <button
@@ -171,32 +163,43 @@ export default {
       sel: null,
       graph: [],
       preload: true,
-      coinList: []
+      coinList: [],
+      check: false,
+      hintList: []
     }
   },
   methods: {
-    addTicker() {
+    addTicker(hintName = null) {
+      if (hintName) this.ticker = hintName
+
       const currentTicker = {
-        name: this.ticker,
+        name: this.ticker.toUpperCase(),
         price: '-'
       }
 
-      this.tickers.push(currentTicker)
+      if (!this.checkTicker(this.ticker)) {
+        this.tickers.push(currentTicker)
 
-      setInterval(async () => {
-        const response = await fetch(
-          `https://min-api.cryptocompare.com/data/price?fsym=${currentTicker.name}&tsyms=USD&api_key={55a9c539ee9816da70d976e89f7eace3be513a5c48248aad59110e3cf60f2f57} `
-        )
-        const data = await response.json()
+        setInterval(async () => {
+          if (this.tickers.find((t) => t.name === currentTicker.name)) {
+            const response = await fetch(
+              `https://min-api.cryptocompare.com/data/price?fsym=${currentTicker.name}&tsyms=USD&api_key={55a9c539ee9816da70d976e89f7eace3be513a5c48248aad59110e3cf60f2f57} `
+            )
+            const data = await response.json()
 
-        this.tickers.find((t) => t.name === currentTicker.name).price = data.USD
+            this.tickers.find((t) => t.name === currentTicker.name).price = data.USD
 
-        if (this.sel?.name === currentTicker.name) {
-          this.graph.push(data.USD)
-        }
-      }, 5000)
+            if (this.sel?.name === currentTicker.name) {
+              this.graph.push(data.USD)
+            }
+          }
+        }, 5000)
 
-      this.ticker = ''
+        this.ticker = ''
+        this.handleInputTicker()
+      } else {
+        this.check = true
+      }
     },
 
     handleRemove(tickerToRemove) {
@@ -213,6 +216,18 @@ export default {
     select(selectedTicker) {
       this.sel = selectedTicker
       this.graph = []
+    },
+
+    checkTicker(nameOFTicker) {
+      return this.tickers.find((t) => t.name.toUpperCase() === nameOFTicker.toUpperCase())
+    },
+
+    handleInputTicker() {
+      this.check = false
+
+      this.hintList = this.coinList
+        .filter((t) => t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) && this.ticker.toUpperCase() !== '')
+        .slice(0, 4)
     }
   },
   mounted() {
@@ -222,12 +237,12 @@ export default {
       )
       const data = await response.json()
 
-      for(let coin in data.Data){
+      for (let coin in data.Data) {
         this.coinList.push(data.Data[coin])
       }
 
       this.preload = false
-    }, 5000)
+    }, 3000)
   }
 }
 </script>
