@@ -78,11 +78,29 @@
           Добавить
         </button>
       </section>
+      <button
+        class="my-4 mx-2 inline-flex items-center py-2 px-4 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      >
+        Назад
+      </button>
+      <button
+        class="my-4 mx-2 inline-flex items-center py-2 px-4 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+      >
+        Вперед
+      </button>
+      <div>
+        Фильтр:
+        <input
+          v-model="filter"
+          class="block pr-10 border-gray-300 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md"
+          type="text"
+        />
+      </div>
       <template v-if="tickers.length">
         <hr class="w-full border-t border-gray-600 my-4" />
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
           <div
-            v-for="t in tickers"
+            v-for="t in filteredTickers()"
             :key="t.name"
             @click="select(t)"
             :class="{ 'border-4': sel === t }"
@@ -164,7 +182,8 @@ export default {
       graph: [],
       preload: true,
       coinList: [],
-      check: false
+      check: false,
+      filter: ''
     }
   },
   created() {
@@ -206,11 +225,14 @@ export default {
         this.subscribeToTickers(currentTicker.name)
 
         this.ticker = ''
+        this.filter = ''
       } else {
         this.check = true
       }
     },
-
+    filteredTickers() {
+      return this.tickers.filter(t => t.name.toUpperCase().includes(this.filter.toUpperCase()))
+    },
     handleRemove(tickerToRemove) {
       this.tickers = this.tickers.filter((t) => t !== tickerToRemove)
       localStorage.setItem('tickers', JSON.stringify(this.tickers))
