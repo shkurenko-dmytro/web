@@ -79,11 +79,15 @@
         </button>
       </section>
       <button
+        v-if="page > 1"
+        @click="page = page - 1"
         class="my-4 mx-2 inline-flex items-center py-2 px-4 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
       >
         Назад
       </button>
       <button
+        v-if="hasNextPage"
+        @click="page = page + 1"
         class="my-4 mx-2 inline-flex items-center py-2 px-4 border border-transparent shadow-sm text-sm leading-4 font-medium rounded-full text-white bg-gray-600 hover:bg-gray-700 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
       >
         Вперед
@@ -92,6 +96,7 @@
         Фильтр:
         <input
           v-model="filter"
+          @input="page = 1"
           class="block pr-10 border-gray-300 text-gray-900 focus:outline-none focus:ring-gray-500 focus:border-gray-500 sm:text-sm rounded-md"
           type="text"
         />
@@ -183,7 +188,9 @@ export default {
       preload: true,
       coinList: [],
       check: false,
-      filter: ''
+      filter: '',
+      page: 1,
+      hasNextPage: true
     }
   },
   created() {
@@ -231,8 +238,18 @@ export default {
       }
     },
     filteredTickers() {
-      return this.tickers.filter(t => t.name.toUpperCase().includes(this.filter.toUpperCase()))
+      const start = (this.page - 1) * 6
+      const end = this.page * 6
+
+      const filterTickers = this.tickers.filter((t) =>
+        t.name.toUpperCase().includes(this.filter.toUpperCase())
+      )
+
+      this.hasNextPage = filterTickers.length > end
+
+      return filterTickers.slice(start, end)
     },
+
     handleRemove(tickerToRemove) {
       this.tickers = this.tickers.filter((t) => t !== tickerToRemove)
       localStorage.setItem('tickers', JSON.stringify(this.tickers))
