@@ -34,7 +34,7 @@
               <input
                 v-model="ticker"
                 @keyup.enter="addTicker"
-                @input="handleInputTicker"
+                @input="check = false"
                 type="text"
                 name="wallet"
                 id="wallet"
@@ -43,13 +43,13 @@
               />
             </div>
             <div
-              v-if="hintList.length > 0"
+              v-if="hintForTickers().length > 0"
               class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap"
             >
               <span
-                v-for="hint in hintList"
+                v-for="hint in hintForTickers()"
                 :key="hint.id"
-                @click="addTicker(hint.Symbol)"
+                @click="(this.ticker = hint.Symbol), addTicker()"
                 class="inline-flex items-center px-2 m-1 rounded-md text-xs font-medium bg-gray-300 text-gray-800 cursor-pointer"
               >
                 {{ hint.Symbol }}
@@ -164,14 +164,11 @@ export default {
       graph: [],
       preload: true,
       coinList: [],
-      check: false,
-      hintList: []
+      check: false
     }
   },
   methods: {
-    addTicker(hintName = null) {
-      if (hintName) this.ticker = hintName
-
+    addTicker() {
       const currentTicker = {
         name: this.ticker.toUpperCase(),
         price: '-'
@@ -196,7 +193,6 @@ export default {
         }, 5000)
 
         this.ticker = ''
-        this.handleInputTicker()
       } else {
         this.check = true
       }
@@ -222,11 +218,13 @@ export default {
       return this.tickers.find((t) => t.name.toUpperCase() === nameOFTicker.toUpperCase())
     },
 
-    handleInputTicker() {
-      this.check = false
-
-      this.hintList = this.coinList
-        .filter((t) => t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) && this.ticker.toUpperCase() !== '')
+    hintForTickers() {
+      return this.coinList
+        .filter(
+          (t) =>
+            t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) &&
+            this.ticker.toUpperCase() !== ''
+        )
         .slice(0, 4)
     }
   },
