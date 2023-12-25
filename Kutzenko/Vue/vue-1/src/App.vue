@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto flex flex-col items-center bg-gray-100 p-4">
-    <div
+    <!-- <div
       v-if="preload"
       class="fixed w-100 h-100 opacity-80 bg-purple-800 inset-0 z-50 flex items-center justify-center"
     >
@@ -24,7 +24,7 @@
           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
         ></path>
       </svg>
-    </div>
+    </div> -->
     <div class="container">
       <section>
         <div class="flex">
@@ -41,7 +41,7 @@
                 placeholder="Например DOGE"
               />
             </div>
-            <div
+            <!-- <div
               v-if="filteredHints.length > 0"
               class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap"
             >
@@ -54,7 +54,7 @@
                 {{ hint.Symbol }}
               </span>
             </div>
-            <div v-if="checkedTicker" class="text-sm text-red-600">Такой тикер уже добавлен</div>
+            <div v-if="checkedTicker" class="text-sm text-red-600">Такой тикер уже добавлен</div> -->
           </div>
         </div>
         <button
@@ -111,7 +111,7 @@
           >
             <div class="px-4 py-5 sm:p-6 text-center">
               <dt class="text-sm font-medium text-gray-500 truncate">{{ t.name }} - USD</dt>
-              <dd class="mt-1 text-3xl font-semibold text-gray-900">{{ t.price }}</dd>
+              <dd class="mt-1 text-3xl font-semibold text-gray-900">{{ formatPrice(t.price) }}</dd>
             </div>
             <div class="w-full border-t border-gray-200"></div>
             <button
@@ -178,6 +178,8 @@
 </template>
 
 <script>
+import { subscribeToTicker, unSubscribeToTicker } from './api'
+
 export default {
   data() {
     return {
@@ -189,7 +191,7 @@ export default {
 
       preload: true,
 
-      coinList: [],
+      //coinList: [],
 
       filter: '',
       page: 1
@@ -210,8 +212,11 @@ export default {
 
     if (storageTickers) {
       this.tickers = JSON.parse(storageTickers)
-
-      this.tickers.forEach((t) => this.subscribeToTickers(t.name))
+      this.tickers.forEach((ticker) => {
+        subscribeToTicker(ticker.name, (newPrice) => {
+          this.updateTicker(ticker.name, newPrice)
+        })
+      })
     }
   },
   computed: {
@@ -246,19 +251,19 @@ export default {
       return this.graph.map((price) => 5 + ((price - minValue) * 95) / (maxValue - minValue))
     },
 
-    checkedTicker() {
-      return this.tickers.find((t) => t.name.toUpperCase() === this.ticker.toUpperCase())
-    },
+    // checkedTicker() {
+    //   return this.tickers.find((t) => t.name.toUpperCase() === this.ticker.toUpperCase())
+    // },
 
-    filteredHints() {
-      return this.coinList
-        .filter(
-          (t) =>
-            t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) &&
-            this.ticker.toUpperCase() !== ''
-        )
-        .slice(0, 4)
-    },
+    // filteredHints() {
+    //   return this.coinList
+    //     .filter(
+    //       (t) =>
+    //         t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) &&
+    //         this.ticker.toUpperCase() !== ''
+    //     )
+    //     .slice(0, 4)
+    // },
 
     savedHistoryOptions() {
       return {
@@ -268,22 +273,25 @@ export default {
     }
   },
   methods: {
-    subscribeToTickers(tickerName) {
-      setInterval(async () => {
-        if (this.tickers.find((t) => t.name === tickerName)) {
-          const response = await fetch(
-            `https://min-api.cryptocompare.com/data/price?fsym=${tickerName}&tsyms=USD&api_key={55a9c539ee9816da70d976e89f7eace3be513a5c48248aad59110e3cf60f2f57} `
-          )
-          const data = await response.json()
-
-          this.tickers.find((t) => t.name === tickerName).price = data.USD
-
-          if (this.selectedTicker?.name === tickerName) {
-            this.graph.push(data.USD)
+    updateTicker(tickerName, price) {
+      this.tickers
+        .filter((t) => t.name === tickerName)
+        .forEach((t) => {
+          if (t === this.selectedTicker) {
+            this.graph.push(price)
           }
-        }
-      }, 5000)
+
+          t.price = price
+        })
     },
+
+    formatPrice(price) {
+      if (price === '-') {
+        return price
+      }
+      return price > 1 ? price.toFixed(2) : price.toPrecision(2)
+    },
+
     addTicker() {
       const currentTicker = {
         name: this.ticker.toUpperCase(),
@@ -292,11 +300,12 @@ export default {
 
       if (!this.checkedTicker) {
         this.tickers = [...this.tickers, currentTicker]
-
-        this.subscribeToTickers(currentTicker.name)
-
         this.ticker = ''
         this.filter = ''
+
+        subscribeToTicker(currentTicker.name, (newPrice) => {
+          this.updateTicker(currentTicker.name, newPrice)
+        })
       }
     },
 
@@ -306,6 +315,8 @@ export default {
       if (this.selectedTicker === tickerToRemove) {
         this.selectedTicker = null
       }
+
+      unSubscribeToTicker(tickerToRemove.name)
     },
 
     select(ticker) {
@@ -313,18 +324,16 @@ export default {
     }
   },
   mounted() {
-    setTimeout(async () => {
-      const response = await fetch(
-        'https://min-api.cryptocompare.com/data/all/coinlist?summary=true'
-      )
-      const data = await response.json()
-
-      for (let coin in data.Data) {
-        this.coinList.push(data.Data[coin])
-      }
-
-      this.preload = false
-    }, 1000)
+    // setTimeout(async () => {
+    //   const response = await fetch(
+    //     'https://min-api.cryptocompare.com/data/all/coinlist?summary=true'
+    //   )
+    //   const data = await response.json()
+    //   for (let coin in data.Data) {
+    //     this.coinList.push(data.Data[coin])
+    //   }
+    //   this.preload = false
+    // }, 1000)
   },
   watch: {
     selectedTicker() {
