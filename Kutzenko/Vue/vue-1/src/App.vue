@@ -324,7 +324,7 @@ export default {
       }
 
       this.preload = false
-    }, 3000)
+    }, 1000)
   },
   watch: {
     selectedTicker() {
