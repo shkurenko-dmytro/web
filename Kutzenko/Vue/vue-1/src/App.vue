@@ -179,6 +179,7 @@
 
 <script>
 import { subscribeToTicker, unSubscribeToTicker, getAllCoins } from './api'
+import { getFromStorage, saveToStorage } from './storageManager'
 
 export default {
   data() {
@@ -208,10 +209,10 @@ export default {
       }
     })
 
-    const storageTickers = localStorage.getItem('tickers')
+    const storageTickers = getFromStorage('tickers')
 
     if (storageTickers) {
-      this.tickers = JSON.parse(storageTickers)
+      this.tickers = storageTickers
       this.tickers.forEach((ticker) => {
         subscribeToTicker(ticker.name, (newPrice) => {
           this.updateTicker(ticker.name, newPrice)
@@ -338,7 +339,7 @@ export default {
     },
 
     tickers() {
-      localStorage.setItem('tickers', JSON.stringify(this.tickers))
+      saveToStorage('tickers', this.tickers)
     },
 
     paginatedTickers() {
