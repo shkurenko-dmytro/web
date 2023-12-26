@@ -61,3 +61,9 @@ export const unSubscribeToTicker = (ticker) => {
 
   unSubscribeToTickerOnWs(ticker)
 }
+
+export const getAllCoins = async (cb) => {
+  fetch('https://min-api.cryptocompare.com/data/all/coinlist?summary=true').then(response => response.json()).then(data => {
+    cb(data.Data)
+  })
+}

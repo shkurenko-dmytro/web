@@ -1,6 +1,6 @@
 <template>
   <div class="container mx-auto flex flex-col items-center bg-gray-100 p-4">
-    <!-- <div
+    <div
       v-if="preload"
       class="fixed w-100 h-100 opacity-80 bg-purple-800 inset-0 z-50 flex items-center justify-center"
     >
@@ -24,7 +24,7 @@
           d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
         ></path>
       </svg>
-    </div> -->
+    </div>
     <div class="container">
       <section>
         <div class="flex">
@@ -41,7 +41,7 @@
                 placeholder="Например DOGE"
               />
             </div>
-            <!-- <div
+            <div
               v-if="filteredHints.length > 0"
               class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap"
             >
@@ -54,7 +54,7 @@
                 {{ hint.Symbol }}
               </span>
             </div>
-            <div v-if="checkedTicker" class="text-sm text-red-600">Такой тикер уже добавлен</div> -->
+            <div v-if="checkedTicker" class="text-sm text-red-600">Такой тикер уже добавлен</div>
           </div>
         </div>
         <button
@@ -178,7 +178,7 @@
 </template>
 
 <script>
-import { subscribeToTicker, unSubscribeToTicker } from './api'
+import { subscribeToTicker, unSubscribeToTicker, getAllCoins } from './api'
 
 export default {
   data() {
@@ -191,7 +191,7 @@ export default {
 
       preload: true,
 
-      //coinList: [],
+      coinList: [],
 
       filter: '',
       page: 1
@@ -251,19 +251,19 @@ export default {
       return this.graph.map((price) => 5 + ((price - minValue) * 95) / (maxValue - minValue))
     },
 
-    // checkedTicker() {
-    //   return this.tickers.find((t) => t.name.toUpperCase() === this.ticker.toUpperCase())
-    // },
+    checkedTicker() {
+      return this.tickers.find((t) => t.name.toUpperCase() === this.ticker.toUpperCase())
+    },
 
-    // filteredHints() {
-    //   return this.coinList
-    //     .filter(
-    //       (t) =>
-    //         t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) &&
-    //         this.ticker.toUpperCase() !== ''
-    //     )
-    //     .slice(0, 4)
-    // },
+    filteredHints() {
+      return this.coinList
+        .filter(
+          (t) =>
+            t.Symbol.toUpperCase().includes(this.ticker.toUpperCase()) &&
+            this.ticker.toUpperCase() !== ''
+        )
+        .slice(0, 4)
+    },
 
     savedHistoryOptions() {
       return {
@@ -324,16 +324,13 @@ export default {
     }
   },
   mounted() {
-    // setTimeout(async () => {
-    //   const response = await fetch(
-    //     'https://min-api.cryptocompare.com/data/all/coinlist?summary=true'
-    //   )
-    //   const data = await response.json()
-    //   for (let coin in data.Data) {
-    //     this.coinList.push(data.Data[coin])
-    //   }
-    //   this.preload = false
-    // }, 1000)
+    getAllCoins((coins) => {
+      for (let coin in coins) {
+        this.coinList.push(coins[coin])
+      }
+
+      this.preload = false
+    })
   },
   watch: {
     selectedTicker() {
