@@ -1,20 +1,32 @@
 const API_KEY = '55a9c539ee9816da70d976e89f7eace3be513a5c48248aad59110e3cf60f2f57'
 const AGGREGATE_INDEX = '5'
+const INVALID_SUB_INDEX = '500'
 
 const tickerHandlers = new Map()
 const socket = new WebSocket(`wss://streamer.cryptocompare.com/v2?api_key=${API_KEY}`)
 
 socket.addEventListener('message', (e) => {
-  const { TYPE: type, FROMSYMBOL: currency, PRICE: newPrice } = JSON.parse(e.data)
+  const { TYPE: type, FROMSYMBOL: currency, PRICE: newPrice, PARAMETER: parameter} = JSON.parse(e.data)
 
-  if (type !== AGGREGATE_INDEX || newPrice === undefined) {
+  if (type !== AGGREGATE_INDEX && type !== INVALID_SUB_INDEX) {
+    return
+  }
+  
+  let currentCurrency = currency
+
+  if(type === INVALID_SUB_INDEX) {
+    currentCurrency = parameter.split('~')[2]
+  }
+
+  if(!tickerHandlers.get(currentCurrency)) {
     return
   }
 
-  const handlers = tickerHandlers.get(currency)
+  const handlers = tickerHandlers.get(currentCurrency)
+  const isValidSub = type !== INVALID_SUB_INDEX
 
   handlers.forEach((handler) => {
-    handler(newPrice)
+    handler(newPrice, isValidSub)
   })
 })
 
@@ -52,7 +64,7 @@ function unSubscribeToTickerOnWs(ticker) {
 export const subscribeToTicker = (ticker, cb) => {
   const subscribers = tickerHandlers.get(ticker) || []
   tickerHandlers.set(ticker, [...subscribers, cb])
-
+  
   subscribeToTickerOnWs(ticker)
 }
 
@@ -63,7 +75,9 @@ export const unSubscribeToTicker = (ticker) => {
 }
 
 export const getAllCoins = async (cb) => {
-  fetch('https://min-api.cryptocompare.com/data/all/coinlist?summary=true').then(response => response.json()).then(data => {
-    cb(data.Data)
-  })
+  fetch('https://min-api.cryptocompare.com/data/all/coinlist?summary=true')
+    .then((response) => response.json())
+    .then((data) => {
+      cb(data.Data)
+    })
 }

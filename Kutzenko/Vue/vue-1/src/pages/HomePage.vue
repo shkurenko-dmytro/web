@@ -106,8 +106,12 @@
             v-for="t in paginatedTickers"
             :key="t.name"
             @click="select(t)"
-            :class="{ 'border-4': selectedTicker === t }"
-            class="bg-white overflow-hidden shadow rounded-lg border-purple-800 border-solid cursor-pointer"
+            :class="{
+              'border-4': selectedTicker === t,
+              'bg-white': t.isValidTicker,
+              'bg-red-200': !t.isValidTicker
+            }"
+            class="overflow-hidden shadow rounded-lg border-purple-800 border-solid cursor-pointer"
           >
             <div class="px-4 py-5 sm:p-6 text-center">
               <dt class="text-sm font-medium text-gray-500 truncate">{{ t.name }} - USD</dt>
@@ -214,8 +218,8 @@ export default {
     if (storageTickers) {
       this.tickers = storageTickers
       this.tickers.forEach((ticker) => {
-        subscribeToTicker(ticker.name, (newPrice) => {
-          this.updateTicker(ticker.name, newPrice)
+        subscribeToTicker(ticker.name, (newPrice, isValidSub) => {
+          this.updateTicker(ticker.name, newPrice, isValidSub)
         })
       })
     }
@@ -274,7 +278,7 @@ export default {
     }
   },
   methods: {
-    updateTicker(tickerName, price) {
+    updateTicker(tickerName, price, isValidSub) {
       this.tickers
         .filter((t) => t.name === tickerName)
         .forEach((t) => {
@@ -282,7 +286,8 @@ export default {
             this.graph.push(price)
           }
 
-          t.price = price
+          t.price = price ?? '-'
+          t.isValidTicker = isValidSub
         })
     },
 
@@ -296,7 +301,8 @@ export default {
     addTicker() {
       const currentTicker = {
         name: this.ticker.toUpperCase(),
-        price: '-'
+        price: '-',
+        isValidTicker: true
       }
 
       if (!this.checkedTicker) {
@@ -304,8 +310,8 @@ export default {
         this.ticker = ''
         this.filter = ''
 
-        subscribeToTicker(currentTicker.name, (newPrice) => {
-          this.updateTicker(currentTicker.name, newPrice)
+        subscribeToTicker(currentTicker.name, (newPrice, isValidSub) => {
+          this.updateTicker(currentTicker.name, newPrice, isValidSub)
         })
       }
     },
@@ -353,8 +359,7 @@ export default {
     },
 
     savedHistoryOptions(v) {
-      // history.pushState(null, '', `${window.location.pathname}?filter=${v.filter}&page=${v.page}`)
-      this.$router.push({ path: '/', query: { filter: v.filter , page: v.page} })
+      this.$router.push({ path: '/', query: { filter: v.filter, page: v.page } })
     }
   }
 }
