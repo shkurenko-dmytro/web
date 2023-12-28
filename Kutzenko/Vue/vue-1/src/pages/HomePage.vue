@@ -43,7 +43,7 @@
             </div>
             <div
               v-if="filteredHints.length > 0"
-              class="flex bg-white shadow-md p-1 rounded-md shadow-md flex-wrap"
+              class="flex bg-white shadow-md p-1 rounded-md flex-wrap"
             >
               <span
                 v-for="hint in filteredHints"
@@ -114,7 +114,9 @@
             class="overflow-hidden shadow rounded-lg border-purple-800 border-solid cursor-pointer"
           >
             <div class="px-4 py-5 sm:p-6 text-center">
-              <dt class="text-sm font-medium text-gray-500 truncate">{{ t.name }} - USD</dt>
+              <dt class="text-sm font-medium text-gray-500 truncate">
+                {{ t.name }} - {{ t.symbolPrice }}
+              </dt>
               <dd class="mt-1 text-3xl font-semibold text-gray-900">{{ formatPrice(t.price) }}</dd>
             </div>
             <div class="w-full border-t border-gray-200"></div>
@@ -218,8 +220,8 @@ export default {
     if (storageTickers) {
       this.tickers = storageTickers
       this.tickers.forEach((ticker) => {
-        subscribeToTicker(ticker.name, (newPrice, isValidSub) => {
-          this.updateTicker(ticker.name, newPrice, isValidSub)
+        subscribeToTicker(ticker.name, (newPrice, isValidSub, symbolPrice) => {
+          this.updateTicker(ticker.name, newPrice, isValidSub, symbolPrice)
         })
       })
     }
@@ -278,7 +280,7 @@ export default {
     }
   },
   methods: {
-    updateTicker(tickerName, price, isValidSub) {
+    updateTicker(tickerName, price, isValidSub, symbolPrice) {
       this.tickers
         .filter((t) => t.name === tickerName)
         .forEach((t) => {
@@ -288,6 +290,7 @@ export default {
 
           t.price = price ?? '-'
           t.isValidTicker = isValidSub
+          t.symbolPrice = symbolPrice
         })
     },
 
@@ -302,7 +305,8 @@ export default {
       const currentTicker = {
         name: this.ticker.toUpperCase(),
         price: '-',
-        isValidTicker: true
+        isValidTicker: true,
+        symbolPrice: 'USD'
       }
 
       if (!this.checkedTicker) {
@@ -310,8 +314,8 @@ export default {
         this.ticker = ''
         this.filter = ''
 
-        subscribeToTicker(currentTicker.name, (newPrice, isValidSub) => {
-          this.updateTicker(currentTicker.name, newPrice, isValidSub)
+        subscribeToTicker(currentTicker.name, (newPrice, isValidSub, symbolPrice) => {
+          this.updateTicker(currentTicker.name, newPrice, isValidSub, symbolPrice)
         })
       }
     },

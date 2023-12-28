@@ -6,29 +6,41 @@ const tickerHandlers = new Map()
 const socket = new WebSocket(`wss://streamer.cryptocompare.com/v2?api_key=${API_KEY}`)
 
 socket.addEventListener('message', (e) => {
-  const { TYPE: type, FROMSYMBOL: currency, PRICE: newPrice, PARAMETER: parameter} = JSON.parse(e.data)
+  const { TYPE: type, FROMSYMBOL: currency, TOSYMBOL: symbol, PRICE: newPrice, PARAMETER: parameter} = JSON.parse(e.data)
 
   if (type !== AGGREGATE_INDEX && type !== INVALID_SUB_INDEX) {
     return
   }
   
-  let currentCurrency = currency
+  const currentCurrency = currency ?? parameter.split('~')[2]
+  const symbolPrice = symbol ?? parameter.split('~')[3]
+  
+  if(type === INVALID_SUB_INDEX && symbolPrice === 'USD') {
+    if(!tickerHandlers.get(currentCurrency)) {
+      return
+    }
 
-  if(type === INVALID_SUB_INDEX) {
-    currentCurrency = parameter.split('~')[2]
+    sendPriceOfCurrency(currentCurrency, type, newPrice, symbolPrice)
+
+    subscribeToTickerOnWs(currentCurrency, 'BTC')
+    return
   }
 
   if(!tickerHandlers.get(currentCurrency)) {
     return
   }
 
-  const handlers = tickerHandlers.get(currentCurrency)
+  sendPriceOfCurrency(currentCurrency, type, newPrice, symbolPrice)
+})
+
+function sendPriceOfCurrency(currency, type, newPrice, symbolPrice) {
+  const handlers = tickerHandlers.get(currency)
   const isValidSub = type !== INVALID_SUB_INDEX
 
   handlers.forEach((handler) => {
-    handler(newPrice, isValidSub)
+    handler(newPrice, isValidSub, symbolPrice)
   })
-})
+}
 
 function sendToWebSockets(msg) {
   const message = JSON.stringify(msg)
@@ -47,10 +59,10 @@ function sendToWebSockets(msg) {
   )
 }
 
-function subscribeToTickerOnWs(ticker) {
+function subscribeToTickerOnWs(ticker, symbolPrice = 'USD') {
   sendToWebSockets({
     action: 'SubAdd',
-    subs: [`${AGGREGATE_INDEX}~CCCAGG~${ticker}~USD`]
+    subs: [`${AGGREGATE_INDEX}~CCCAGG~${ticker}~${symbolPrice}`]
   })
 }
 
