@@ -103,6 +103,7 @@
         <hr class="w-full border-t border-gray-600 my-4" />
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
           <div
+            ref="ticker"
             v-for="t in paginatedTickers"
             :key="t.name"
             @click="select(t)"
@@ -147,7 +148,7 @@
         <h3 class="text-lg leading-6 font-medium text-gray-900 my-8">
           {{ selectedTicker.name }} - USD
         </h3>
-        <div class="flex items-end border-gray-600 border-b border-l h-64">
+        <div ref="graph" class="flex items-end border-gray-600 border-b border-l h-64">
           <div
             v-for="(bar, idx) in normalizedGraph"
             :key="idx"
@@ -194,7 +195,9 @@ export default {
       tickers: [],
 
       selectedTicker: null,
+
       graph: [],
+      maxGraphElements: 1,
 
       preload: true,
 
@@ -280,12 +283,22 @@ export default {
     }
   },
   methods: {
+    calculateMaxGraphElements() {
+      if (!this.$refs.graph) return
+
+      this.maxGraphElements = this.$refs.graph.clientWidth / 40
+    },
+
     updateTicker(tickerName, price, isValidSub, symbolPrice) {
       this.tickers
         .filter((t) => t.name === tickerName)
         .forEach((t) => {
           if (t === this.selectedTicker) {
             this.graph.push(price)
+
+            if (this.graph.length > this.maxGraphElements) {
+              this.graph = this.graph.slice(this.graph.length - this.maxGraphElements)
+            }
           }
 
           t.price = price ?? '-'
@@ -342,10 +355,17 @@ export default {
 
       this.preload = false
     })
+
+    window.addEventListener('resize', this.calculateMaxGraphElements)
+  },
+  beforeUnmount() {
+    window.removeEventListener('resize', this.calculateMaxGraphElements)
   },
   watch: {
     selectedTicker() {
       this.graph = []
+
+      this.$nextTick().then(this.calculateMaxGraphElements)
     },
 
     tickers() {
