@@ -103,7 +103,6 @@
         <hr class="w-full border-t border-gray-600 my-4" />
         <dl class="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-3">
           <div
-            ref="ticker"
             v-for="t in paginatedTickers"
             :key="t.name"
             @click="select(t)"
@@ -152,8 +151,8 @@
           <div
             v-for="(bar, idx) in normalizedGraph"
             :key="idx"
-            :style="{ height: `${bar}%` }"
-            class="bg-purple-800 border w-10"
+            :style="{ height: `${bar}%`, width: `${maxWidthOfGraphElement / 16}rem` }"
+            class="bg-purple-800 border"
           ></div>
         </div>
         <button @click="selectedTicker = null" type="button" class="absolute top-0 right-0">
@@ -193,11 +192,13 @@ export default {
     return {
       ticker: '',
       tickers: [],
+      maxTickersOnPage: 6,
 
       selectedTicker: null,
 
       graph: [],
       maxGraphElements: 1,
+      maxWidthOfGraphElement: 40,
 
       preload: true,
 
@@ -231,11 +232,11 @@ export default {
   },
   computed: {
     startIndex() {
-      return (this.page - 1) * 6
+      return (this.page - 1) * this.maxTickersOnPage
     },
 
     endIndex() {
-      return this.page * 6
+      return this.page * this.maxTickersOnPage
     },
 
     hasNextPage() {
@@ -286,7 +287,7 @@ export default {
     calculateMaxGraphElements() {
       if (!this.$refs.graph) return
 
-      this.maxGraphElements = this.$refs.graph.clientWidth / 40
+      this.maxGraphElements = this.$refs.graph.clientWidth / this.maxWidthOfGraphElement
     },
 
     updateTicker(tickerName, price, isValidSub, symbolPrice) {
