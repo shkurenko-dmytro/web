@@ -22,6 +22,8 @@
 
 <script>
 export default {
+  emits: ['add'],
+
   methods: {
     add(){
       this.$emit('add')

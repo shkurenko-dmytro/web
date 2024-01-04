@@ -39,6 +39,8 @@ export default {
     AddButton
   },
 
+  emits: ['add-ticker'],
+
   data() {
     return {
       ticker: ''
