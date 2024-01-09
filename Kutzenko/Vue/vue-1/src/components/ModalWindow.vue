@@ -1,23 +1,48 @@
 <template>
-  <div v-if="isOpen" class="modal" @click="$emit('click')">
+  <div v-if="isOpen" class="modal" @click="close">
     <div @click.stop class="modal__content">
-      <slot name="main" :item="item"></slot>
-      <slot name="footer"></slot>
+      <slot name="main"></slot>
+      <slot name="footer" :close="close" :confirm="confirm"></slot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      isOpen: true,
-      item: 'Max'
+  props: {
+    isOpen: {
+      required: true,
+      type: Boolean
     }
   },
 
   emits: {
-    click: null
+    ok: null,
+    close: null
+  },
+
+  mounted() {
+    document.addEventListener('keydown', this.handlePressKey)
+  },
+
+  beforeUnmount() {
+    document.removeEventListener('keydown', this.handlePressKey)
+  },
+
+  methods: {
+    close() {
+      this.$emit('close')
+    },
+
+    confirm() {
+      this.$emit('ok')
+    },
+
+    handlePressKey(e) {
+      if (this.isOpen && e.key === 'Escape') {
+        this.close()
+      }
+    }
   }
 }
 </script>

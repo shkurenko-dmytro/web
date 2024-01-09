@@ -1,12 +1,27 @@
 <template>
   <!-- <router-view></router-view> -->
-  <modal-window v-if="isOpen" @click="isOpen = false"
-    ><template #main="{ item }">
-      <div>Доброго ранку, {{ item }}</div> </template
-    ><template #footer>
-      <div><input type="text" /> <button type="button" @click="isOpen = false">OK</button></div>
-    </template></modal-window
-  >
+  <div>
+    <button type="button" @click="openModal">Open modal window</button>
+    <modal-window :is-open="isModalOpen" @close="isModalOpen = false" @ok="isModalOpen = false"
+      ><template #main> <div>Доброго ранку</div> </template
+      ><template #footer="{ confirm }">
+        <div>
+          Fill <input v-model="inputConfirmation" placeholder="OK" type="text" />
+          <button
+            :class="{
+              'bg-gray-300 text-gray-700 cursor-not-allowed opacity-50': !isConfirmationCorrect,
+              'bg-blue-500 hover:bg-blue-700 text-white': isConfirmationCorrect
+            }"
+            :disabled="!isConfirmationCorrect"
+            type="button"
+            @click="confirm"
+          >
+            OK
+          </button>
+        </div>
+      </template></modal-window
+    >
+  </div>
 </template>
 
 <script>
@@ -16,9 +31,30 @@ export default {
     ModalWindow
   },
 
+  CONFIRMATION_TEXT: 'OK',
+
   data() {
     return {
-      isOpen: true
+      isModalOpen: false,
+      inputConfirmation: ''
+    }
+  },
+
+  computed: {
+    isConfirmationCorrect() {
+      return this.inputConfirmation === this.$options.CONFIRMATION_TEXT
+    }
+  },
+
+  methods: {
+    openModal() {
+      this.inputConfirmation = ''
+      this.isModalOpen = true
+    },
+
+    modalConfirmed() {
+      alert('Confirmed')
+      this.isModalOpen = false
     }
   }
 }
