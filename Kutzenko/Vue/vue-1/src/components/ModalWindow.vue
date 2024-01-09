@@ -9,16 +9,12 @@
 
 <script>
 export default {
-  props: {
-    isOpen: {
-      required: true,
-      type: Boolean
-    }
-  },
+  promiseCurrentController: null,
 
-  emits: {
-    ok: null,
-    close: null
+  data() {
+    return {
+      isOpen: false
+    }
   },
 
   mounted() {
@@ -31,11 +27,29 @@ export default {
 
   methods: {
     close() {
-      this.$emit('close')
+      this.$options.promiseCurrentController.resolve(false)
+      this.isOpen = false
     },
 
     confirm() {
-      this.$emit('ok')
+      this.$options.promiseCurrentController.resolve(true)
+      this.isOpen = false
+    },
+
+    open() {
+      let resolve
+      let reject
+
+      const modalPromise = new Promise((ok, fail) => {
+        resolve = ok
+        reject = fail
+      })
+
+      this.$options.promiseCurrentController = { resolve, reject }
+
+      this.isOpen = true
+
+      return modalPromise
     },
 
     handlePressKey(e) {

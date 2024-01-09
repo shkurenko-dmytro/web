@@ -2,7 +2,7 @@
   <!-- <router-view></router-view> -->
   <div>
     <button type="button" @click="openModal">Open modal window</button>
-    <modal-window :is-open="isModalOpen" @close="isModalOpen = false" @ok="isModalOpen = false"
+    <modal-window ref="confirmationModal"
       ><template #main> <div>Доброго ранку</div> </template
       ><template #footer="{ confirm }">
         <div>
@@ -35,7 +35,6 @@ export default {
 
   data() {
     return {
-      isModalOpen: false,
       inputConfirmation: ''
     }
   },
@@ -47,14 +46,14 @@ export default {
   },
 
   methods: {
-    openModal() {
+    async openModal() {
       this.inputConfirmation = ''
-      this.isModalOpen = true
-    },
 
-    modalConfirmed() {
-      alert('Confirmed')
-      this.isModalOpen = false
+      const confirmationResult = await this.$refs.confirmationModal.open()
+
+      if (confirmationResult) {
+        alert('Success')
+      }
     }
   }
 }
